@@ -52,6 +52,17 @@ public/                logos, landing-page imagery, fonts, PDFs, llms.txt, prici
 - Reveal-on-scroll (`.rv` / `.fade-up`), count-up numbers (`[data-cu]`), word-by-word quote reveal, logo marquee, hover lifts, FAQ accordions (single open), video testimonial play state
 - Floating assistant prompt (visual recreation of the third-party Barkan widget; the assistant backend is not public, so replies are local)
 
-## Known gaps
+## Data
 
-See `CAPTURE-TEST.md` for the capture setup, and the last section of the session log for anything marked UNKNOWN (behaviour that could not be verified from the public site is left as-is rather than invented).
+- `scripts/extract-blog.mjs` → `src/data/blog-posts.json` + `blog-listing.json` (53 posts, EN/FR listing copy)
+- `scripts/extract-creators.mjs` → `data/creators.json` (374 public creator profiles), then `scripts/split-creators.mjs` → `public/data/creators/<slug>.json`, fetched per profile page
+- Sector pages, benchmarks, comparison articles, pricing, FAQs and nav/footer copy live as typed EN/FR objects in `src/data/`
+
+## Known gaps (not reproducible from the public site)
+
+- The assistant prompt is a third-party widget (Barkan) with a private backend; the clone keeps the UI and answers locally.
+- Login, registration, password reset, agency onboarding steps 2–3 and creator onboarding steps 2–4 sit behind the auth API; forms validate and show pending/error states client-side only.
+- `/privacy` and `/terms` trigger the same PDF downloads as the live site.
+- The `/selection` shortlist form and the `/book` scheduler (a Google Calendar appointment embed) cannot reach Naano's backend.
+
+See `CAPTURE-TEST.md` for the prompt/response capture setup that ships with this repo.
