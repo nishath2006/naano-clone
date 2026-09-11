@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
-import { useT } from '@/lib/locale'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { useLocale, useT } from '@/lib/locale'
+import { describeError, supabase } from '@/lib/supabase'
+import { useAuth } from '@/lib/auth'
 import {
   AUTH_INPUT_CLASS,
   AUTH_LABEL_CLASS,
@@ -30,13 +32,17 @@ const EMAIL_TOGGLE_CLASS =
  * UNKNOWN markup on the live site — reuses the /login input styles.
  */
 function EmailSignupForm({ role }: { role: Role }) {
+  const navigate = useNavigate()
+  const { locale } = useLocale()
+  const { refreshProfile } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
   const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [confirmSent, setConfirmSent] = useState(false)
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (pending) return
     if (!EMAIL_RE.test(email.trim())) {
@@ -49,15 +55,53 @@ function EmailSignupForm({ role }: { role: Role }) {
     }
     setError(null)
     setPending(true)
-    window.setTimeout(() => {
+    try {
+      // The role travels as signup metadata; the database trigger copies it
+      // into profiles.role once and locks it — the client can never change it.
+      const { data, error: signUpError } = await supabase.auth.signUp({
+        email: email.trim(),
+        password,
+        options: {
+          data: { role: role === 'saas' ? 'company' : 'creator', locale },
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+        },
+      })
+      if (signUpError) {
+        setError(describeError(signUpError))
+        return
+      }
+      // Supabase returns an empty identities array when the email is already registered.
+      if (data.user && data.user.identities && data.user.identities.length === 0) {
+        setError('An account with this email already exists. Sign in instead.')
+        return
+      }
+      if (!data.session) {
+        // "Confirm email" is enabled on the project: the session starts after the link is clicked.
+        setConfirmSent(true)
+        return
+      }
+      await refreshProfile()
+      navigate('/app/onboarding', { replace: true })
+    } catch (err) {
+      setError(describeError(err))
+    } finally {
       setPending(false)
-      setError('We could not create your account. Please try again.') // UNKNOWN copy (no backend)
-    }, 900)
+    }
   }
 
   const prefix = `register-${role}`
+  if (confirmSent) {
+    return (
+      <div className="rounded-xl border border-[#BFDBFE] bg-[#EFF6FF] p-5 text-sm text-[#1E3A8A]" role="status">
+        <div className="font-semibold text-[#111827]">Check your inbox</div>
+        <p className="mt-1">
+          We sent a confirmation link to <span className="font-medium">{email.trim()}</span>. Open it to activate your account, then sign in.
+        </p>
+      </div>
+    )
+  }
   return (
-    <form className="space-y-4" noValidate action="/api/auth/register" method="post" onSubmit={onSubmit}>
+    <form className="space-y-4" noValidate onSubmit={(e) => void onSubmit(e)}>
       <div>
         <label htmlFor={`${prefix}-email`} className={AUTH_LABEL_CLASS}>
           Email
@@ -114,11 +158,13 @@ function EmailSignupForm({ role }: { role: Role }) {
 
 function SignupButtons({ role, dark }: { role: Role; dark: boolean }) {
   const [emailOpen, setEmailOpen] = useState(false)
+  const [oauthError, setOauthError] = useState<string | null>(null)
   return (
     <>
       <div className="space-y-3">
-        <OAuthButton provider="linkedin_oidc" role={role} label="Sign up with LinkedIn" />
-        <OAuthButton provider="google" role={role} label="Sign up with Google" />
+        <OAuthButton provider="linkedin_oidc" role={role} label="Sign up with LinkedIn" onError={setOauthError} />
+        <OAuthButton provider="google" role={role} label="Sign up with Google" onError={setOauthError} />
+        {oauthError && <AuthError>{oauthError}</AuthError>}
       </div>
       {emailOpen ? (
         <EmailSignupForm role={role} />

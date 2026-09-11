@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useT } from '@/lib/locale'
+import { describeError, supabase } from '@/lib/supabase'
+import { safeRedirect, useAuth } from '@/lib/auth'
 import {
   AUTH_INPUT_CLASS,
   AUTH_LABEL_CLASS,
@@ -26,13 +28,16 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 export default function Login() {
   useAppShell()
   const t = useT()
+  const navigate = useNavigate()
+  const [params] = useSearchParams()
+  const { refreshProfile } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
   const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (pending) return
     if (!EMAIL_RE.test(email.trim())) {
@@ -45,11 +50,21 @@ export default function Login() {
     }
     setError(null)
     setPending(true)
-    // No backend in this clone: mirror the live pending state, then fail.
-    window.setTimeout(() => {
+    try {
+      const { error: signInError } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
+      if (signInError) {
+        setError(describeError(signInError))
+        return
+      }
+      await refreshProfile()
+      // The role-based landing is decided server-side (profiles.role via RLS)
+      // inside /app; here we only honour a same-origin redirectTo.
+      navigate(safeRedirect(params.get('redirectTo'), '/app'), { replace: true })
+    } catch (err) {
+      setError(describeError(err))
+    } finally {
       setPending(false)
-      setError('Invalid email or password') // UNKNOWN exact copy
-    }, 900)
+    }
   }
 
   return (
@@ -61,10 +76,10 @@ export default function Login() {
             <AuthHeader />
             <h1 className="text-2xl font-bold text-[#111827]">{t({ en: 'Welcome back', fr: 'Bon retour parmi nous' })}</h1>
             <p className="text-sm text-[#6B7280] mt-1 mb-6">Sign in to your account</p>
-            <form className="space-y-5" noValidate action="/api/auth/login" method="post" onSubmit={onSubmit}>
+            <form className="space-y-5" noValidate onSubmit={(e) => void onSubmit(e)}>
               <div className="space-y-3">
-                <OAuthButton provider="linkedin_oidc" label="Continue with LinkedIn" />
-                <OAuthButton provider="google" label="Continue with Google" />
+                <OAuthButton provider="linkedin_oidc" label="Continue with LinkedIn" onError={setError} />
+                <OAuthButton provider="google" label="Continue with Google" onError={setError} />
               </div>
               <div className="space-y-4 pt-1">
                 <div className="flex items-center gap-3">

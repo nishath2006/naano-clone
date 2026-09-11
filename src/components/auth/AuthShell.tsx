@@ -1,5 +1,7 @@
-import { useEffect, type CSSProperties, type ReactNode } from 'react'
+import { useEffect, useState, type CSSProperties, type MouseEvent, type ReactNode } from 'react'
 import { LocaleButton } from '@/components/shared/LocaleButton'
+import { describeError, supabase } from '@/lib/supabase'
+import { PENDING_ROLE_KEY } from '@/lib/auth'
 
 /**
  * Shared pieces of the client-rendered "app shell" pages (/login, /register,
@@ -121,26 +123,48 @@ export function LoaderIcon({ className = 'lucide lucide-loader-circle w-4 h-4 an
 }
 
 /**
- * OAuth entry link. The `href` is the live site's endpoint; there is no
- * backend in this clone so navigation is prevented.
+ * OAuth entry button — starts a Supabase OAuth flow (the provider must be
+ * enabled in the Supabase dashboard). The chosen role is remembered locally
+ * and applied once on `/auth/callback` through the `choose_role` RPC.
  */
 export function OAuthButton({
   provider,
   role,
   label,
+  onError,
 }: {
   provider: 'linkedin_oidc' | 'google'
   role?: 'saas' | 'influencer'
   label: string
+  onError?: (message: string) => void
 }) {
-  const href = `/api/auth/oauth/start?provider=${provider}${role ? `&role=${role}` : ''}`
+  const [busy, setBusy] = useState(false)
+  const start = async (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    if (busy) return
+    setBusy(true)
+    try {
+      if (role) localStorage.setItem(PENDING_ROLE_KEY, role === 'saas' ? 'company' : 'creator')
+      else localStorage.removeItem(PENDING_ROLE_KEY)
+    } catch {
+      /* storage unavailable */
+    }
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: `${window.location.origin}/auth/callback` },
+    })
+    if (error) {
+      setBusy(false)
+      onError?.(describeError(error))
+    }
+  }
   return (
     <a
-      href={href}
-      aria-disabled="false"
-      className={OAUTH_BUTTON_CLASS}
+      href={`/auth/callback?provider=${provider}`}
+      aria-disabled={busy}
+      className={`${OAUTH_BUTTON_CLASS}${busy ? ' opacity-60 pointer-events-none' : ''}`}
       style={OAUTH_BUTTON_STYLE}
-      onClick={(e) => e.preventDefault()}
+      onClick={(e) => void start(e)}
     >
       {provider === 'linkedin_oidc' ? <LinkedInIcon /> : <GoogleIcon />}
       <span>{label}</span>
