@@ -1,5 +1,5 @@
 /**
- * Builds src/data/creators.json from the captured creator profile pages in the
+ * Builds data/creators.json from the captured creator profile pages in the
  * recon folder. Run: node scripts/extract-creators.mjs <dir-with-creators-html>
  *
  * Each `<slug>.html` is the server-rendered /creators/<slug> page. The visible
@@ -20,7 +20,7 @@ const dir = process.argv[2]
 if (!dir) throw new Error('usage: node scripts/extract-creators.mjs <dir-with-creators-html>')
 
 const here = path.dirname(fileURLToPath(import.meta.url))
-const outFile = path.join(here, '..', 'src', 'data', 'creators.json')
+const outFile = path.join(here, '..', 'data', 'creators.json')
 
 /* ------------------------------------------------------------------ */
 /* Label dictionary (EN strings as rendered → keys, see flatProfile i18n) */

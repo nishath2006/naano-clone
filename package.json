@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "extract:data": "node scripts/extract-data.mjs"
+    "extract:blog": "node scripts/extract-blog.mjs",
+    "extract:creators": "node scripts/extract-creators.mjs",
+    "split:creators": "node scripts/split-creators.mjs"
   },
   "dependencies": {
     "react": "^19.1.0",

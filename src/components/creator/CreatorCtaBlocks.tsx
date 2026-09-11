@@ -129,7 +129,16 @@ export function WhatIsNaano({ copy }: { copy: CreatorCopy }) {
 /** Footer nav below the page: "More creators in X's verticals" + the creator-led growth reading list. */
 export function CreatorRelatedNav({ profile }: { profile: CreatorProfile }) {
   return (
-    <nav aria-label="Learn more about Naano" style={{ maxWidth: 720, margin: '0 auto', padding: '0 20px 56px' }}>
+    <nav
+      aria-label="Learn more about Naano"
+      style={{
+        maxWidth: 720,
+        margin: '0 auto',
+        padding: '0 20px 56px',
+        // The live page leaves this nav on the browser's UI font (outside the Inter-styled <main>).
+        fontFamily: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+      }}
+    >
       <div style={{ borderTop: '1px solid #E5E7EB', paddingTop: 20, fontSize: 13, lineHeight: 1.7, color: '#6B7280' }}>
         {profile.moreCreators.length > 0 && (
           <p style={{ margin: '0 0 12px' }}>

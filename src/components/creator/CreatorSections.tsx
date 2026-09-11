@@ -151,7 +151,8 @@ function Posts({ s, copy }: { s: PostsSection; copy: CreatorCopy }) {
                 <a
                   href={p.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
+                  aria-label="View on LinkedIn"
                   style={{ marginLeft: 'auto', color: '#1652F0', display: 'inline-flex', alignItems: 'center' }}
                 >
                   <ArrowUpRight />
