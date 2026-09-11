@@ -62,7 +62,7 @@ export function PlatformSection() {
           <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#5FB666' }} />
           <span style={{ marginLeft: 14, fontSize: 12.5, color: '#9B9DA3' }}>naano.com/overview</span>
         </div>
-        <img src="/lp/dashboard-creator.webp" alt={c.alt} loading="lazy" style={{ display: 'block', width: '100%', height: 'auto' }} />
+        <img src="/lp/dashboard-creator.webp" alt={c.alt} width={2328} height={902} loading="lazy" style={{ display: 'block', width: '100%', height: 'auto' }} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20, maxWidth: 1180, margin: '44px auto 0 auto' }}>
         {c.features.map(([title, body]) => (

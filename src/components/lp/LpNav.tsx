@@ -18,7 +18,16 @@ const LINK_STYLE = { textDecoration: 'none', color: '#17181C', fontSize: 15, fon
  *  - "Resources" opens a popover on click; the burger toggles a frosted menu on
  *    viewports below 1024px.
  */
-export function LpNav({ variant, heroSelector = '[data-screen-label="Hero"]' }: { variant: LpNavVariant; heroSelector?: string }) {
+export function LpNav({
+  variant,
+  heroSelector = '[data-screen-label="Hero"]',
+  mode = 'landing',
+}: {
+  variant: LpNavVariant
+  heroSelector?: string
+  /** `static`: the nav never compacts or changes surface (blog, selection, book…). */
+  mode?: 'landing' | 'static'
+}) {
   const { locale } = useLocale()
   const nav = getLpNav(variant, locale)
   const [compact, setCompact] = useState(false)
@@ -28,6 +37,7 @@ export function LpNav({ variant, heroSelector = '[data-screen-label="Hero"]' }: 
   const groupRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (mode === 'static') return
     const onScroll = () => {
       const y = window.scrollY
       setCompact(y > 8)
@@ -46,7 +56,7 @@ export function LpNav({ variant, heroSelector = '[data-screen-label="Hero"]' }: 
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
     }
-  }, [heroSelector])
+  }, [heroSelector, mode])
 
   // Close the resources popover when clicking elsewhere / pressing Escape
   useEffect(() => {
@@ -68,7 +78,7 @@ export function LpNav({ variant, heroSelector = '[data-screen-label="Hero"]' }: 
       id="naano-nav"
       data-screen-label="Nav"
       data-surface={surface}
-      data-compact={compact ? 'true' : 'false'}
+      data-compact={mode === 'static' ? undefined : compact ? 'true' : 'false'}
       style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}
     >
       <div style={{ zoom: 'var(--page-zoom, calc(100vw / 1672px))', width: 1672 } as React.CSSProperties}>
@@ -197,7 +207,13 @@ export function LpNav({ variant, heroSelector = '[data-screen-label="Hero"]' }: 
                   color: '#17181C',
                 }}
               >
-                <Burger />
+                {menuOpen ? (
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                  </svg>
+                ) : (
+                  <Burger />
+                )}
               </button>
               <div className="lp-nav-links" style={{ display: 'flex', alignItems: 'center' }}>
                 <LocaleButton />
@@ -267,6 +283,8 @@ export function NavAnchor({
   className?: string
   onClick?: () => void
 }) {
+  // Absolute links back to naano.com are same-site on the live site.
+  href = href.replace(/^https?:\/\/(www\.)?naano\.com(?=\/|$)/, '') || '/'
   const isHash = href.includes('#')
   const isExternal = /^https?:/.test(href)
   if (isExternal) {

@@ -1,0 +1,287 @@
+/* /agency + /talent-agency signup module (naano.com `talent-agency-signup-module__6002dG__*`,
+   prefix renamed to `tas-`). Rules copied verbatim from recon/css/talent-agency.pretty.css. */
+
+.tas-page {
+  color: #111827;
+  background: #f5f7fb;
+  place-items: center;
+  min-height: 100vh;
+  padding: 32px;
+  display: grid;
+}
+.tas-shell {
+  background: #fff;
+  border: 1px solid #e5e9f2;
+  border-radius: 28px;
+  grid-template-columns: 0.9fr 1.1fr;
+  width: min(1060px, 100%);
+  min-height: 680px;
+  display: grid;
+  overflow: hidden;
+  box-shadow: 0 24px 70px #0f172a17;
+}
+.tas-intro {
+  color: #fff;
+  background: linear-gradient(145deg, #111827 0%, #172554 64%, #2762ee 150%);
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 48px;
+  display: flex;
+}
+.tas-logo {
+  color: #fff;
+  letter-spacing: -1.3px;
+  font-size: 25px;
+  font-weight: 850;
+  text-decoration: none;
+}
+.tas-eyebrow,
+.tas-step {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7ea2ff;
+  margin-bottom: 14px;
+  font-size: 11px;
+  font-weight: 800;
+  display: block;
+}
+.tas-intro h1 {
+  letter-spacing: -0.045em;
+  max-width: 430px;
+  margin: 0;
+  font-size: 43px;
+  line-height: 1.04;
+}
+.tas-intro p {
+  color: #cbd5e1;
+  margin: 20px 0 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.tas-intro ul {
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+.tas-intro li {
+  color: #e2e8f0;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  display: flex;
+}
+.tas-intro li svg {
+  color: #7ea2ff;
+}
+.tas-formPanel {
+  flex-direction: column;
+  justify-content: center;
+  padding: 54px 64px;
+  display: flex;
+}
+.tas-progress {
+  gap: 7px;
+  margin-bottom: 48px;
+  display: flex;
+}
+.tas-progress span {
+  background: #e5e7eb;
+  border-radius: 999px;
+  flex: 1;
+  height: 4px;
+}
+.tas-progress .tas-current {
+  background: #2762ee;
+}
+.tas-progress .tas-done {
+  background: #93c5fd;
+}
+.tas-form {
+  gap: 22px;
+  display: grid;
+}
+.tas-form h2 {
+  letter-spacing: -0.035em;
+  color: #111827;
+  margin: 0;
+  font-size: 30px;
+}
+.tas-form p {
+  color: #667085;
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.tas-form label {
+  color: #344054;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+}
+.tas-form input {
+  box-sizing: border-box;
+  width: 100%;
+  font: inherit;
+  color: #111827;
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  outline: none;
+  padding: 13px 14px;
+  transition: all 0.16s;
+}
+.tas-form input:focus {
+  border-color: #2762ee;
+  box-shadow: 0 0 0 4px #2762ee1a;
+}
+.tas-form small {
+  color: #98a2b3;
+  font-size: 11px;
+  font-weight: 500;
+}
+.tas-twoColumns {
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  display: grid;
+}
+.tas-form button {
+  color: #fff;
+  cursor: pointer;
+  background: #2762ee;
+  border: 0;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 750;
+  display: flex;
+  box-shadow: 0 8px 20px #2762ee33;
+}
+.tas-form button:hover {
+  background: #1e4fd0;
+}
+.tas-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.tas-error {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 11px;
+  padding: 11px 13px;
+  color: #be123c !important;
+  margin: 0 !important;
+}
+.tas-login {
+  text-align: center !important;
+  margin: 0 !important;
+}
+.tas-login a {
+  color: #2762ee;
+  font-weight: 700;
+}
+.tas-icon {
+  color: #2762ee;
+  background: #eef3ff;
+  border-radius: 14px;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  display: grid;
+}
+.tas-code {
+  text-align: center;
+  letter-spacing: 0.28em;
+  font-size: 24px !important;
+  font-weight: 750 !important;
+}
+.tas-spin {
+  animation: 1s linear infinite tas-spin;
+}
+@media (max-width: 800px) {
+  .tas-page {
+    background: #fff;
+    padding: 0;
+  }
+  .tas-shell {
+    border: 0;
+    border-radius: 0;
+    min-height: 100vh;
+    display: block;
+  }
+  .tas-intro {
+    gap: 24px;
+    padding: 28px 24px 32px;
+  }
+  .tas-intro h1 {
+    font-size: 31px;
+  }
+  .tas-intro ul {
+    display: none;
+  }
+  .tas-formPanel {
+    padding: 36px 24px;
+  }
+  .tas-progress {
+    margin-bottom: 34px;
+  }
+}
+@media (max-width: 480px) {
+  .tas-twoColumns {
+    grid-template-columns: 1fr;
+  }
+  .tas-formPanel {
+    padding: 30px 20px;
+  }
+}
+.tas-status {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 11px;
+  padding: 11px 13px;
+  color: #1d4ed8 !important;
+  margin: 0 !important;
+}
+.tas-codeActions {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+}
+.tas-codeActions button {
+  color: #2762ee;
+  min-height: 0;
+  box-shadow: none;
+  background: 0 0;
+  border-radius: 0;
+  padding: 0;
+  font-size: 13px;
+}
+.tas-codeActions button:hover {
+  color: #1e4fd0;
+  background: 0 0;
+  text-decoration: underline;
+}
+.tas-codeActions button:disabled {
+  color: #98a2b3;
+  text-decoration: none;
+}
+@media (max-width: 480px) {
+  .tas-codeActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+}
+@keyframes tas-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
