@@ -5,7 +5,7 @@ import { useEffect, type RefObject } from 'react'
  * their final value the first time they scroll into view, keeping prefix,
  * suffix and thousands separators intact.
  */
-export function useCountUp(ref: RefObject<HTMLElement | null>, duration = 1100) {
+export function useCountUp(ref: RefObject<HTMLElement | null>, duration = 1100, deps: unknown[] = []) {
   useEffect(() => {
     const root = ref.current
     if (!root) return
@@ -50,5 +50,6 @@ export function useCountUp(ref: RefObject<HTMLElement | null>, duration = 1100) 
     )
     nodes.forEach((n) => io.observe(n))
     return () => io.disconnect()
-  }, [ref, duration])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref, duration, ...deps])
 }

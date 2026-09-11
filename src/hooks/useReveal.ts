@@ -7,9 +7,9 @@ import { useEffect, type RefObject } from 'react'
  */
 export function useRevealOnScroll(
   ref: RefObject<HTMLElement | null>,
-  options: { selector?: string; className?: string; threshold?: number } = {},
+  options: { selector?: string; className?: string; threshold?: number; deps?: unknown[] } = {},
 ) {
-  const { selector = '.rv', className = 'rv-in', threshold = 0.12 } = options
+  const { selector = '.rv', className = 'rv-in', threshold = 0.12, deps = [] } = options
   useEffect(() => {
     const root = ref.current
     if (!root) return
@@ -33,5 +33,6 @@ export function useRevealOnScroll(
     )
     nodes.forEach((n) => io.observe(n))
     return () => io.disconnect()
-  }, [ref, selector, className, threshold])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref, selector, className, threshold, ...deps])
 }

@@ -5,23 +5,30 @@ import { usePageZoom } from '@/hooks/usePageZoom'
 import type { LpNavVariant } from '@/data/nav'
 
 /**
- * Shell for the fixed-canvas landing pages (/, /creators, /agencies):
- * grain overlay, fixed nav, the 1672px zoomed canvas and the cloud footer.
+ * Shell for the landing pages (/, /creators, /agencies).
+ *
+ * `children` are laid out on the fixed 1672px canvas and scaled with CSS zoom
+ * (`#naano-scale`). `fluid` content is rendered *after* the canvas at 1:1 —
+ * this is how naano.com renders the lower half of the homepage (testimonials,
+ * results, pricing, FAQ, book-a-call and footer), whose CSS uses clamp()/vw
+ * sizing instead of the zoom factor.
  */
 export function LpLayout({
   variant,
   children,
+  fluid,
   title,
   description,
   mainClassName,
-  footer = true,
+  footer = 'scaled',
 }: {
   variant: LpNavVariant
   children: ReactNode
+  fluid?: ReactNode
   title: string
   description?: string
   mainClassName?: string
-  footer?: boolean
+  footer?: 'scaled' | 'fluid' | 'none'
 }) {
   usePageZoom()
   useDocumentMeta(title, description)
@@ -44,9 +51,11 @@ export function LpLayout({
               }}
             >
               {children}
-              {footer && <LpFooter variant={variant} />}
+              {footer === 'scaled' && <LpFooter variant={variant} />}
             </div>
           </div>
+          {fluid}
+          {footer === 'fluid' && <LpFooter variant={variant} />}
         </div>
       </main>
     </>

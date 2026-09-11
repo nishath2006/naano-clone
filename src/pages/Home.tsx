@@ -28,21 +28,31 @@ const META = {
 
 export default function Home() {
   const { locale } = useLocale()
-  const ref = useRef<HTMLDivElement>(null)
-  useRevealOnScroll(ref)
-  useCountUp(ref)
+  const ref = useRef<HTMLElement | null>(null)
+  useRevealOnScroll(ref, { deps: [locale] })
+  useCountUp(ref, 1100, [locale])
+
   return (
-    <LpLayout variant="home" title={META[locale].title} description={META[locale].description}>
-      <div ref={ref} key={locale}>
+    <LpLayout
+      variant="home"
+      title={META[locale].title}
+      description={META[locale].description}
+      footer="fluid"
+      fluid={
+        <div key={`fluid-${locale}`} ref={(el) => void (ref.current = el?.closest('main') ?? null)} style={{ display: 'contents' }}>
+          <TestimonialsSection />
+          <ResultsSection />
+          <PricingSection />
+          <FaqSection />
+          <BookSection />
+        </div>
+      }
+    >
+      <div key={locale} style={{ display: 'contents' }}>
         <HeroSection />
         <QuoteSection />
         <MarketplaceSection />
         <JourneySection />
-        <TestimonialsSection />
-        <ResultsSection />
-        <PricingSection />
-        <FaqSection />
-        <BookSection />
       </div>
     </LpLayout>
   )

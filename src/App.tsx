@@ -5,6 +5,8 @@ import { ChatWidget } from '@/components/shared/ChatWidget'
 import { CookieConsent } from '@/components/shared/CookieConsent'
 
 const Home = lazy(() => import('@/pages/Home'))
+const Creators = lazy(() => import('@/pages/Creators'))
+const Agencies = lazy(() => import('@/pages/Agencies'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
 /** Scroll to top on route change, or to the hash target when one is present. */
@@ -34,6 +36,8 @@ export default function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/creators" element={<Creators />} />
+          <Route path="/agencies" element={<Agencies />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

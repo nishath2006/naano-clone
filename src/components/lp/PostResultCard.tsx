@@ -1,6 +1,6 @@
 import type { ResultPost } from '@/data/home'
 import { useLocale } from '@/lib/locale'
-import { ArrowUpRight, Cursor, Eye, People } from './icons'
+import { ArrowUpRight, Cursor, Dots, Eye, LinkedInBadge, People } from './icons'
 
 const METRIC_LABELS = {
   en: { impressions: 'Impressions', clicks: 'Clicks', leads: 'Leads', for: 'For', view: 'View post' },
@@ -31,9 +31,11 @@ export function PostResultCard({ post }: { post: ResultPost }) {
             <span style={{ fontSize: 15.5, fontWeight: 700, color: '#17181C', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {post.name}
             </span>
+            <LinkedInBadge />
           </div>
           <div style={{ fontSize: 13, color: '#8B8D94', marginTop: 1 }}>{post.meta[locale]}</div>
         </div>
+        <Dots />
       </div>
       <p
         style={{
