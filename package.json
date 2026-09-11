@@ -9,9 +9,12 @@
     "preview": "vite preview",
     "extract:blog": "node scripts/extract-blog.mjs",
     "extract:creators": "node scripts/extract-creators.mjs",
-    "split:creators": "node scripts/split-creators.mjs"
+    "split:creators": "node scripts/split-creators.mjs",
+    "seed": "node scripts/seed.mjs",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0"
