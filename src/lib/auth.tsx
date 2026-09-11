@@ -146,7 +146,7 @@ export function RequireAuth({ children }: { children: ReactNode }) {
     const redirectTo = encodeURIComponent(location.pathname + location.search)
     return <Navigate to={`/login?redirectTo=${redirectTo}`} replace />
   }
-  if (!profile) return <FullPageLoader label="Preparing your account…" />
+  if (!profile) return <ProfilePending />
 
   const onboarding = location.pathname.startsWith('/app/onboarding')
   const chooseRole = location.pathname.startsWith('/app/choose-role')
@@ -174,6 +174,44 @@ export function RedirectIfAuthed({ children }: { children: ReactNode }) {
     return <Navigate to={safeRedirect(params.get('redirectTo'), dashboardPath(profile.role))} replace />
   }
   return <>{children}</>
+}
+
+/**
+ * Signed in but no `profiles` row yet. Normally the trigger creates it within
+ * a second; if it never shows up (migration not applied, RLS misconfigured)
+ * explain instead of spinning forever.
+ */
+function ProfilePending() {
+  const { refreshProfile, signOut } = useAuth()
+  const [stuck, setStuck] = useState(false)
+  useEffect(() => {
+    const t = window.setTimeout(() => setStuck(true), 6000)
+    const retry = window.setInterval(() => void refreshProfile(), 2000)
+    return () => {
+      window.clearTimeout(t)
+      window.clearInterval(retry)
+    }
+  }, [refreshProfile])
+  if (!stuck) return <FullPageLoader label="Preparing your account…" />
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white p-6" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div className="max-w-md w-full rounded-2xl border border-[#E9E9E7] p-8 shadow-lg">
+        <img src="/logo.svg" alt="naano" className="h-7 mb-6" />
+        <h1 className="text-xl font-bold text-[#111827]">We couldn't load your profile</h1>
+        <p className="mt-2 text-sm text-[#6B7280]">
+          Your account exists but its profile row is missing. Make sure the SQL migration in <code>supabase/migrations</code> has been applied to this project, then reload.
+        </p>
+        <div className="mt-5 flex gap-2">
+          <button type="button" onClick={() => window.location.reload()} className="h-10 rounded-xl bg-[#2563eb] px-4 text-sm font-semibold text-white cursor-pointer">
+            Reload
+          </button>
+          <button type="button" onClick={() => void signOut()} className="h-10 rounded-xl border border-[#E5E7EB] px-4 text-sm font-semibold text-[#111827] cursor-pointer">
+            Sign out
+          </button>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 function NotConfigured() {

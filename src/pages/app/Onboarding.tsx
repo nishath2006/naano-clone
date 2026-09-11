@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/lib/auth'
 import { describeError, supabase } from '@/lib/supabase'
 import { uploadImage } from '@/lib/storage'
@@ -370,10 +370,6 @@ function CreatorOnboarding() {
 
 export default function Onboarding() {
   const { profile } = useAuth()
-  const navigate = useNavigate()
-  if (profile?.onboarding_completed) {
-    navigate('/app', { replace: true })
-    return null
-  }
+  if (profile?.onboarding_completed) return <Navigate to="/app" replace />
   return profile?.role === 'company' ? <CompanyOnboarding /> : <CreatorOnboarding />
 }

@@ -79,8 +79,8 @@ export type CreatorCard = Pick<
 /** Server-side filtered, sorted and paginated creator search (uses the GIN indexes on `sectors` and `search`). */
 export async function searchCreators(f: CreatorFilters): Promise<{ rows: CreatorCard[]; total: number }> {
   let q = supabase.from('creators').select(CARD_COLUMNS, { count: 'exact' }).eq('is_public', true)
-  const term = f.q.trim()
-  if (term) q = q.or(`name.ilike.%${escapeLike(term)}%,headline.ilike.%${escapeLike(term)}%`)
+  const term = sanitizeTerm(f.q)
+  if (term) q = q.or(`name.ilike.%${term}%,headline.ilike.%${term}%`)
   if (f.niches.length) q = q.overlaps('sectors', f.niches)
   if (f.country) q = q.eq('country', f.country)
   if (f.minFollowers) q = q.gte('followers', f.minFollowers)
@@ -113,8 +113,13 @@ export async function searchCreators(f: CreatorFilters): Promise<{ rows: Creator
   return { rows: (data ?? []) as CreatorCard[], total: count ?? 0 }
 }
 
-function escapeLike(s: string) {
-  return s.replace(/[%_,()]/g, (m) => `\\${m}`)
+/** Strips PostgREST filter delimiters and escapes LIKE wildcards so free text is safe inside `.or()`. */
+function sanitizeTerm(s: string) {
+  return s
+    .replace(/[,()"'\\]/g, ' ')
+    .replace(/[%_]/g, (m) => `\\${m}`)
+    .trim()
+    .slice(0, 80)
 }
 
 /** A naive "matching" score for the card bar (documented as a heuristic, not the live algorithm). */

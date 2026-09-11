@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/lib/auth'
 import { describeError, supabase } from '@/lib/supabase'
 import type { UserRole } from '@/lib/database.types'
@@ -16,10 +16,7 @@ export default function ChooseRole() {
   const [pending, setPending] = useState<UserRole | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  if (profile?.role_locked) {
-    navigate('/app', { replace: true })
-    return null
-  }
+  if (profile?.role_locked) return <Navigate to="/app" replace />
 
   const choose = async (role: UserRole) => {
     setPending(role)

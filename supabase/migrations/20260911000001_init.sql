@@ -579,9 +579,10 @@ create policy "campaigns: company manages own" on public.campaigns for all
 create policy "campaigns: creators see open or related" on public.campaigns for select
   using (
     public.current_role_of_user() = 'creator' and (
-      status in ('published', 'closed')
-      or exists (select 1 from public.collaborations co where co.campaign_id = id and co.creator_id = public.my_creator_id())
-      or exists (select 1 from public.campaign_applications ap where ap.campaign_id = id and ap.creator_id = public.my_creator_id())
+      campaigns.status in ('published', 'closed')
+      -- `campaigns.id` must be qualified: the subquery tables have their own `id`.
+      or exists (select 1 from public.collaborations co where co.campaign_id = campaigns.id and co.creator_id = public.my_creator_id())
+      or exists (select 1 from public.campaign_applications ap where ap.campaign_id = campaigns.id and ap.creator_id = public.my_creator_id())
     )
   );
 
