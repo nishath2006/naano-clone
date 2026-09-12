@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { LocaleButton } from '@/components/shared/LocaleButton'
 import { AuthError, EyeIcon, EyeOffIcon, LoaderIcon, useAppShell } from '@/components/auth/AuthShell'
 import { describeError, supabase } from '@/lib/supabase'
+import { useAuthSubmit } from '@/lib/useAuthSubmit'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const INPUT_CLASS =
@@ -26,34 +27,39 @@ export default function ForgotPassword() {
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
-  const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { pending, cooldown, blocked, run, holdIfRateLimited } = useAuthSubmit()
+  const [pendingLocal, setPending] = useState(false)
+  const busy = pending || pendingLocal
 
-  const request = async (e: FormEvent<HTMLFormElement>) => {
+  const request = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (pending) return
+    if (blocked) return
     if (!EMAIL_RE.test(email.trim())) {
       setError('Please enter a valid email address.') // UNKNOWN copy
       return
     }
     setError(null)
-    setPending(true)
-    try {
-      const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-        redirectTo: `${window.location.origin}/auth/reset-password`,
-      })
-      if (err) setError(describeError(err))
-      else setStep('code')
-    } catch (err) {
-      setError(describeError(err))
-    } finally {
-      setPending(false)
-    }
+    // Sends an email: guarded against duplicate submits and rate-limit retries.
+    void run(async () => {
+      try {
+        const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+          redirectTo: `${window.location.origin}/auth/reset-password`,
+        })
+        if (err) {
+          holdIfRateLimited(err)
+          setError(describeError(err))
+        } else setStep('code')
+      } catch (err) {
+        holdIfRateLimited(err)
+        setError(describeError(err))
+      }
+    })
   }
 
   const verify = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (pending) return
+    if (busy) return
     if (!/^\d{6}$/.test(code.trim())) {
       setError('Enter the 6-digit code from the email.')
       return
@@ -73,7 +79,7 @@ export default function ForgotPassword() {
 
   const update = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (pending) return
+    if (busy) return
     if (password.length < 8) {
       setError('Password must be at least 8 characters.')
       return
@@ -113,7 +119,7 @@ export default function ForgotPassword() {
               <p className="text-[#787774] text-center text-sm mb-8">
                 Enter your email and we'll send you a 6-digit code to set a new password.
               </p>
-              <form className="space-y-4" noValidate onSubmit={(e) => void request(e)}>
+              <form className="space-y-4" noValidate onSubmit={request}>
                 <div>
                   <label htmlFor="forgot-password-email" className="block text-xs font-medium text-[#475569] mb-1.5 ml-1">
                     Email
@@ -128,13 +134,13 @@ export default function ForgotPassword() {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    disabled={pending}
+                    disabled={busy}
                   />
                 </div>
                 {error && <AuthError>{error}</AuthError>}
-                <button type="submit" className={SUBMIT_CLASS} disabled={pending}>
+                <button type="submit" className={SUBMIT_CLASS} disabled={blocked} aria-busy={pending}>
                   {pending && <LoaderIcon />}
-                  Send recovery code
+                  {cooldown > 0 ? `Try again in ${cooldown}s` : 'Send recovery code'}
                 </button>
               </form>
             </>
@@ -161,12 +167,12 @@ export default function ForgotPassword() {
                     className={`${INPUT_CLASS} tracking-[0.3em] text-center text-lg`}
                     value={code}
                     onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
-                    disabled={pending}
+                    disabled={busy}
                   />
                 </div>
                 {error && <AuthError>{error}</AuthError>}
-                <button type="submit" className={SUBMIT_CLASS} disabled={pending}>
-                  {pending && <LoaderIcon />}
+                <button type="submit" className={SUBMIT_CLASS} disabled={busy}>
+                  {busy && <LoaderIcon />}
                   Verify code
                 </button>
                 <button
@@ -203,7 +209,7 @@ export default function ForgotPassword() {
                       className={`${INPUT_CLASS} pr-11`}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      disabled={pending}
+                      disabled={busy}
                     />
                     <button
                       type="button"
@@ -216,8 +222,8 @@ export default function ForgotPassword() {
                   </div>
                 </div>
                 {error && <AuthError>{error}</AuthError>}
-                <button type="submit" className={SUBMIT_CLASS} disabled={pending}>
-                  {pending && <LoaderIcon />}
+                <button type="submit" className={SUBMIT_CLASS} disabled={busy}>
+                  {busy && <LoaderIcon />}
                   Update password
                 </button>
               </form>

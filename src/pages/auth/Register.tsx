@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useLocale, useT } from '@/lib/locale'
 import { describeError, supabase } from '@/lib/supabase'
 import { useAuth } from '@/lib/auth'
+import { useAuthSubmit } from '@/lib/useAuthSubmit'
 import {
   AUTH_INPUT_CLASS,
   AUTH_LABEL_CLASS,
@@ -38,13 +39,13 @@ function EmailSignupForm({ role }: { role: Role }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
-  const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [confirmSent, setConfirmSent] = useState(false)
+  const { pending, cooldown, blocked, run, holdIfRateLimited } = useAuthSubmit()
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (pending) return
+    if (blocked) return
     if (!EMAIL_RE.test(email.trim())) {
       setError('Please enter a valid email address.') // UNKNOWN copy
       return
@@ -54,39 +55,42 @@ function EmailSignupForm({ role }: { role: Role }) {
       return
     }
     setError(null)
-    setPending(true)
-    try {
-      // The role travels as signup metadata; the database trigger copies it
-      // into profiles.role once and locks it — the client can never change it.
-      const { data, error: signUpError } = await supabase.auth.signUp({
-        email: email.trim(),
-        password,
-        options: {
-          data: { role: role === 'saas' ? 'company' : 'creator', locale },
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
-        },
-      })
-      if (signUpError) {
-        setError(describeError(signUpError))
-        return
+    void run(async () => {
+      try {
+        // The role travels as signup metadata; the database trigger copies it
+        // into profiles.role once and locks it — the client can never change it.
+        // Every call sends a confirmation email when "Confirm email" is on, so
+        // the submit guard above makes sure it is sent once per click.
+        const { data, error: signUpError } = await supabase.auth.signUp({
+          email: email.trim(),
+          password,
+          options: {
+            data: { role: role === 'saas' ? 'company' : 'creator', locale },
+            emailRedirectTo: `${window.location.origin}/auth/callback`,
+          },
+        })
+        if (signUpError) {
+          holdIfRateLimited(signUpError)
+          setError(describeError(signUpError))
+          return
+        }
+        // Supabase returns an empty identities array when the email is already registered.
+        if (data.user && data.user.identities && data.user.identities.length === 0) {
+          setError('An account with this email already exists. Sign in instead.')
+          return
+        }
+        if (!data.session) {
+          // "Confirm email" is enabled on the project: the session starts after the link is clicked.
+          setConfirmSent(true)
+          return
+        }
+        await refreshProfile()
+        navigate('/app/onboarding', { replace: true })
+      } catch (err) {
+        holdIfRateLimited(err)
+        setError(describeError(err))
       }
-      // Supabase returns an empty identities array when the email is already registered.
-      if (data.user && data.user.identities && data.user.identities.length === 0) {
-        setError('An account with this email already exists. Sign in instead.')
-        return
-      }
-      if (!data.session) {
-        // "Confirm email" is enabled on the project: the session starts after the link is clicked.
-        setConfirmSent(true)
-        return
-      }
-      await refreshProfile()
-      navigate('/app/onboarding', { replace: true })
-    } catch (err) {
-      setError(describeError(err))
-    } finally {
-      setPending(false)
-    }
+    })
   }
 
   const prefix = `register-${role}`
@@ -101,7 +105,7 @@ function EmailSignupForm({ role }: { role: Role }) {
     )
   }
   return (
-    <form className="space-y-4" noValidate onSubmit={(e) => void onSubmit(e)}>
+    <form className="space-y-4" noValidate onSubmit={onSubmit}>
       <div>
         <label htmlFor={`${prefix}-email`} className={AUTH_LABEL_CLASS}>
           Email
@@ -148,9 +152,9 @@ function EmailSignupForm({ role }: { role: Role }) {
         </div>
       </div>
       {error && <AuthError>{error}</AuthError>}
-      <button type="submit" className={AUTH_SUBMIT_CLASS} style={AUTH_SUBMIT_STYLE} disabled={pending}>
+      <button type="submit" className={AUTH_SUBMIT_CLASS} style={AUTH_SUBMIT_STYLE} disabled={blocked} aria-busy={pending}>
         {pending && <LoaderIcon />}
-        Create account
+        {cooldown > 0 ? `Try again in ${cooldown}s` : 'Create account'}
       </button>
     </form>
   )

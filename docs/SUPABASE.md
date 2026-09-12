@@ -20,6 +20,16 @@ Browser ──▶ React app (Vercel)
    - **Authentication → Email**: if you want a 6-digit code in the password-reset email (the flow shown on `/login/forgot-password`), add `{{ .Token }}` to the *Reset password* template. The link in the default template also works (`/auth/reset-password`).
    - **Authentication → Providers → Email → Confirm email**: on by default. Turn it off for a frictionless demo; the register page handles both cases.
 
+### Email rate limit ("email rate limit exceeded")
+
+With **Confirm email** on, every `signUp` call and every password-reset request sends an email through Supabase's built-in mailer, which allows only a handful of emails per hour per project. When that cap is hit, Auth answers `429 over_email_send_rate_limit` and the app shows "The project's hourly limit for sending emails has been reached…". Sign-in with a password is not affected, because it sends nothing.
+
+Options, from least to most work:
+
+1. **Demo / testing**: Authentication → Providers → Email → turn **Confirm email** off. Sign-ups then start a session immediately and no email is sent. The seed script's demo accounts are created already confirmed either way.
+2. **Production**: configure your own SMTP provider (Project Settings → Authentication → SMTP Settings, e.g. Resend, Postmark, SendGrid). Once custom SMTP is enabled, **Authentication → Rate Limits → "Rate limit for sending emails"** becomes editable and can be raised. The other limits on that page (sign-ins/sign-ups per IP, token refreshes, OTP verifications) are also adjustable there; leave them at their defaults unless you have a reason.
+3. Wait: the built-in limit resets on an hourly window.
+
 ## 2. Environment variables
 
 Only two public values are needed by the app. Find them under **Project settings → API**.

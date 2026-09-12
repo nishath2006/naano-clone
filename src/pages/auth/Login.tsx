@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useT } from '@/lib/locale'
 import { describeError, supabase } from '@/lib/supabase'
 import { safeRedirect, useAuth } from '@/lib/auth'
+import { useAuthSubmit } from '@/lib/useAuthSubmit'
 import {
   AUTH_INPUT_CLASS,
   AUTH_LABEL_CLASS,
@@ -34,12 +35,12 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [show, setShow] = useState(false)
-  const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { pending, cooldown, blocked, run, holdIfRateLimited } = useAuthSubmit()
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (pending) return
+    if (blocked) return
     if (!EMAIL_RE.test(email.trim())) {
       setError('Please enter a valid email address.') // UNKNOWN copy
       return
@@ -49,22 +50,23 @@ export default function Login() {
       return
     }
     setError(null)
-    setPending(true)
-    try {
-      const { error: signInError } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
-      if (signInError) {
-        setError(describeError(signInError))
-        return
+    void run(async () => {
+      try {
+        const { error: signInError } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
+        if (signInError) {
+          holdIfRateLimited(signInError)
+          setError(describeError(signInError))
+          return
+        }
+        await refreshProfile()
+        // The role-based landing is decided server-side (profiles.role via RLS)
+        // inside /app; here we only honour a same-origin redirectTo.
+        navigate(safeRedirect(params.get('redirectTo'), '/app'), { replace: true })
+      } catch (err) {
+        holdIfRateLimited(err)
+        setError(describeError(err))
       }
-      await refreshProfile()
-      // The role-based landing is decided server-side (profiles.role via RLS)
-      // inside /app; here we only honour a same-origin redirectTo.
-      navigate(safeRedirect(params.get('redirectTo'), '/app'), { replace: true })
-    } catch (err) {
-      setError(describeError(err))
-    } finally {
-      setPending(false)
-    }
+    })
   }
 
   return (
@@ -76,7 +78,7 @@ export default function Login() {
             <AuthHeader />
             <h1 className="text-2xl font-bold text-[#111827]">{t({ en: 'Welcome back', fr: 'Bon retour parmi nous' })}</h1>
             <p className="text-sm text-[#6B7280] mt-1 mb-6">Sign in to your account</p>
-            <form className="space-y-5" noValidate onSubmit={(e) => void onSubmit(e)}>
+            <form className="space-y-5" noValidate onSubmit={onSubmit}>
               <div className="space-y-3">
                 <OAuthButton provider="linkedin_oidc" label="Continue with LinkedIn" onError={setError} />
                 <OAuthButton provider="google" label="Continue with Google" onError={setError} />
@@ -140,9 +142,9 @@ export default function Login() {
                   </div>
                 </div>
                 {error && <AuthError>{error}</AuthError>}
-                <button type="submit" className={AUTH_SUBMIT_CLASS} style={AUTH_SUBMIT_STYLE} disabled={pending}>
+                <button type="submit" className={AUTH_SUBMIT_CLASS} style={AUTH_SUBMIT_STYLE} disabled={blocked} aria-busy={pending}>
                   {pending && <LoaderIcon />}
-                  Sign in
+                  {cooldown > 0 ? `Try again in ${cooldown}s` : 'Sign in'}
                 </button>
               </div>
             </form>
