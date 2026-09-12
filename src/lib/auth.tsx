@@ -12,6 +12,8 @@ type AuthContextValue = {
   session: Session | null
   user: User | null
   profile: ProfileRow | null
+  /** Last error from the profile query (permission denied, missing table…), null when the row is simply absent. */
+  profileError: string | null
   /** Re-fetch the profile row (after onboarding, role choice, settings edits). */
   refreshProfile: () => Promise<ProfileRow | null>
   signOut: () => Promise<void>
@@ -22,6 +24,7 @@ const AuthContext = createContext<AuthContextValue>({
   session: null,
   user: null,
   profile: null,
+  profileError: null,
   refreshProfile: async () => null,
   signOut: async () => {},
 })
@@ -42,20 +45,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(isSupabaseConfigured)
   const [session, setSession] = useState<Session | null>(null)
   const [profile, setProfile] = useState<ProfileRow | null>(null)
+  const [profileError, setProfileError] = useState<string | null>(null)
   const userIdRef = useRef<string | null>(null)
 
   const loadProfile = useCallback(async (userId: string | null) => {
     if (!userId) {
       setProfile(null)
+      setProfileError(null)
       return null
     }
     try {
       const p = await fetchProfile(userId)
       // Ignore stale results after a sign-out / account switch.
-      if (userIdRef.current === userId) setProfile(p)
+      if (userIdRef.current === userId) {
+        setProfile(p)
+        setProfileError(null)
+      }
       return p
-    } catch {
-      if (userIdRef.current === userId) setProfile(null)
+    } catch (e) {
+      if (userIdRef.current === userId) {
+        setProfile(null)
+        setProfileError((e as { message?: string }).message ?? String(e))
+      }
       return null
     }
   }, [])
@@ -101,8 +112,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const value = useMemo<AuthContextValue>(
-    () => ({ loading, session, user: session?.user ?? null, profile, refreshProfile, signOut }),
-    [loading, session, profile, refreshProfile, signOut],
+    () => ({ loading, session, user: session?.user ?? null, profile, profileError, refreshProfile, signOut }),
+    [loading, session, profile, profileError, refreshProfile, signOut],
   )
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
@@ -182,8 +193,10 @@ export function RedirectIfAuthed({ children }: { children: ReactNode }) {
  * explain instead of spinning forever.
  */
 function ProfilePending() {
-  const { refreshProfile, signOut } = useAuth()
+  const { refreshProfile, signOut, profileError } = useAuth()
   const [stuck, setStuck] = useState(false)
+  const permission = profileError ? /permission denied|42501/i.test(profileError) : false
+  const missingTable = profileError ? /schema cache|does not exist|PGRST205/i.test(profileError) : false
   useEffect(() => {
     const t = window.setTimeout(() => setStuck(true), 6000)
     const retry = window.setInterval(() => void refreshProfile(), 2000)
@@ -199,8 +212,15 @@ function ProfilePending() {
         <img src="/logo.svg" alt="naano" className="h-7 mb-6" />
         <h1 className="text-xl font-bold text-[#111827]">We couldn't load your profile</h1>
         <p className="mt-2 text-sm text-[#6B7280]">
-          Your account exists but its profile row is missing. Make sure the SQL migration in <code>supabase/migrations</code> has been applied to this project, then reload.
+          {permission
+            ? 'The database refused the query: the API roles are missing table privileges. Run supabase/repair-profiles.sql (or re-run the migration) in the SQL editor, then reload.'
+            : missingTable
+              ? 'The profiles table does not exist on this project yet. Run the SQL migration in supabase/migrations, then reload.'
+              : profileError
+                ? 'The profile query failed. Fix the issue below, then reload.'
+                : 'Your account exists but its profile row is missing. Run supabase/repair-profiles.sql in the SQL editor to back-fill it, then reload.'}
         </p>
+        {profileError && <pre className="mt-3 max-h-24 overflow-auto rounded-lg bg-[#F9FAFB] border border-[#E5E7EB] p-2 text-[11px] text-[#B91C1C] whitespace-pre-wrap">{profileError}</pre>}
         <div className="mt-5 flex gap-2">
           <button type="button" onClick={() => window.location.reload()} className="h-10 rounded-xl bg-[#2563eb] px-4 text-sm font-semibold text-white cursor-pointer">
             Reload

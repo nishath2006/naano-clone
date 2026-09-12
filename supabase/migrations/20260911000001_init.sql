@@ -573,6 +573,20 @@ create trigger messages_notify after insert on public.messages
   for each row execute function public.messages_notify();
 
 -- ---------------------------------------------------------------------------
+-- Privileges for the API roles. Some projects do not carry Supabase's usual
+-- default privileges for tables created from the SQL editor, which leaves
+-- `authenticated` with "permission denied" on every table. Grant explicitly;
+-- RLS below still decides which rows each user can see.
+-- ---------------------------------------------------------------------------
+grant usage on schema public to anon, authenticated, service_role;
+grant select, insert, update, delete on all tables in schema public to authenticated, service_role;
+grant select on public.creators, public.creator_posts to anon;
+grant usage, select on all sequences in schema public to authenticated, service_role;
+grant execute on all functions in schema public to authenticated, service_role;
+alter default privileges in schema public grant select, insert, update, delete on tables to authenticated, service_role;
+alter default privileges in schema public grant execute on functions to authenticated, service_role;
+
+-- ---------------------------------------------------------------------------
 -- Row Level Security
 -- ---------------------------------------------------------------------------
 alter table public.profiles enable row level security;
@@ -836,6 +850,8 @@ begin
   if not exists (select 1 from pg_trigger where tgname = 'on_auth_user_created') then missing := missing || 'trigger on_auth_user_created'; end if;
   if not exists (select 1 from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'public' and p.proname = 'choose_role') then missing := missing || 'function choose_role'; end if;
   if not exists (select 1 from storage.buckets where id = 'avatars') then missing := missing || 'bucket avatars'; end if;
+  if not has_table_privilege('authenticated', 'public.profiles', 'select') then missing := missing || 'table privileges for authenticated'; end if;
+  if exists (select 1 from auth.users u where not exists (select 1 from public.profiles p where p.id = u.id)) then missing := missing || 'profiles for some auth.users (back-fill)'; end if;
   if not exists (select 1 from pg_policies where schemaname = 'storage' and policyname = 'storage: public read') then missing := missing || 'storage policies (create under Storage -> Policies)'; end if;
   if array_length(missing, 1) is null then
     raise notice 'Naano schema OK: % public tables, % policies, % profiles.',
