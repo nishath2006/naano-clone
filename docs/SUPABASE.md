@@ -12,7 +12,10 @@ Browser ──▶ React app (Vercel)
 ## 1. Create the project
 
 1. Create a project at [supabase.com/dashboard](https://supabase.com/dashboard).
-2. Open **SQL Editor → New query**, paste the whole of [`supabase/migrations/20260911000001_init.sql`](../supabase/migrations/20260911000001_init.sql) and run it. It creates every table, index, trigger, RLS policy, storage bucket and RPC in one go on a fresh project.
+2. Open **SQL Editor → New query**, paste the whole of [`supabase/migrations/20260911000001_init.sql`](../supabase/migrations/20260911000001_init.sql) (open the file on GitHub → *Raw* → select all → copy, so nothing is truncated) and click **Run**. It creates every table, index, trigger, RLS policy, storage bucket and RPC in one go.
+   - The script is idempotent: if a run fails or was only partially applied, fix the reported line and run the whole file again.
+   - It ends with a self-check. In the editor's **Messages** panel you should see `Naano schema OK: 13 public tables, …`. If it says `INCOMPLETE - missing: …`, the listed items were not created and the notice says where to add them by hand (storage policies can be created under Storage → Policies when the SQL role lacks permission).
+   - Accounts that signed up before the script ran are back-filled with a `profiles` row automatically, so the "We couldn't load your profile" screen goes away after a reload.
    - Alternative with the CLI: `npx supabase link --project-ref <ref>` then `npx supabase db push`.
 3. **Authentication → URL configuration**: set *Site URL* to your Vercel URL (or `http://localhost:5173` while developing) and add both to *Redirect URLs*, plus `<url>/auth/callback` and `<url>/auth/reset-password`.
 4. Optional:

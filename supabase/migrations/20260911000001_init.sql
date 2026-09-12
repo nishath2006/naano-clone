@@ -1,8 +1,9 @@
 -- ============================================================================
 -- Naano clone — hosted Supabase schema
--- Run this in the Supabase SQL editor of a fresh project (or `supabase db push`).
--- Everything is idempotent-friendly for a fresh project; re-running on an
--- existing project is not supported (use a new migration instead).
+-- Paste the WHOLE file into the Supabase SQL editor and click Run (or use
+-- `supabase db push`). The script is idempotent: it can be re-run safely on
+-- a project where it already ran, partially or fully. It ends with a
+-- self-check that raises a NOTICE listing anything that is still missing.
 -- ============================================================================
 
 create extension if not exists pgcrypto;
@@ -11,20 +12,28 @@ create extension if not exists pg_trgm;
 -- ---------------------------------------------------------------------------
 -- Enums
 -- ---------------------------------------------------------------------------
-create type public.user_role as enum ('company', 'creator');
-create type public.campaign_status as enum ('draft', 'published', 'closed', 'completed');
-create type public.application_status as enum ('pending', 'accepted', 'rejected', 'withdrawn');
-create type public.collaboration_status as enum (
-  'invited',        -- company booked/invited the creator, waiting for an answer
+do $$ begin
+  create type public.user_role as enum ('company', 'creator');
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create type public.campaign_status as enum ('draft', 'published', 'closed', 'completed');
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create type public.application_status as enum ('pending', 'accepted', 'rejected', 'withdrawn');
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create type public.collaboration_status as enum ('invited',        -- company booked/invited the creator, waiting for an answer
   'accepted',       -- creator accepted, no draft yet
   'declined',       -- creator declined the invitation
   'draft_ready',    -- creator submitted a draft for review
   'scheduled',      -- post approved and scheduled
   'live',           -- post is published
   'completed',      -- results tracked, payout done
-  'cancelled'
-);
-create type public.payment_status as enum ('scheduled', 'paid', 'failed');
+  'cancelled');
+exception when duplicate_object then null; end $$;
+do $$ begin
+  create type public.payment_status as enum ('scheduled', 'paid', 'failed');
+exception when duplicate_object then null; end $$;
 
 -- ---------------------------------------------------------------------------
 -- updated_at helper
@@ -41,7 +50,7 @@ end $$;
 -- signup trigger (from the signup metadata) and can never be changed by the
 -- user afterwards.
 -- ---------------------------------------------------------------------------
-create table public.profiles (
+create table if not exists public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   role public.user_role not null,
   email text not null,
@@ -55,6 +64,7 @@ create table public.profiles (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+drop trigger if exists profiles_updated_at on public.profiles;
 create trigger profiles_updated_at before update on public.profiles
   for each row execute function public.set_updated_at();
 
@@ -79,9 +89,24 @@ begin
   return new;
 end $$;
 
-create trigger on_auth_user_created
-  after insert on auth.users
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created after insert on auth.users
   for each row execute function public.handle_new_user();
+
+-- Back-fill: accounts created before this script ran have no profile row yet.
+-- They get the role from their signup metadata (or 'creator'); the role stays
+-- unlocked only when none was recorded, so they can still pick one in the app.
+insert into public.profiles (id, role, role_locked, email, full_name, avatar_url, locale)
+select
+  u.id,
+  case when u.raw_user_meta_data ->> 'role' = 'company' then 'company'::public.user_role else 'creator'::public.user_role end,
+  coalesce(u.raw_user_meta_data ->> 'role', '') in ('company', 'creator'),
+  coalesce(u.email, ''),
+  coalesce(nullif(u.raw_user_meta_data ->> 'full_name', ''), nullif(u.raw_user_meta_data ->> 'name', '')),
+  coalesce(nullif(u.raw_user_meta_data ->> 'avatar_url', ''), nullif(u.raw_user_meta_data ->> 'picture', '')),
+  case when u.raw_user_meta_data ->> 'locale' = 'fr' then 'fr' else 'en' end
+from auth.users u
+where not exists (select 1 from public.profiles p where p.id = u.id);
 
 -- Users must not be able to change their own role / id / email through the API.
 create or replace function public.protect_profile_columns()
@@ -95,6 +120,7 @@ begin
   end if;
   return new;
 end $$;
+drop trigger if exists profiles_protect on public.profiles;
 create trigger profiles_protect before update on public.profiles
   for each row execute function public.protect_profile_columns();
 
@@ -140,7 +166,7 @@ $$;
 -- ---------------------------------------------------------------------------
 -- companies — one per company user
 -- ---------------------------------------------------------------------------
-create table public.companies (
+create table if not exists public.companies (
   id uuid primary key default gen_random_uuid(),
   owner_id uuid not null unique references public.profiles (id) on delete cascade,
   name text not null check (char_length(name) between 1 and 120),
@@ -153,6 +179,7 @@ create table public.companies (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+drop trigger if exists companies_updated_at on public.companies;
 create trigger companies_updated_at before update on public.companies
   for each row execute function public.set_updated_at();
 
@@ -160,7 +187,7 @@ create trigger companies_updated_at before update on public.companies
 -- creators — the public creator directory. A row can belong to a signed-up
 -- creator (user_id set) or be an imported public profile (user_id null).
 -- ---------------------------------------------------------------------------
-create table public.creators (
+create table if not exists public.creators (
   id uuid primary key default gen_random_uuid(),
   user_id uuid unique references public.profiles (id) on delete set null,
   slug text not null unique check (slug ~ '^[a-z0-9-]{2,120}$'),
@@ -190,16 +217,17 @@ create table public.creators (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
-create index creators_search_idx on public.creators using gin (search);
-create index creators_sectors_idx on public.creators using gin (sectors);
-create index creators_followers_idx on public.creators (followers desc);
-create index creators_price_idx on public.creators (price_cents);
-create index creators_country_idx on public.creators (country);
-create index creators_name_trgm_idx on public.creators using gin (name gin_trgm_ops);
+create index if not exists creators_search_idx on public.creators using gin (search);
+create index if not exists creators_sectors_idx on public.creators using gin (sectors);
+create index if not exists creators_followers_idx on public.creators (followers desc);
+create index if not exists creators_price_idx on public.creators (price_cents);
+create index if not exists creators_country_idx on public.creators (country);
+create index if not exists creators_name_trgm_idx on public.creators using gin (name gin_trgm_ops);
+drop trigger if exists creators_updated_at on public.creators;
 create trigger creators_updated_at before update on public.creators
   for each row execute function public.set_updated_at();
 
-create table public.creator_posts (
+create table if not exists public.creator_posts (
   id uuid primary key default gen_random_uuid(),
   creator_id uuid not null references public.creators (id) on delete cascade,
   kind text,                           -- 'image', 'text', 'video', …
@@ -211,12 +239,12 @@ create table public.creator_posts (
   posted_at timestamptz,
   created_at timestamptz not null default now()
 );
-create index creator_posts_creator_idx on public.creator_posts (creator_id, posted_at desc);
+create index if not exists creator_posts_creator_idx on public.creator_posts (creator_id, posted_at desc);
 
 -- ---------------------------------------------------------------------------
 -- campaigns — a company brief. Lifecycle: draft → published → closed → completed
 -- ---------------------------------------------------------------------------
-create table public.campaigns (
+create table if not exists public.campaigns (
   id uuid primary key default gen_random_uuid(),
   company_id uuid not null references public.companies (id) on delete cascade,
   title text not null check (char_length(title) between 3 and 140),
@@ -239,9 +267,10 @@ create table public.campaigns (
   updated_at timestamptz not null default now(),
   constraint campaigns_dates check (start_date is null or end_date is null or end_date >= start_date)
 );
-create index campaigns_company_idx on public.campaigns (company_id, created_at desc);
-create index campaigns_status_idx on public.campaigns (status, published_at desc);
-create index campaigns_sectors_idx on public.campaigns using gin (sectors);
+create index if not exists campaigns_company_idx on public.campaigns (company_id, created_at desc);
+create index if not exists campaigns_status_idx on public.campaigns (status, published_at desc);
+create index if not exists campaigns_sectors_idx on public.campaigns using gin (sectors);
+drop trigger if exists campaigns_updated_at on public.campaigns;
 create trigger campaigns_updated_at before update on public.campaigns
   for each row execute function public.set_updated_at();
 
@@ -253,13 +282,14 @@ begin
   end if;
   return new;
 end $$;
+drop trigger if exists campaigns_publish on public.campaigns;
 create trigger campaigns_publish before insert or update on public.campaigns
   for each row execute function public.campaigns_track_publish();
 
 -- ---------------------------------------------------------------------------
 -- campaign_applications — a creator applies to a published campaign
 -- ---------------------------------------------------------------------------
-create table public.campaign_applications (
+create table if not exists public.campaign_applications (
   id uuid primary key default gen_random_uuid(),
   campaign_id uuid not null references public.campaigns (id) on delete cascade,
   creator_id uuid not null references public.creators (id) on delete cascade,
@@ -270,8 +300,9 @@ create table public.campaign_applications (
   updated_at timestamptz not null default now(),
   unique (campaign_id, creator_id)
 );
-create index campaign_applications_creator_idx on public.campaign_applications (creator_id, created_at desc);
-create index campaign_applications_campaign_idx on public.campaign_applications (campaign_id, status);
+create index if not exists campaign_applications_creator_idx on public.campaign_applications (creator_id, created_at desc);
+create index if not exists campaign_applications_campaign_idx on public.campaign_applications (campaign_id, status);
+drop trigger if exists campaign_applications_updated_at on public.campaign_applications;
 create trigger campaign_applications_updated_at before update on public.campaign_applications
   for each row execute function public.set_updated_at();
 
@@ -279,7 +310,7 @@ create trigger campaign_applications_updated_at before update on public.campaign
 -- collaborations — a booked creator on a campaign (from an accepted
 -- application or a direct "Book" invitation)
 -- ---------------------------------------------------------------------------
-create table public.collaborations (
+create table if not exists public.collaborations (
   id uuid primary key default gen_random_uuid(),
   campaign_id uuid not null references public.campaigns (id) on delete cascade,
   company_id uuid not null references public.companies (id) on delete cascade,
@@ -297,16 +328,17 @@ create table public.collaborations (
   updated_at timestamptz not null default now(),
   unique (campaign_id, creator_id)
 );
-create index collaborations_company_idx on public.collaborations (company_id, created_at desc);
-create index collaborations_creator_idx on public.collaborations (creator_id, created_at desc);
-create index collaborations_campaign_idx on public.collaborations (campaign_id);
+create index if not exists collaborations_company_idx on public.collaborations (company_id, created_at desc);
+create index if not exists collaborations_creator_idx on public.collaborations (creator_id, created_at desc);
+create index if not exists collaborations_campaign_idx on public.collaborations (campaign_id);
+drop trigger if exists collaborations_updated_at on public.collaborations;
 create trigger collaborations_updated_at before update on public.collaborations
   for each row execute function public.set_updated_at();
 
 -- ---------------------------------------------------------------------------
 -- collaboration_metrics — tracked results per published post
 -- ---------------------------------------------------------------------------
-create table public.collaboration_metrics (
+create table if not exists public.collaboration_metrics (
   collaboration_id uuid primary key references public.collaborations (id) on delete cascade,
   impressions integer not null default 0 check (impressions >= 0),
   clicks integer not null default 0 check (clicks >= 0),
@@ -314,13 +346,14 @@ create table public.collaboration_metrics (
   pipeline_cents integer not null default 0 check (pipeline_cents >= 0),
   updated_at timestamptz not null default now()
 );
+drop trigger if exists collaboration_metrics_updated_at on public.collaboration_metrics;
 create trigger collaboration_metrics_updated_at before update on public.collaboration_metrics
   for each row execute function public.set_updated_at();
 
 -- ---------------------------------------------------------------------------
 -- payments — one payout record per collaboration
 -- ---------------------------------------------------------------------------
-create table public.payments (
+create table if not exists public.payments (
   id uuid primary key default gen_random_uuid(),
   collaboration_id uuid not null unique references public.collaborations (id) on delete cascade,
   company_id uuid not null references public.companies (id) on delete cascade,
@@ -333,15 +366,16 @@ create table public.payments (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
-create index payments_company_idx on public.payments (company_id, created_at desc);
-create index payments_creator_idx on public.payments (creator_id, created_at desc);
+create index if not exists payments_company_idx on public.payments (company_id, created_at desc);
+create index if not exists payments_creator_idx on public.payments (creator_id, created_at desc);
+drop trigger if exists payments_updated_at on public.payments;
 create trigger payments_updated_at before update on public.payments
   for each row execute function public.set_updated_at();
 
 -- ---------------------------------------------------------------------------
 -- bookmarks — companies save creators
 -- ---------------------------------------------------------------------------
-create table public.bookmarks (
+create table if not exists public.bookmarks (
   company_id uuid not null references public.companies (id) on delete cascade,
   creator_id uuid not null references public.creators (id) on delete cascade,
   created_at timestamptz not null default now(),
@@ -351,7 +385,7 @@ create table public.bookmarks (
 -- ---------------------------------------------------------------------------
 -- conversations + messages (company ↔ creator, optionally about a campaign)
 -- ---------------------------------------------------------------------------
-create table public.conversations (
+create table if not exists public.conversations (
   id uuid primary key default gen_random_uuid(),
   company_id uuid not null references public.companies (id) on delete cascade,
   creator_id uuid not null references public.creators (id) on delete cascade,
@@ -360,10 +394,10 @@ create table public.conversations (
   created_at timestamptz not null default now(),
   unique (company_id, creator_id)
 );
-create index conversations_company_idx on public.conversations (company_id, last_message_at desc);
-create index conversations_creator_idx on public.conversations (creator_id, last_message_at desc);
+create index if not exists conversations_company_idx on public.conversations (company_id, last_message_at desc);
+create index if not exists conversations_creator_idx on public.conversations (creator_id, last_message_at desc);
 
-create table public.messages (
+create table if not exists public.messages (
   id uuid primary key default gen_random_uuid(),
   conversation_id uuid not null references public.conversations (id) on delete cascade,
   sender_id uuid not null references public.profiles (id) on delete cascade,
@@ -371,7 +405,7 @@ create table public.messages (
   read_at timestamptz,
   created_at timestamptz not null default now()
 );
-create index messages_conversation_idx on public.messages (conversation_id, created_at);
+create index if not exists messages_conversation_idx on public.messages (conversation_id, created_at);
 
 create or replace function public.messages_touch_conversation()
 returns trigger language plpgsql security definer set search_path = public as $$
@@ -379,13 +413,14 @@ begin
   update public.conversations set last_message_at = new.created_at where id = new.conversation_id;
   return new;
 end $$;
+drop trigger if exists messages_touch on public.messages;
 create trigger messages_touch after insert on public.messages
   for each row execute function public.messages_touch_conversation();
 
 -- ---------------------------------------------------------------------------
 -- notifications — written only by triggers (security definer)
 -- ---------------------------------------------------------------------------
-create table public.notifications (
+create table if not exists public.notifications (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles (id) on delete cascade,
   kind text not null,                  -- application_received | application_accepted | … | message
@@ -395,7 +430,7 @@ create table public.notifications (
   read_at timestamptz,
   created_at timestamptz not null default now()
 );
-create index notifications_user_idx on public.notifications (user_id, created_at desc);
+create index if not exists notifications_user_idx on public.notifications (user_id, created_at desc);
 
 create or replace function public.notify_user(p_user uuid, p_kind text, p_title text, p_body text, p_href text)
 returns void language sql security definer set search_path = public as $$
@@ -426,6 +461,7 @@ begin
   end if;
   return new;
 end $$;
+drop trigger if exists applications_notify on public.campaign_applications;
 create trigger applications_notify after insert or update on public.campaign_applications
   for each row execute function public.applications_notify();
 
@@ -464,6 +500,7 @@ begin
   end if;
   return new;
 end $$;
+drop trigger if exists collaborations_notify on public.collaborations;
 create trigger collaborations_notify after insert or update on public.collaborations
   for each row execute function public.collaborations_notify();
 
@@ -493,6 +530,7 @@ begin
   end if;
   return new;
 end $$;
+drop trigger if exists collaborations_guard on public.collaborations;
 create trigger collaborations_guard before update on public.collaborations
   for each row execute function public.collaborations_guard();
 
@@ -509,6 +547,7 @@ begin
   end if;
   return new;
 end $$;
+drop trigger if exists applications_on_accept on public.campaign_applications;
 create trigger applications_on_accept after update on public.campaign_applications
   for each row execute function public.applications_on_accept();
 
@@ -527,6 +566,7 @@ begin
   perform public.notify_user(v_target, 'message', 'New message from ' || v_sender_name, left(new.body, 140), '/app/messages/' || new.conversation_id);
   return new;
 end $$;
+drop trigger if exists messages_notify on public.messages;
 create trigger messages_notify after insert on public.messages
   for each row execute function public.messages_notify();
 
@@ -548,34 +588,46 @@ alter table public.messages enable row level security;
 alter table public.notifications enable row level security;
 
 -- profiles: own row only (insert happens in the signup trigger)
+drop policy if exists "profiles: read own" on public.profiles;
 create policy "profiles: read own" on public.profiles for select using (id = auth.uid());
+drop policy if exists "profiles: update own" on public.profiles;
 create policy "profiles: update own" on public.profiles for update using (id = auth.uid()) with check (id = auth.uid());
 
 -- companies: any signed-in user can read basic company info (needed to show
 -- who published a campaign); only the owner (a company user) writes.
+drop policy if exists "companies: read signed in" on public.companies;
 create policy "companies: read signed in" on public.companies for select using (auth.uid() is not null);
+drop policy if exists "companies: insert own" on public.companies;
 create policy "companies: insert own" on public.companies for insert
   with check (owner_id = auth.uid() and public.current_role_of_user() = 'company');
+drop policy if exists "companies: update own" on public.companies;
 create policy "companies: update own" on public.companies for update
   using (owner_id = auth.uid()) with check (owner_id = auth.uid());
 
 -- creators: public directory rows are readable by everyone (the live site
 -- shows creator profiles publicly); a creator always sees and edits their own.
+drop policy if exists "creators: read public or own" on public.creators;
 create policy "creators: read public or own" on public.creators for select
   using (is_public or user_id = auth.uid());
+drop policy if exists "creators: insert own" on public.creators;
 create policy "creators: insert own" on public.creators for insert
   with check (user_id = auth.uid() and public.current_role_of_user() = 'creator');
+drop policy if exists "creators: update own" on public.creators;
 create policy "creators: update own" on public.creators for update
   using (user_id = auth.uid()) with check (user_id = auth.uid());
 
+drop policy if exists "creator_posts: read with creator" on public.creator_posts;
 create policy "creator_posts: read with creator" on public.creator_posts for select
   using (exists (select 1 from public.creators c where c.id = creator_id and (c.is_public or c.user_id = auth.uid())));
+drop policy if exists "creator_posts: manage own" on public.creator_posts;
 create policy "creator_posts: manage own" on public.creator_posts for all
   using (creator_id = public.my_creator_id()) with check (creator_id = public.my_creator_id());
 
 -- campaigns
+drop policy if exists "campaigns: company manages own" on public.campaigns;
 create policy "campaigns: company manages own" on public.campaigns for all
   using (company_id = public.my_company_id()) with check (company_id = public.my_company_id());
+drop policy if exists "campaigns: creators see open or related" on public.campaigns;
 create policy "campaigns: creators see open or related" on public.campaigns for select
   using (
     public.current_role_of_user() = 'creator' and (
@@ -587,26 +639,33 @@ create policy "campaigns: creators see open or related" on public.campaigns for 
   );
 
 -- applications
+drop policy if exists "applications: creator reads own" on public.campaign_applications;
 create policy "applications: creator reads own" on public.campaign_applications for select
   using (creator_id = public.my_creator_id());
+drop policy if exists "applications: creator applies to published" on public.campaign_applications;
 create policy "applications: creator applies to published" on public.campaign_applications for insert
   with check (
     creator_id = public.my_creator_id()
     and status = 'pending'
     and exists (select 1 from public.campaigns c where c.id = campaign_id and c.status = 'published')
   );
+drop policy if exists "applications: creator withdraws own" on public.campaign_applications;
 create policy "applications: creator withdraws own" on public.campaign_applications for update
   using (creator_id = public.my_creator_id() and status = 'pending')
   with check (creator_id = public.my_creator_id() and status in ('pending', 'withdrawn'));
+drop policy if exists "applications: company reads own campaigns" on public.campaign_applications;
 create policy "applications: company reads own campaigns" on public.campaign_applications for select
   using (exists (select 1 from public.campaigns c where c.id = campaign_id and c.company_id = public.my_company_id()));
+drop policy if exists "applications: company decides" on public.campaign_applications;
 create policy "applications: company decides" on public.campaign_applications for update
   using (exists (select 1 from public.campaigns c where c.id = campaign_id and c.company_id = public.my_company_id()))
   with check (status in ('pending', 'accepted', 'rejected'));
 
 -- collaborations
+drop policy if exists "collaborations: company reads own" on public.collaborations;
 create policy "collaborations: company reads own" on public.collaborations for select
   using (company_id = public.my_company_id());
+drop policy if exists "collaborations: company books" on public.collaborations;
 create policy "collaborations: company books" on public.collaborations for insert
   with check (
     company_id = public.my_company_id()
@@ -614,59 +673,83 @@ create policy "collaborations: company books" on public.collaborations for inser
     and exists (select 1 from public.campaigns c where c.id = campaign_id and c.company_id = public.my_company_id())
     and exists (select 1 from public.creators cr where cr.id = creator_id and cr.is_public and cr.accepting_bookings)
   );
+drop policy if exists "collaborations: company updates own" on public.collaborations;
 create policy "collaborations: company updates own" on public.collaborations for update
   using (company_id = public.my_company_id()) with check (company_id = public.my_company_id());
+drop policy if exists "collaborations: creator reads own" on public.collaborations;
 create policy "collaborations: creator reads own" on public.collaborations for select
   using (creator_id = public.my_creator_id());
+drop policy if exists "collaborations: creator updates own" on public.collaborations;
 create policy "collaborations: creator updates own" on public.collaborations for update
   using (creator_id = public.my_creator_id()) with check (creator_id = public.my_creator_id());
 
 -- metrics: both sides read; the company records results
+drop policy if exists "metrics: participants read" on public.collaboration_metrics;
 create policy "metrics: participants read" on public.collaboration_metrics for select
   using (exists (select 1 from public.collaborations co where co.id = collaboration_id
                  and (co.company_id = public.my_company_id() or co.creator_id = public.my_creator_id())));
+drop policy if exists "metrics: company writes" on public.collaboration_metrics;
 create policy "metrics: company writes" on public.collaboration_metrics for update
   using (exists (select 1 from public.collaborations co where co.id = collaboration_id and co.company_id = public.my_company_id()))
   with check (exists (select 1 from public.collaborations co where co.id = collaboration_id and co.company_id = public.my_company_id()));
 
 -- payments: read-only for both sides (written by triggers)
+drop policy if exists "payments: participants read" on public.payments;
 create policy "payments: participants read" on public.payments for select
   using (company_id = public.my_company_id() or creator_id = public.my_creator_id());
 
 -- bookmarks
+drop policy if exists "bookmarks: company manages own" on public.bookmarks;
 create policy "bookmarks: company manages own" on public.bookmarks for all
   using (company_id = public.my_company_id()) with check (company_id = public.my_company_id());
 
 -- conversations / messages: participants only
+drop policy if exists "conversations: participants read" on public.conversations;
 create policy "conversations: participants read" on public.conversations for select
   using (company_id = public.my_company_id() or creator_id = public.my_creator_id());
+drop policy if exists "conversations: participants create" on public.conversations;
 create policy "conversations: participants create" on public.conversations for insert
   with check (company_id = public.my_company_id() or creator_id = public.my_creator_id());
+drop policy if exists "messages: participants read" on public.messages;
 create policy "messages: participants read" on public.messages for select
   using (exists (select 1 from public.conversations cv where cv.id = conversation_id
                  and (cv.company_id = public.my_company_id() or cv.creator_id = public.my_creator_id())));
+drop policy if exists "messages: participants send" on public.messages;
 create policy "messages: participants send" on public.messages for insert
   with check (
     sender_id = auth.uid()
     and exists (select 1 from public.conversations cv where cv.id = conversation_id
                 and (cv.company_id = public.my_company_id() or cv.creator_id = public.my_creator_id()))
   );
+drop policy if exists "messages: recipient marks read" on public.messages;
 create policy "messages: recipient marks read" on public.messages for update
   using (sender_id <> auth.uid() and exists (select 1 from public.conversations cv where cv.id = conversation_id
                  and (cv.company_id = public.my_company_id() or cv.creator_id = public.my_creator_id())))
   with check (sender_id <> auth.uid());
 
 -- notifications: own only; inserts happen in triggers
+drop policy if exists "notifications: read own" on public.notifications;
 create policy "notifications: read own" on public.notifications for select using (user_id = auth.uid());
+drop policy if exists "notifications: update own" on public.notifications;
 create policy "notifications: update own" on public.notifications for update
   using (user_id = auth.uid()) with check (user_id = auth.uid());
+drop policy if exists "notifications: delete own" on public.notifications;
 create policy "notifications: delete own" on public.notifications for delete using (user_id = auth.uid());
 
 -- ---------------------------------------------------------------------------
 -- Realtime (messages + notifications)
 -- ---------------------------------------------------------------------------
-alter publication supabase_realtime add table public.messages;
-alter publication supabase_realtime add table public.notifications;
+do $$
+declare t text;
+begin
+  foreach t in array array['messages', 'notifications'] loop
+    if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and schemaname = 'public' and tablename = t) then
+      execute format('alter publication supabase_realtime add table public.%I', t);
+    end if;
+  end loop;
+exception when others then
+  raise notice 'Realtime publication not updated (%). Enable Realtime for messages and notifications under Database -> Publications.', sqlerrm;
+end $$;
 
 -- ---------------------------------------------------------------------------
 -- Storage buckets: public read, owner-scoped writes ({uid}/…)
@@ -677,14 +760,23 @@ values
   ('company-logos', 'company-logos', true, 5242880, array['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml'])
 on conflict (id) do nothing;
 
-create policy "storage: public read" on storage.objects for select
-  using (bucket_id in ('avatars', 'company-logos'));
-create policy "storage: users write own folder" on storage.objects for insert
-  with check (bucket_id in ('avatars', 'company-logos') and (storage.foldername(name))[1] = auth.uid()::text);
-create policy "storage: users update own folder" on storage.objects for update
-  using (bucket_id in ('avatars', 'company-logos') and (storage.foldername(name))[1] = auth.uid()::text);
-create policy "storage: users delete own folder" on storage.objects for delete
-  using (bucket_id in ('avatars', 'company-logos') and (storage.foldername(name))[1] = auth.uid()::text);
+do $$
+begin
+  drop policy if exists "storage: public read" on storage.objects;
+  create policy "storage: public read" on storage.objects for select
+    using (bucket_id in ('avatars', 'company-logos'));
+  drop policy if exists "storage: users write own folder" on storage.objects;
+  create policy "storage: users write own folder" on storage.objects for insert
+    with check (bucket_id in ('avatars', 'company-logos') and (storage.foldername(name))[1] = auth.uid()::text);
+  drop policy if exists "storage: users update own folder" on storage.objects;
+  create policy "storage: users update own folder" on storage.objects for update
+    using (bucket_id in ('avatars', 'company-logos') and (storage.foldername(name))[1] = auth.uid()::text);
+  drop policy if exists "storage: users delete own folder" on storage.objects;
+  create policy "storage: users delete own folder" on storage.objects for delete
+    using (bucket_id in ('avatars', 'company-logos') and (storage.foldername(name))[1] = auth.uid()::text);
+exception when insufficient_privilege then
+  raise notice 'Storage policies could not be created from SQL (%). Create them under Storage -> Policies: public SELECT on avatars/company-logos; INSERT/UPDATE/DELETE where (storage.foldername(name))[1] = auth.uid()::text.', sqlerrm;
+end $$;
 
 -- ---------------------------------------------------------------------------
 -- Dashboard helpers (run as the caller, RLS applies)
@@ -727,3 +819,28 @@ $$;
 
 grant execute on function public.company_dashboard() to authenticated;
 grant execute on function public.creator_dashboard() to authenticated;
+
+-- ---------------------------------------------------------------------------
+-- Self-check: raises a NOTICE with the result (see the editor's Messages tab).
+-- ---------------------------------------------------------------------------
+do $$
+declare
+  missing text[] := '{}';
+  t text;
+begin
+  foreach t in array array['profiles','companies','creators','creator_posts','campaigns','campaign_applications','collaborations','collaboration_metrics','payments','bookmarks','conversations','messages','notifications'] loop
+    if to_regclass('public.' || t) is null then missing := missing || t; end if;
+  end loop;
+  if not exists (select 1 from pg_trigger where tgname = 'on_auth_user_created') then missing := missing || 'trigger on_auth_user_created'; end if;
+  if not exists (select 1 from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'public' and p.proname = 'choose_role') then missing := missing || 'function choose_role'; end if;
+  if not exists (select 1 from storage.buckets where id = 'avatars') then missing := missing || 'bucket avatars'; end if;
+  if not exists (select 1 from pg_policies where schemaname = 'storage' and policyname = 'storage: public read') then missing := missing || 'storage policies (create under Storage -> Policies)'; end if;
+  if array_length(missing, 1) is null then
+    raise notice 'Naano schema OK: % public tables, % policies, % profiles.',
+      (select count(*) from pg_tables where schemaname = 'public'),
+      (select count(*) from pg_policies where schemaname = 'public'),
+      (select count(*) from public.profiles);
+  else
+    raise notice 'Naano schema INCOMPLETE - missing: %', array_to_string(missing, ', ');
+  end if;
+end $$;
