@@ -231,6 +231,12 @@ function CreatorOnboarding() {
 
   const submit = async (e: FormEvent) => {
     e.preventDefault()
+    // Enter inside a field on steps 2–3 submits the form; treat it as "Continue"
+    // so the card is only published from step 4.
+    if (step < 4) {
+      next()
+      return
+    }
     if (!user || pending || !validateStep()) return
     setPending(true)
     setError(null)

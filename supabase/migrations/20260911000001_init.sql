@@ -573,6 +573,28 @@ create trigger messages_notify after insert on public.messages
   for each row execute function public.messages_notify();
 
 -- ---------------------------------------------------------------------------
+-- RLS helpers that look across tables. They are SECURITY DEFINER so the
+-- lookup itself is not subject to RLS — otherwise campaigns' policy would
+-- consult campaign_applications, whose policy consults campaigns, and
+-- Postgres raises "infinite recursion detected in policy".
+-- ---------------------------------------------------------------------------
+create or replace function public.campaign_company_id(p_campaign uuid)
+returns uuid language sql stable security definer set search_path = public as $$
+  select company_id from public.campaigns where id = p_campaign
+$$;
+
+create or replace function public.campaign_is_published(p_campaign uuid)
+returns boolean language sql stable security definer set search_path = public as $$
+  select exists (select 1 from public.campaigns where id = p_campaign and status = 'published')
+$$;
+
+create or replace function public.creator_involved_in_campaign(p_campaign uuid)
+returns boolean language sql stable security definer set search_path = public as $$
+  select exists (select 1 from public.collaborations where campaign_id = p_campaign and creator_id = public.my_creator_id())
+      or exists (select 1 from public.campaign_applications where campaign_id = p_campaign and creator_id = public.my_creator_id())
+$$;
+
+-- ---------------------------------------------------------------------------
 -- Privileges for the API roles. Some projects do not carry Supabase's usual
 -- default privileges for tables created from the SQL editor, which leaves
 -- `authenticated` with "permission denied" on every table. Grant explicitly;
@@ -648,9 +670,7 @@ create policy "campaigns: creators see open or related" on public.campaigns for 
   using (
     public.current_role_of_user() = 'creator' and (
       campaigns.status in ('published', 'closed')
-      -- `campaigns.id` must be qualified: the subquery tables have their own `id`.
-      or exists (select 1 from public.collaborations co where co.campaign_id = campaigns.id and co.creator_id = public.my_creator_id())
-      or exists (select 1 from public.campaign_applications ap where ap.campaign_id = campaigns.id and ap.creator_id = public.my_creator_id())
+      or public.creator_involved_in_campaign(campaigns.id)
     )
   );
 
@@ -663,7 +683,7 @@ create policy "applications: creator applies to published" on public.campaign_ap
   with check (
     creator_id = public.my_creator_id()
     and status = 'pending'
-    and exists (select 1 from public.campaigns c where c.id = campaign_id and c.status = 'published')
+    and public.campaign_is_published(campaign_id)
   );
 drop policy if exists "applications: creator withdraws own" on public.campaign_applications;
 create policy "applications: creator withdraws own" on public.campaign_applications for update
@@ -671,10 +691,10 @@ create policy "applications: creator withdraws own" on public.campaign_applicati
   with check (creator_id = public.my_creator_id() and status in ('pending', 'withdrawn'));
 drop policy if exists "applications: company reads own campaigns" on public.campaign_applications;
 create policy "applications: company reads own campaigns" on public.campaign_applications for select
-  using (exists (select 1 from public.campaigns c where c.id = campaign_id and c.company_id = public.my_company_id()));
+  using (public.campaign_company_id(campaign_id) = public.my_company_id());
 drop policy if exists "applications: company decides" on public.campaign_applications;
 create policy "applications: company decides" on public.campaign_applications for update
-  using (exists (select 1 from public.campaigns c where c.id = campaign_id and c.company_id = public.my_company_id()))
+  using (public.campaign_company_id(campaign_id) = public.my_company_id())
   with check (status in ('pending', 'accepted', 'rejected'));
 
 -- collaborations
@@ -686,7 +706,7 @@ create policy "collaborations: company books" on public.collaborations for inser
   with check (
     company_id = public.my_company_id()
     and status = 'invited'
-    and exists (select 1 from public.campaigns c where c.id = campaign_id and c.company_id = public.my_company_id())
+    and public.campaign_company_id(campaign_id) = public.my_company_id()
     and exists (select 1 from public.creators cr where cr.id = creator_id and cr.is_public and cr.accepting_bookings)
   );
 drop policy if exists "collaborations: company updates own" on public.collaborations;
