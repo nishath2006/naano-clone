@@ -15,7 +15,7 @@ const copy = {
       ['Nada', 'Live'],
     ],
     pipeline: { label: 'Attributed pipeline', value: '€48.2K', delta: '+24%', views: '124K views', leads: '418 leads' },
-    pay: { title: 'Payment scheduled', sub: 'Handled by Naano', payout: 'Creator payout', amount: '€1,240', chips: ['Contract', 'Invoice', 'Payout'] },
+    pay: { title: 'Payment scheduled', sub: 'Handled by NaanoX', payout: 'Creator payout', amount: '€1,240', chips: ['Contract', 'Invoice', 'Payout'] },
   },
   fr: {
     eyebrow: 'Une plateforme, de brief aux résultats',
@@ -36,7 +36,7 @@ const copy = {
       ['Nada', 'En ligne'],
     ],
     pipeline: { label: 'Pipeline attribué', value: '€48.2K', delta: '+24%', views: '124K vues', leads: '418 leads' },
-    pay: { title: 'Paiement programmé', sub: 'Géré par Naano', payout: 'Paiement du créateur', amount: '€1,240', chips: ['Contrat', 'Facture', 'Paiement'] },
+    pay: { title: 'Paiement programmé', sub: 'Géré par NaanoX', payout: 'Paiement du créateur', amount: '€1,240', chips: ['Contrat', 'Facture', 'Paiement'] },
   },
 }
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useAppShell } from '@/components/auth/AuthShell'
 
 /**
- * /agency ("Agency portfolio | Naano") and /talent-agency ("Talent agency | Naano").
+ * /agency ("Agency portfolio | NaanoX") and /talent-agency ("Talent agency | NaanoX").
  * One CSS module on the live site (class prefix renamed to `tas-`, see
  * src/styles/talent-agency.css). Markup from recon/html/app/agency.dom.html.
  * Steps 2–3 of the onboarding were not captured (UNKNOWN).
@@ -89,7 +89,7 @@ const VARIANTS: Record<
 > = {
   brand: {
     path: '/agency',
-    title: 'Agency portfolio | Naano',
+    title: 'Agency portfolio | NaanoX',
     eyebrow: 'Brand agency workspace',
     heading: 'Run every client campaign from one portfolio.',
     intro: 'Create client workspaces, assign their budgets and monitor delivery without mixing accounts.',
@@ -102,7 +102,7 @@ const VARIANTS: Record<
   },
   talent: {
     path: '/talent-agency',
-    title: 'Talent agency | Naano',
+    title: 'Talent agency | NaanoX',
     eyebrow: 'Talent agency workspace',
     heading: 'Run every creator operation from one place.',
     intro: 'Import your roster, manage collaborations and collect agency earnings without creating accounts for your creators.',
@@ -144,8 +144,8 @@ export default function AgencySignup({ variant }: { variant: AgencyVariant }) {
       <main className="tas-page">
         <section className="tas-shell">
           <aside className="tas-intro">
-            <Link className="tas-logo" aria-label="Naano" to="/">
-              Naano
+            <Link className="tas-logo" aria-label="NaanoX" to="/">
+              NaanoX
             </Link>
             <div>
               <span className="tas-eyebrow">{v.eyebrow}</span>
@@ -219,7 +219,7 @@ export default function AgencySignup({ variant }: { variant: AgencyVariant }) {
                 <div>
                   <span className="tas-step">Step 2 of 3</span>
                   <h2>Almost there</h2>
-                  <p>The rest of the onboarding happens inside the Naano app and requires an account.</p>
+                  <p>The rest of the onboarding happens inside the NaanoX app and requires an account.</p>
                 </div>
                 <p className="tas-status">This preview stops here — the remaining steps were not captured.</p>
                 <div className="tas-codeActions">

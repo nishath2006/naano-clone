@@ -112,7 +112,7 @@ export default function Login() {
                       Password
                     </label>
                     <Link
-                      className="text-xs text-[#2563eb] hover:text-[#1d4ed8] transition-colors cursor-pointer font-medium"
+                      className="text-xs text-[#7C5CFC] hover:text-[#6D4EF5] transition-colors cursor-pointer font-medium"
                       to="/login/forgot-password"
                     >
                       Forgot password?
@@ -133,7 +133,7 @@ export default function Login() {
                     />
                     <button
                       type="button"
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg text-[#9B9A97] hover:text-[#37352F] hover:bg-[#F7F6F3] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#1652F0]/20"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg text-[#9B9A97] hover:text-[#37352F] hover:bg-[#F7F6F3] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#7C5CFC]/20"
                       aria-label={show ? 'Hide password' : 'Show password'}
                       onClick={() => setShow((s) => !s)}
                     >
@@ -150,14 +150,14 @@ export default function Login() {
             </form>
             <p className="mt-6 text-center text-xs text-[#6B7280]">
               Don't have an account?{' '}
-              <Link to="/register" className="text-[#2563eb] font-medium">
+              <Link to="/register" className="text-[#7C5CFC] font-medium">
                 Sign up
               </Link>
             </p>
           </div>
         </div>
         <AuthSidePanel title="Welcome back.">
-          <p className="text-blue-100">Sign in to manage your campaigns, creators and payouts, all in one place.</p>
+          <p className="text-violet-100">Sign in to manage your campaigns, creators and payouts, all in one place.</p>
         </AuthSidePanel>
       </div>
     </>

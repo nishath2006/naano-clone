@@ -9,14 +9,14 @@ const VIDEO_SRC = 'https://api.naano.xyz/storage/v1/object/public/marketing-asse
 const copy = {
   en: {
     title: 'Real teams. Measurable pipeline.',
-    sub: 'See how B2B teams turn creator trust into attributable demand with Naano.',
+    sub: 'See how B2B teams turn creator trust into attributable demand with NaanoX.',
     video: 'VIDEO TESTIMONIAL',
-    quote: '“Naano became one of our fastest acquisition channels. We know exactly what every creator brings.”',
+    quote: '“NaanoX became one of our fastest acquisition channels. We know exactly what every creator brings.”',
     name: 'Vincent Josse',
     role: 'CEO & Founder, BlogSEO',
     caseStudy: 'CASE STUDY',
     csTitle: 'How BlogSEO turned creator content into product signups',
-    csBody: 'BlogSEO briefed SEO & SaaS creators on LinkedIn and X, then traced every trial back to the post that drove it, all in Naano.',
+    csBody: 'BlogSEO briefed SEO & SaaS creators on LinkedIn and X, then traced every trial back to the post that drove it, all in NaanoX.',
     stats: [
       ['9', 'creators activated'],
       ['2,940', 'qualified clicks'],
@@ -27,14 +27,14 @@ const copy = {
   },
   fr: {
     title: 'De vraies équipes. Un pipeline mesurable.',
-    sub: 'Voyez comment les équipes B2B transforment la confiance des créateurs en demande attribuable avec Naano.',
+    sub: 'Voyez comment les équipes B2B transforment la confiance des créateurs en demande attribuable avec NaanoX.',
     video: 'TÉMOIGNAGE VIDÉO',
-    quote: "« Naano est devenu l'un de nos canaux d'acquisition les plus rapides. On sait exactement ce que chaque créateur apporte. »",
+    quote: "« NaanoX est devenu l'un de nos canaux d'acquisition les plus rapides. On sait exactement ce que chaque créateur apporte. »",
     name: 'Vincent Josse',
     role: 'CEO & Fondateur, BlogSEO',
     caseStudy: 'ÉTUDE DE CAS',
     csTitle: 'Comment BlogSEO a transformé le contenu de créateurs en inscriptions à son produit',
-    csBody: "BlogSEO a briefé des créateurs SEO & SaaS sur LinkedIn et X, puis a relié chaque essai au post qui l'a généré, le tout dans Naano.",
+    csBody: "BlogSEO a briefé des créateurs SEO & SaaS sur LinkedIn et X, puis a relié chaque essai au post qui l'a généré, le tout dans NaanoX.",
     stats: [
       ['9', 'créateurs activés'],
       ['2,940', 'clics qualifiés'],

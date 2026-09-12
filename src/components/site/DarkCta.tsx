@@ -26,7 +26,7 @@ export function DarkCtaSection({
         <div className={`flex flex-col items-center${fadeUp ? ' fade-up' : ''}`}>
           {eyebrow && (
             <div className="flex items-center gap-2 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: '#1652F0' }} />
+              <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: '#7C5CFC' }} />
               <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/40">{eyebrow}</p>
             </div>
           )}

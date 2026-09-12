@@ -5,7 +5,7 @@ import { BlogCard, FeaturedBlogCard } from '@/components/blog/BlogCard'
 import { useLocale } from '@/lib/locale'
 import { getBlogListing } from '@/data/blog-listing'
 
-/** /blog — "Naano Journal" listing: header, topics, featured post, article grid. */
+/** /blog — "NaanoX Journal" listing: header, topics, featured post, article grid. */
 export default function Blog() {
   const { locale } = useLocale()
   const l = getBlogListing(locale)

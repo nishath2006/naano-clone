@@ -20,13 +20,13 @@ import {
 } from '@/components/tools/ToolSections'
 
 const META = {
-  title: 'Creator Campaign Budget Planner (Free) — Naano',
+  title: 'Creator Campaign Budget Planner (Free) — NaanoX',
   description:
     'Turn a budget into published LinkedIn posts, not just booked ones. Built on 300 real sponsored-post bookings: transacted medians and historical delivery rates.',
 }
 
 /* ---------------------------------------------------------------------------
- * Data (Naano Index, n=300 bookings, 14 June – 11 August 2026)
+ * Data (NaanoX Index, n=300 bookings, 14 June – 11 August 2026)
  * ------------------------------------------------------------------------ */
 
 type AllocationId = 'spread' | 'mid' | 'concentrated'
@@ -140,7 +140,7 @@ const MSG = {
 }
 
 const INPUT =
-  'mt-2 w-full min-h-11 rounded-xl border border-[#E4E1DC] bg-white px-4 py-3 text-[15px] text-[#17181C] placeholder:text-[#B4B4B0] shadow-[0_1px_2px_rgba(23,24,28,0.03)] focus:outline-none focus:ring-2 focus:ring-[#1652F0] focus:border-transparent'
+  'mt-2 w-full min-h-11 rounded-xl border border-[#E4E1DC] bg-white px-4 py-3 text-[15px] text-[#17181C] placeholder:text-[#B4B4B0] shadow-[0_1px_2px_rgba(23,24,28,0.03)] focus:outline-none focus:ring-2 focus:ring-[#7C5CFC] focus:border-transparent'
 
 type Row = {
   id: string
@@ -262,7 +262,7 @@ function BudgetPlanner({ locale }: { locale: Locale }) {
                   { className: 'px-5 py-4 align-top text-[#55575E]', content: `${r.deliveryRate}%` },
                   { className: 'px-5 py-4 align-top text-[#55575E]', content: r.expectedPublished.toFixed(1) },
                   {
-                    className: 'px-5 py-4 align-top font-semibold text-[#1652F0]',
+                    className: 'px-5 py-4 align-top font-semibold text-[#7C5CFC]',
                     content: r.costPerPublished === null ? '—' : euro(r.costPerPublished),
                   },
                 ],
@@ -300,11 +300,11 @@ function BudgetPlanner({ locale }: { locale: Locale }) {
 const FAQ = [
   {
     q: 'How many sponsored LinkedIn posts can I get for my budget?',
-    a: 'Divide the budget by the transacted median for the audience size you are buying, then multiply by the historical delivery rate for that price band. On Naano, the transacted medians were €84 per post under 5,000 followers, €300 at 10,000–25,000, and €720 above 50,000, while settled delivery rates ranged from 25.9% to 64.6% depending on the band [Naano Index snapshot, n=300 bookings, 11 August 2026 at 19:05 UTC]. A €5,000 budget books 59 posts at €84 but historically produced around 18 published ones.',
+    a: 'Divide the budget by the transacted median for the audience size you are buying, then multiply by the historical delivery rate for that price band. On NaanoX, the transacted medians were €84 per post under 5,000 followers, €300 at 10,000–25,000, and €720 above 50,000, while settled delivery rates ranged from 25.9% to 64.6% depending on the band [NaanoX Index snapshot, n=300 bookings, 11 August 2026 at 19:05 UTC]. A €5,000 budget books 59 posts at €84 but historically produced around 18 published ones.',
   },
   {
     q: 'Why should I plan on published posts instead of booked posts?',
-    a: 'Because the two differ by a factor of three to five. Of the bookings that reached a final state on Naano, 30.4% priced under €200 ended in a published post against 64.6% priced at €600 or more, and 41.6% of sub-€200 offers expired without the creator ever answering [Naano Index snapshot, n=300 created bookings, 11 August 2026 at 19:05 UTC]. A forecast built on posts booked has been systematically optimistic at the low end.',
+    a: 'Because the two differ by a factor of three to five. Of the bookings that reached a final state on NaanoX, 30.4% priced under €200 ended in a published post against 64.6% priced at €600 or more, and 41.6% of sub-€200 offers expired without the creator ever answering [NaanoX Index snapshot, n=300 created bookings, 11 August 2026 at 19:05 UTC]. A forecast built on posts booked has been systematically optimistic at the low end.',
   },
   {
     q: 'Is it cheaper per published post to book many small creators or a few large ones?',
@@ -312,7 +312,7 @@ const FAQ = [
   },
   {
     q: 'How long should I allow between booking a creator and the post going live?',
-    a: 'Plan on 14 days rather than 8. Delivered bookings took a median of 8.0 days from booking to published post, with a 90th percentile of 14.1 days, and the creator accepted the offer in a median of 35 minutes [Naano Index snapshot, n=89 delivered bookings, 11 August 2026 at 19:05 UTC]. Almost all the elapsed time sits after acceptance, in drafting and approval.',
+    a: 'Plan on 14 days rather than 8. Delivered bookings took a median of 8.0 days from booking to published post, with a 90th percentile of 14.1 days, and the creator accepted the offer in a median of 35 minutes [NaanoX Index snapshot, n=89 delivered bookings, 11 August 2026 at 19:05 UTC]. Almost all the elapsed time sits after acceptance, in drafting and approval.',
   },
   {
     q: 'Does this planner assume that paying more causes a post to be delivered?',
@@ -338,7 +338,7 @@ const COPY = {
       { label: 'Concentrated', tier: '50,000+ followers', desc: 'Fewest posts, strongest observed delivery. Thin tier: 16 bookings set this median.', median: '€720', band: '€600 and above', published: '64.6%' },
     ] as AllocationRow[],
     note: {
-      before: '[Naano Index, n=300 bookings, 14 June – 11 August 2026]. The timing side of the same dataset is in ',
+      before: '[NaanoX Index, n=300 bookings, 14 June – 11 August 2026]. The timing side of the same dataset is in ',
       timing: 'how long a B2B creator campaign takes',
       middle: ', and the full price distribution is in the ',
       pricing: 'LinkedIn sponsored post price index 2026',
@@ -348,7 +348,7 @@ const COPY = {
     method: [
       {
         lead: 'Source.',
-        text: "Naano's own marketplace database, queried read-only on 11 August 2026 at 19:05 UTC. Every sponsored-post booking created between 14 June and 11 August 2026, normalised to price per post (n=300), plus the 89 of those that reached a published post for the timing figures. Bookings placed by Naano itself as a buyer are excluded. No cell below ten observations is published, and no individual creator, brand or amount appears anywhere.",
+        text: "NaanoX's own marketplace database, queried read-only on 11 August 2026 at 19:05 UTC. Every sponsored-post booking created between 14 June and 11 August 2026, normalised to price per post (n=300), plus the 89 of those that reached a published post for the timing figures. Bookings placed by NaanoX itself as a buyer are excluded. No cell below ten observations is published, and no individual creator, brand or amount appears anywhere.",
       },
       {
         lead: 'This is a correlation, not a causal claim.',
@@ -364,7 +364,7 @@ const COPY = {
       },
       {
         lead: 'What is deliberately absent.',
-        text: 'No impressions, reach, cost-per-lead or cost-per-click figure appears on this page. LinkedIn does not expose post impressions for third-party posts, and our tracked-link coverage is currently too partial to publish a clicks-per-post benchmark honestly. Naano charges a flat fee per sponsored post set by each creator, and does not sell per click.',
+        text: 'No impressions, reach, cost-per-lead or cost-per-click figure appears on this page. LinkedIn does not expose post impressions for third-party posts, and our tracked-link coverage is currently too partial to publish a clicks-per-post benchmark honestly. NaanoX charges a flat fee per sponsored post set by each creator, and does not sell per click.',
       },
     ],
     faqHeading: 'Frequently asked questions',
@@ -372,13 +372,13 @@ const COPY = {
     open: 'Open',
     dark: {
       title: 'See the real prices before you commit a budget',
-      text: 'Every creator on Naano publishes their own flat fee per post, so you can build the plan against actual numbers instead of estimates. Contracts, escrow and invoicing handled — no monthly platform fee.',
-      cta: 'Book a creator on Naano',
+      text: 'Every creator on NaanoX publishes their own flat fee per post, so you can build the plan against actual numbers instead of estimates. Contracts, escrow and invoicing handled — no monthly platform fee.',
+      cta: 'Book a creator on NaanoX',
       href: 'https://naano.com/register',
     },
     light: {
       title: 'Want the shortlist before the spreadsheet?',
-      text: 'Describe your campaign and a real person at Naano builds you a hand-picked shortlist of relevant B2B creators, with their rates and audience fit, within 48 hours. Free, no account.',
+      text: 'Describe your campaign and a real person at NaanoX builds you a hand-picked shortlist of relevant B2B creators, with their rates and audience fit, within 48 hours. Free, no account.',
       cta: 'Get a free shortlist',
       href: 'https://naano.com/selection',
     },
@@ -398,7 +398,7 @@ const COPY = {
       { label: 'Concentré', tier: 'Plus de 50 000 abonnés', desc: 'Le moins de posts, la meilleure livraison observée. Tranche mince : 16 réservations fixent cette médiane.', median: '€720', band: '600 € et plus', published: '64.6%' },
     ] as AllocationRow[],
     note: {
-      before: '[Naano Index, n=300 bookings, 14 juin – 11 août 2026]. Le volet calendrier du même jeu de données est présenté dans ',
+      before: '[NaanoX Index, n=300 bookings, 14 juin – 11 août 2026]. Le volet calendrier du même jeu de données est présenté dans ',
       timing: 'combien de temps prend une campagne de créateurs B2B',
       middle: ', et la distribution complète des prix figure dans l’',
       pricing: 'indice 2026 du prix des posts LinkedIn sponsorisés',
@@ -408,7 +408,7 @@ const COPY = {
     method: [
       {
         lead: 'Source.',
-        text: "La base marketplace de Naano, interrogée en lecture seule le 11 août 2026 à 19h05 UTC. Toutes les réservations de post sponsorisé créées entre le 14 juin et le 11 août 2026, ramenées au prix par post (n=300), plus les 89 d'entre elles qui ont abouti à un post publié pour les délais. Les réservations passées par Naano en tant qu'acheteur sont exclues. Aucune cellule de moins de dix observations n'est publiée, et aucun créateur, aucune marque et aucun montant individuel n'apparaît nulle part.",
+        text: "La base marketplace de NaanoX, interrogée en lecture seule le 11 août 2026 à 19h05 UTC. Toutes les réservations de post sponsorisé créées entre le 14 juin et le 11 août 2026, ramenées au prix par post (n=300), plus les 89 d'entre elles qui ont abouti à un post publié pour les délais. Les réservations passées par NaanoX en tant qu'acheteur sont exclues. Aucune cellule de moins de dix observations n'est publiée, et aucun créateur, aucune marque et aucun montant individuel n'apparaît nulle part.",
       },
       {
         lead: "C'est une corrélation, pas une relation de cause à effet.",
@@ -424,7 +424,7 @@ const COPY = {
       },
       {
         lead: 'Ce qui est délibérément absent.',
-        text: "Aucun chiffre d'impressions, de portée, de coût par lead ou de coût par clic n'apparaît sur cette page. LinkedIn n'expose pas les impressions des posts tiers, et la couverture de nos liens trackés est aujourd'hui trop partielle pour publier honnêtement un benchmark de clics par post. Naano facture un forfait par post sponsorisé fixé par chaque créateur, et ne vend pas au clic.",
+        text: "Aucun chiffre d'impressions, de portée, de coût par lead ou de coût par clic n'apparaît sur cette page. LinkedIn n'expose pas les impressions des posts tiers, et la couverture de nos liens trackés est aujourd'hui trop partielle pour publier honnêtement un benchmark de clics par post. NaanoX facture un forfait par post sponsorisé fixé par chaque créateur, et ne vend pas au clic.",
       },
     ],
     faqHeading: 'Questions fréquentes',
@@ -432,13 +432,13 @@ const COPY = {
     open: 'Ouvrir',
     dark: {
       title: "Voyez les vrais prix avant d'engager un budget",
-      text: 'Chaque créateur sur Naano publie son propre forfait par post, ce qui vous permet de bâtir le plan sur des chiffres réels plutôt que sur des estimations. Contrats, séquestre et facturation pris en charge — sans abonnement mensuel.',
-      cta: 'Réserver un créateur sur Naano',
+      text: 'Chaque créateur sur NaanoX publie son propre forfait par post, ce qui vous permet de bâtir le plan sur des chiffres réels plutôt que sur des estimations. Contrats, séquestre et facturation pris en charge — sans abonnement mensuel.',
+      cta: 'Réserver un créateur sur NaanoX',
       href: 'https://naano.com/register',
     },
     light: {
       title: 'Vous voulez la sélection avant le tableur ?',
-      text: "Décrivez votre campagne et une vraie personne chez Naano vous construit une sélection de créateurs B2B pertinents, avec leurs tarifs et l'adéquation de leur audience, sous 48 heures. Gratuit, sans compte.",
+      text: "Décrivez votre campagne et une vraie personne chez NaanoX vous construit une sélection de créateurs B2B pertinents, avec leurs tarifs et l'adéquation de leur audience, sous 48 heures. Gratuit, sans compte.",
       cta: 'Obtenir une sélection gratuite',
       href: 'https://naano.com/selection',
     },
@@ -482,7 +482,7 @@ export default function CampaignBudgetPlanner() {
               },
               { className: 'px-5 py-4 align-top text-[#55575E] whitespace-nowrap', content: r.median },
               { className: 'px-5 py-4 align-top text-[#55575E] whitespace-nowrap', content: r.band },
-              { className: 'px-5 py-4 align-top font-semibold text-[#1652F0]', content: r.published },
+              { className: 'px-5 py-4 align-top font-semibold text-[#7C5CFC]', content: r.published },
             ],
           }))}
         />

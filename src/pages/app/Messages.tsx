@@ -48,7 +48,7 @@ export default function Messages() {
                 const who = label(c)
                 return (
                   <li key={c.id}>
-                    <Link to={`/app/messages/${c.id}`} className={`flex items-center gap-3 px-4 py-3 hover:bg-[#FAFAFA] ${c.id === id ? 'bg-[#EFF6FF]' : ''}`}>
+                    <Link to={`/app/messages/${c.id}`} className={`flex items-center gap-3 px-4 py-3 hover:bg-[#FAFAFA] ${c.id === id ? 'bg-[#F7F4FF]' : ''}`}>
                       <Avatar src={who?.image} name={who?.name} size={36} />
                       <div className="min-w-0 flex-1">
                         <div className="truncate text-sm font-semibold">{who?.name ?? '—'}</div>
@@ -141,9 +141,9 @@ function Thread({ conversation, title }: { conversation: Conv; title: string }) 
             const mine = m.sender_id === user?.id
             return (
               <div key={m.id} className={`flex ${mine ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[75%] rounded-2xl px-3.5 py-2 text-sm whitespace-pre-line ${mine ? 'bg-[#2563eb] text-white rounded-br-md' : 'bg-[#F3F4F6] text-[#111827] rounded-bl-md'}`}>
+                <div className={`max-w-[75%] rounded-2xl px-3.5 py-2 text-sm whitespace-pre-line ${mine ? 'bg-[#7C5CFC] text-white rounded-br-md' : 'bg-[#F3F4F6] text-[#111827] rounded-bl-md'}`}>
                   {m.body}
-                  <div className={`mt-1 text-[10px] ${mine ? 'text-blue-100' : 'text-[#9CA3AF]'}`}>{timeAgo(m.created_at)}</div>
+                  <div className={`mt-1 text-[10px] ${mine ? 'text-violet-100' : 'text-[#9CA3AF]'}`}>{timeAgo(m.created_at)}</div>
                 </div>
               </div>
             )

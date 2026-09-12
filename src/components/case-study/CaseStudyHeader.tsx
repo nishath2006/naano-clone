@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { NavAnchor } from '@/components/lp/LpNav'
 import { ArrowLeft, ArrowRightLong } from '@/components/lp/fluidIcons'
+import { BrandWordmark } from '@/components/shared/BrandWordmark'
 
 /** Sticky frosted header of the case-study pages (logo, "All stories", "Book a call"). */
 export function CaseStudyHeader() {
@@ -21,7 +22,7 @@ export function CaseStudyHeader() {
       }}
     >
       <Link style={{ display: 'inline-flex', alignItems: 'center' }} to="/">
-        <img src="/lp/naano-logo-nav.png" alt="naano" style={{ height: 28, display: 'block' }} />
+        <BrandWordmark height={28} />
       </Link>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <NavAnchor

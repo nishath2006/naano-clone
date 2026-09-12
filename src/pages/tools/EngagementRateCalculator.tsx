@@ -15,7 +15,7 @@ import {
 } from '@/components/tools/ToolSections'
 
 const META = {
-  title: 'LinkedIn Engagement Rate Calculator (Free) — Naano',
+  title: 'LinkedIn Engagement Rate Calculator (Free) — NaanoX',
   description:
     'Free LinkedIn engagement rate calculator. Get your rate by followers and by impressions, compare it to 2026 B2B benchmarks, and see how to improve it.',
 }
@@ -34,7 +34,7 @@ const TIERS = [
 
 const RATINGS = {
   excellent: { label: 'Excellent', className: 'bg-emerald-50 text-emerald-700 border border-emerald-200' },
-  healthy: { label: 'Healthy', className: 'bg-[#E8F0FE] text-[#1652F0] border border-[#1652F0]/20' },
+  healthy: { label: 'Healthy', className: 'bg-[#EEE9FF] text-[#7C5CFC] border border-[#7C5CFC]/20' },
   below: { label: 'Below benchmark', className: 'bg-amber-50 text-amber-700 border border-amber-200' },
 }
 type Rating = keyof typeof RATINGS
@@ -48,7 +48,7 @@ function parse(raw: string): number | null {
 const pct = (n: number) => `${n.toFixed(2)}%`
 
 const INPUT =
-  'mt-2 w-full min-h-11 rounded-xl border border-[#E4E1DC] bg-white px-4 py-3 text-[15px] text-[#17181C] placeholder:text-[#B4B4B0] shadow-[0_1px_2px_rgba(23,24,28,0.03)] focus:outline-none focus:ring-2 focus:ring-[#1652F0] focus:border-transparent'
+  'mt-2 w-full min-h-11 rounded-xl border border-[#E4E1DC] bg-white px-4 py-3 text-[15px] text-[#17181C] placeholder:text-[#B4B4B0] shadow-[0_1px_2px_rgba(23,24,28,0.03)] focus:outline-none focus:ring-2 focus:ring-[#7C5CFC] focus:border-transparent'
 const LABEL = 'block text-sm font-semibold text-[#17181C]'
 const SUB = 'block text-xs font-normal text-[#6B6D74]'
 
@@ -164,9 +164,9 @@ function EngagementCalculator() {
               </span>
             </div>
             <dl className="mt-5 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-[#1652F0]/25 bg-[#E8F0FE]/50 p-4 shadow-[0_8px_24px_rgba(22,82,240,0.08)]">
+              <div className="rounded-xl border border-[#7C5CFC]/25 bg-[#EEE9FF]/50 p-4 shadow-[0_8px_24px_rgba(124,92,252,0.08)]">
                 <dt className="text-[13px] font-medium text-[#55575E]">Engagement rate by followers</dt>
-                <dd className="mt-1 text-3xl font-semibold tracking-[-0.02em] text-[#1652F0]">{pct(result.rateByFollowers)}</dd>
+                <dd className="mt-1 text-3xl font-semibold tracking-[-0.02em] text-[#7C5CFC]">{pct(result.rateByFollowers)}</dd>
                 <dd className="mt-1 text-[13px] text-[#6B6D74]">
                   Benchmark for {result.tier.label.toLowerCase()}: {result.tier.low}% - {result.tier.high}%
                 </dd>
@@ -185,7 +185,7 @@ function EngagementCalculator() {
               <ul className="mt-3 space-y-2.5">
                 {result.tips.map((tip) => (
                   <li key={tip} className="flex gap-2.5">
-                    <span aria-hidden="true" className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#1652F0]" />
+                    <span aria-hidden="true" className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#7C5CFC]" />
                     <span className="text-[15px] leading-relaxed text-[#55575E]">{tip}</span>
                   </li>
                 ))}
@@ -238,7 +238,7 @@ const FAQ = [
   },
   {
     q: 'How do sponsors use engagement rate to set flat-fee post rates?',
-    a: "On marketplaces like Naano, each creator sets a flat fee per sponsored post, starting from 100 euros. Sponsors compare that fee against the creator's engagement rate and audience fit: a creator with 4,000 followers and a 6% engagement rate reliably delivers more qualified attention per euro than a bigger account at 1%. A strong, documented engagement rate is the single best argument for setting a higher per-post rate.",
+    a: "On marketplaces like NaanoX, each creator sets a flat fee per sponsored post, starting from 100 euros. Sponsors compare that fee against the creator's engagement rate and audience fit: a creator with 4,000 followers and a 6% engagement rate reliably delivers more qualified attention per euro than a bigger account at 1%. A strong, documented engagement rate is the single best argument for setting a higher per-post rate.",
   },
 ]
 
@@ -249,18 +249,18 @@ const EN = {
     'Type your follower count and per-post averages, get your engagement rate instantly — by followers and by impressions — rated against 2026 B2B benchmarks. Free, no account, nothing leaves your browser.',
   benchHeading: 'LinkedIn engagement rate benchmarks for B2B (2026)',
   benchIntro:
-    '“Good” is relative to audience size: rates fall as follower counts grow. These ranges are engagement rate by followers for B2B accounts, drawn from campaigns run through the Naano marketplace [Naano marketplace data, Q2 2026].',
+    '“Good” is relative to audience size: rates fall as follower counts grow. These ranges are engagement rate by followers for B2B accounts, drawn from campaigns run through the NaanoX marketplace [NaanoX marketplace data, Q2 2026].',
   benchHeaders: ['Follower tier', 'Good rate (by followers)', 'What it means'],
   benchNote: 'Above the range for your tier: Excellent. Inside it: Healthy. Below it: Below benchmark — see the improvement tips the calculator gives you.',
   howHeading: "How it's calculated",
-  howNote: 'Benchmark ranges: B2B campaigns run through the Naano marketplace [Naano marketplace data, Q2 2026].',
+  howNote: 'Benchmark ranges: B2B campaigns run through the NaanoX marketplace [NaanoX marketplace data, Q2 2026].',
   faqHeading: 'Frequently asked questions',
   moreHeading: 'More free tools',
   open: 'Open',
   dark: {
     title: 'Strong engagement rate? Get paid for it.',
-    text: 'Creators on Naano get paid per post by vetted B2B sponsors — you set your own flat rate, from 100 euros per post. Your engagement rate is exactly what companies are looking for.',
-    cta: 'Get paid per post on Naano',
+    text: 'Creators on NaanoX get paid per post by vetted B2B sponsors — you set your own flat rate, from 100 euros per post. Your engagement rate is exactly what companies are looking for.',
+    cta: 'Get paid per post on NaanoX',
     href: 'https://naano.com/register?role=influencer',
   },
   light: {
@@ -311,7 +311,7 @@ export default function EngagementRateCalculator() {
             key: b.tier,
             cells: [
               { className: 'px-5 py-4 font-semibold text-[#17181C]', content: b.tier },
-              { className: 'px-5 py-4 font-semibold text-[#1652F0] whitespace-nowrap', content: b.rate },
+              { className: 'px-5 py-4 font-semibold text-[#7C5CFC] whitespace-nowrap', content: b.rate },
               { className: 'px-5 py-4 leading-relaxed text-[#55575E]', content: b.meaning },
             ],
           }))}
@@ -326,7 +326,7 @@ export default function EngagementRateCalculator() {
             <div key={f.title}>
               <h3 className="text-[18px] font-semibold tracking-[-0.015em] text-[#17181C]">{f.title}</h3>
               <div className="mt-3 overflow-x-auto rounded-xl border border-[#ECEAE6] bg-white px-5 py-4 shadow-[0_1px_2px_rgba(23,24,28,0.03)]">
-                <code className="text-[15px] font-semibold text-[#1652F0] whitespace-nowrap">{f.code}</code>
+                <code className="text-[15px] font-semibold text-[#7C5CFC] whitespace-nowrap">{f.code}</code>
               </div>
               <p className="mt-3 text-[16px] leading-[1.65] text-[#6B6D74]">{f.text}</p>
             </div>

@@ -214,7 +214,7 @@ export default function CampaignDetail() {
                     <td className="px-4 py-3 text-right">{d.collaboration_metrics?.leads ?? 0}</td>
                     <td className="px-4 py-3 text-xs text-[#6B7280]">{d.due_date ? formatDate(d.due_date) : '—'}</td>
                     <td className="px-4 py-3 text-right">
-                      <Link to={`/app/collaborations/${d.id}`} className="text-xs font-semibold text-[#2563eb]">
+                      <Link to={`/app/collaborations/${d.id}`} className="text-xs font-semibold text-[#7C5CFC]">
                         Manage
                       </Link>
                     </td>

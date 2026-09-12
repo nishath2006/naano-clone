@@ -35,7 +35,7 @@ export type CreatorStat = { key: StatKey; value: string }
 export type CreatorPost = {
   /** LinkedIn media type label ("image", "text", "video"…), may be empty */
   type: string
-  /** true when the post was booked through Naano (shows the "Naano" tag) */
+  /** true when the post was booked through NaanoX (shows the "NaanoX" tag) */
   naano: boolean
   text: string
   reactions: string

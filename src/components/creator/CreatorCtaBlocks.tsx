@@ -10,9 +10,9 @@ const POINT: CSSProperties = {
   gap: 6,
   fontSize: 12,
   fontWeight: 500,
-  color: '#1652F0',
+  color: '#7C5CFC',
   background: '#FFFFFF',
-  border: '1px solid #D6E0FF',
+  border: '1px solid #DDD4FF',
   borderRadius: 999,
   padding: '5px 11px',
 }
@@ -20,13 +20,13 @@ const POINT: CSSProperties = {
 /** Blue "Want to work with {name}?" card with the three check points and the main CTA. */
 export function WorkWithCta({ profile, copy }: { profile: CreatorProfile; copy: CreatorCopy }) {
   return (
-    <div style={{ marginTop: 18, background: '#EAF0FF', border: '1px solid #D6E0FF', borderRadius: 16, padding: '24px 26px' }}>
+    <div style={{ marginTop: 18, background: '#EEE9FF', border: '1px solid #DDD4FF', borderRadius: 16, padding: '24px 26px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 12 }}>
         {profile.avatarUrl ? (
           <img
             src={profile.avatarUrl}
             alt={profile.name}
-            style={{ width: 46, height: 46, borderRadius: '50%', objectFit: 'cover', border: '1px solid #D6E0FF', flexShrink: 0 }}
+            style={{ width: 46, height: 46, borderRadius: '50%', objectFit: 'cover', border: '1px solid #DDD4FF', flexShrink: 0 }}
           />
         ) : (
           <div
@@ -35,13 +35,13 @@ export function WorkWithCta({ profile, copy }: { profile: CreatorProfile; copy: 
               height: 46,
               borderRadius: '50%',
               background: '#FFFFFF',
-              border: '1px solid #D6E0FF',
+              border: '1px solid #DDD4FF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: 18,
               fontWeight: 700,
-              color: '#1652F0',
+              color: '#7C5CFC',
               flexShrink: 0,
             }}
           >
@@ -67,7 +67,7 @@ export function WorkWithCta({ profile, copy }: { profile: CreatorProfile; copy: 
           gap: 8,
           padding: '12px 22px',
           borderRadius: 12,
-          background: '#1652F0',
+          background: '#7C5CFC',
           color: '#FFFFFF',
           fontSize: 14,
           fontWeight: 700,
@@ -82,7 +82,7 @@ export function WorkWithCta({ profile, copy }: { profile: CreatorProfile; copy: 
   )
 }
 
-/** "What is Naano" explainer card with the two business-model tiles. */
+/** "What is NaanoX" explainer card with the two business-model tiles. */
 export function WhatIsNaano({ copy }: { copy: CreatorCopy }) {
   const tiles = [
     { icon: <Tag />, label: copy.modelFlatLabel, body: copy.modelFlatBody },
@@ -91,7 +91,7 @@ export function WhatIsNaano({ copy }: { copy: CreatorCopy }) {
   return (
     <div style={{ marginTop: 16, background: '#FFFFFF', border: '1px solid #E5E9F0', borderRadius: 16, padding: '22px 24px', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 9, marginBottom: 10 }}>
-        <img src="/logo.svg" alt="naano" style={{ width: 20, height: 20, objectFit: 'contain' }} />
+        <img src="/logo.svg" alt="NaanoX" style={{ width: 20, height: 20, objectFit: 'contain' }} />
         <h2 style={{ fontSize: 15, fontWeight: 700, color: '#0F172A', margin: 0 }}>{copy.whatIsNaanoTitle}</h2>
       </div>
       <p style={{ margin: 0, fontSize: 13.5, color: '#64748B', lineHeight: 1.65 }}>{copy.whatIsNaanoBody}</p>
@@ -107,8 +107,8 @@ export function WhatIsNaano({ copy }: { copy: CreatorCopy }) {
                   width: 24,
                   height: 24,
                   borderRadius: 7,
-                  background: '#EAF0FF',
-                  color: '#1652F0',
+                  background: '#EEE9FF',
+                  color: '#7C5CFC',
                 }}
               >
                 {t.icon}
@@ -119,7 +119,7 @@ export function WhatIsNaano({ copy }: { copy: CreatorCopy }) {
           </div>
         ))}
       </div>
-      <Link to="/creators" style={{ display: 'inline-block', marginTop: 16, fontSize: 13, fontWeight: 600, color: '#1652F0', textDecoration: 'none' }}>
+      <Link to="/creators" style={{ display: 'inline-block', marginTop: 16, fontSize: 13, fontWeight: 600, color: '#7C5CFC', textDecoration: 'none' }}>
         {copy.browseCreatorsLink}
       </Link>
     </div>
@@ -130,7 +130,7 @@ export function WhatIsNaano({ copy }: { copy: CreatorCopy }) {
 export function CreatorRelatedNav({ profile }: { profile: CreatorProfile }) {
   return (
     <nav
-      aria-label="Learn more about Naano"
+      aria-label="Learn more about NaanoX"
       style={{
         maxWidth: 720,
         margin: '0 auto',
@@ -146,7 +146,7 @@ export function CreatorRelatedNav({ profile }: { profile: CreatorProfile }) {
             {profile.moreCreators.map((l, i) => (
               <span key={l.href}>
                 {i > 0 && ' · '}
-                <Link to={l.href} style={{ color: '#1652F0' }}>
+                <Link to={l.href} style={{ color: '#7C5CFC' }}>
                   {l.label}
                 </Link>
               </span>
@@ -158,7 +158,7 @@ export function CreatorRelatedNav({ profile }: { profile: CreatorProfile }) {
           {relatedNav.links.map((l, i) => (
             <span key={l.href}>
               {i > 0 && ' · '}
-              <Link to={l.href} style={{ color: '#1652F0' }}>
+              <Link to={l.href} style={{ color: '#7C5CFC' }}>
                 {l.label}
               </Link>
             </span>

@@ -2,6 +2,7 @@ import { getLpFooter } from '@/data/footer'
 import { useLocale } from '@/lib/locale'
 import { NavAnchor } from './LpNav'
 import { LinkedInLogo, TrustpilotStar } from './icons'
+import { BrandWordmark } from '@/components/shared/BrandWordmark'
 
 const HEADING = { fontSize: 12, fontWeight: 700, letterSpacing: '0.16em', color: '#6E7076' } as const
 const LINK = { textDecoration: 'none', color: '#AEB0B6', fontSize: 14.5, lineHeight: 1.3 } as const
@@ -32,7 +33,7 @@ export function LpFooter({ variant = 'home' }: { variant?: 'home' | 'creators' |
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <img src="/lp/naano-logo-nav.png" alt="naano" style={{ height: 28, width: 'auto', alignSelf: 'flex-start' }} />
+          <BrandWordmark height={28} style={{ alignSelf: 'flex-start' }} />
           <p style={{ margin: '22px 0 0 0', fontSize: 15, lineHeight: 1.55, color: '#9A9CA3', maxWidth: 210 }}>{f.tagline}</p>
           <a
             href="https://www.linkedin.com/company/naanooo/"

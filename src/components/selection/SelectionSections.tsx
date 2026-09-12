@@ -18,7 +18,7 @@ const PILL: CSSProperties = {
   textDecoration: 'none',
 }
 
-/** "Want Naano to run the entire campaign?" strip under the shortlist card. */
+/** "Want NaanoX to run the entire campaign?" strip under the shortlist card. */
 export function ManagedBanner() {
   return (
     <div
@@ -73,7 +73,7 @@ export function HowToSection() {
                 width: 26,
                 height: 26,
                 borderRadius: 8,
-                background: 'rgba(37,99,235,0.1)',
+                background: 'rgba(124,92,252,0.1)',
                 color: 'var(--accent)',
                 fontSize: 13,
                 fontWeight: 700,
@@ -90,7 +90,7 @@ export function HowToSection() {
   )
 }
 
-/** "First time here? What Naano is." explainer card. */
+/** "First time here? What NaanoX is." explainer card. */
 export function WhatIsNaanoSection() {
   const { locale } = useLocale()
   const c = selectionWhatIsNaano[locale]

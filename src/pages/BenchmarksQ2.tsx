@@ -62,14 +62,14 @@ export default function BenchmarksQ2() {
           <article className="lg:col-span-9 lg:order-1">
             <div className="prose-bench text-[17px] text-[#1F2937] leading-[1.75] max-w-[72ch] tabular-nums">
               <div role="note" className="my-6 rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-5 py-4 text-sm text-[#374151] leading-relaxed">
-                <strong className={STRONG}>Editorial note (July 14, 2026):</strong> the data in this report was measured in Q1 2026 under Naano's
-                earlier cost-per-click pricing model. Since then, Naano has moved to creator-defined fixed-price offers, see{' '}
+                <strong className={STRONG}>Editorial note (July 14, 2026):</strong> the data in this report was measured in Q1 2026 under NaanoX's
+                earlier cost-per-click pricing model. Since then, NaanoX has moved to creator-defined fixed-price offers, see{' '}
                 <TextLink href="/pricing">current pricing</TextLink>. The performance benchmarks below (CPL, CTR, conversion) remain valid as
                 historical Q1 2026 data.
               </div>
               <p className="text-[19px] leading-[1.7] text-[#111827]">
-                This is the first edition of Naano's quarterly benchmark report on B2B creator-led growth. It publishes the proprietary CPL, CTR,
-                time-to-launch, and conversion metrics from every campaign that ran on the Naano marketplace during Q1 2026. Numbers are
+                This is the first edition of NaanoX's quarterly benchmark report on B2B creator-led growth. It publishes the proprietary CPL, CTR,
+                time-to-launch, and conversion metrics from every campaign that ran on the NaanoX marketplace during Q1 2026. Numbers are
                 first-party measurements, not estimates, and every table includes the sample size behind it. Where useful, we compare against
                 the most recent public LinkedIn benchmarks so marketers can calibrate against the channels they already run.
               </p>
@@ -77,7 +77,7 @@ export default function BenchmarksQ2() {
               <ArticleH2 id="executive-summary">Executive summary</ArticleH2>
               <ul className="my-5 list-disc pl-6 marker:text-[#9CA3AF] space-y-2">
                 <li>
-                  <strong className={STRONG}>Average CPL on Naano in Q1 2026 was €18.10</strong> across 312 campaigns, ~67–80% below typical
+                  <strong className={STRONG}>Average CPL on NaanoX in Q1 2026 was €18.10</strong> across 312 campaigns, ~67–80% below typical
                   LinkedIn Ads CPL for comparable B2B SaaS audiences (€55–€90). The lowest vertical (marketing-ops, median €16) and the highest
                   (vertical SaaS, median €21) bracket a tighter-than-expected distribution.
                 </li>
@@ -94,7 +94,7 @@ export default function BenchmarksQ2() {
 
               <ArticleH2 id="methodology">Methodology</ArticleH2>
               <p className="my-5">
-                All data in this report is drawn directly from Naano's production database. We did not survey customers, model missing values,
+                All data in this report is drawn directly from NaanoX's production database. We did not survey customers, model missing values,
                 or extrapolate from a sub-sample. Every campaign that completed at least one paid post during the data window is included.
               </p>
               <ul className="my-5 list-disc pl-6 marker:text-[#9CA3AF] space-y-2">
@@ -103,10 +103,10 @@ export default function BenchmarksQ2() {
                 </li>
                 <li>
                   <strong className={STRONG}>Sample:</strong> 312 campaigns from 89 distinct brands; 1,847 individual sponsored posts; ~300 active
-                  creators from the Naano roster.
+                  creators from the NaanoX roster.
                 </li>
                 <li>
-                  <strong className={STRONG}>Definition of “qualified click”:</strong> a click that (a) carries a Naano UTM parameter, (b)
+                  <strong className={STRONG}>Definition of “qualified click”:</strong> a click that (a) carries a NaanoX UTM parameter, (b)
                   successfully resolves to the brand's landing page, and (c) records ≥30 seconds of on-site engagement before a bounce. Bots and
                   crawlers are filtered server-side; visits are deduplicated to one per IP per hour.
                 </li>
@@ -118,7 +118,7 @@ export default function BenchmarksQ2() {
                 </li>
                 <li>
                   <strong className={STRONG}>Comparison baselines:</strong> the LinkedIn B2B Marketing Benchmark 2025 (CTR, CPM), public LinkedIn
-                  Ads CPC ranges as reported by industry analysts, and Naano-internal pre-campaign baselines collected at brand-onboarding intake.
+                  Ads CPC ranges as reported by industry analysts, and NaanoX-internal pre-campaign baselines collected at brand-onboarding intake.
                 </li>
                 <li>
                   <strong className={STRONG}>Statistics:</strong> “average” refers to the mean unless otherwise noted. Quartiles (p25, p75) are
@@ -128,7 +128,7 @@ export default function BenchmarksQ2() {
 
               <ArticleH2 id="headline-benchmarks">Headline benchmarks</ArticleH2>
               <p className="my-5">
-                The table below compares the five metrics most often cited in B2B SaaS budget conversations. Naano figures are Q1 2026 means;
+                The table below compares the five metrics most often cited in B2B SaaS budget conversations. NaanoX figures are Q1 2026 means;
                 LinkedIn Ads ranges reflect the most recent publicly reported values for B2B SaaS audiences in EU and US markets.
               </p>
               <DataTable head={headlineHead} rows={headlineRows} cellClasses={[TD, TD_STRONG, TD, TD_GREEN]} />
@@ -171,7 +171,7 @@ export default function BenchmarksQ2() {
 
               <ArticleH2 id="time-to-launch">Time-to-launch distribution</ArticleH2>
               <p className="my-5">
-                Time-to-launch is the number of calendar days between brief submission and the first paid post going live. The median Naano
+                Time-to-launch is the number of calendar days between brief submission and the first paid post going live. The median NaanoX
                 campaign launched 7 days after brief submission, with 25% of campaigns launching in 5 days or fewer.
               </p>
               <DataTable
@@ -179,7 +179,7 @@ export default function BenchmarksQ2() {
                 rows={launchRows.map((r) => [
                   r.label,
                   r.days,
-                  <span key={r.label} aria-hidden="true" className="inline-block h-2 rounded-full bg-[#1652F0]" style={{ width: r.width }} />,
+                  <span key={r.label} aria-hidden="true" className="inline-block h-2 rounded-full bg-[#7C5CFC]" style={{ width: r.width }} />,
                 ])}
                 cellClasses={[TD_STRONG, TD, 'px-4 py-3 border-b border-[#F3F4F6] align-middle']}
               />
@@ -191,11 +191,11 @@ export default function BenchmarksQ2() {
               <ArticleH2 id="conversion-benchmarks">Conversion benchmarks (post → site → demo)</ArticleH2>
               <p className="my-5">
                 The funnel below traces the median journey from a creator-led LinkedIn post to a sales-qualified lead, using the subset of
-                campaigns where the brand granted Naano access to downstream CRM events (n=104 campaigns, ~33% of the dataset).
+                campaigns where the brand granted NaanoX access to downstream CRM events (n=104 campaigns, ~33% of the dataset).
               </p>
               <DataTable head={funnelHead} rows={funnelRows} cellClasses={[TD_STRONG, TD_GREEN, TD_MUTED]} />
               <p className="my-5">
-                The composite implies that a qualified click acquired via Naano has a ~3.4% chance of becoming an SQL within 30 days of the
+                The composite implies that a qualified click acquired via NaanoX has a ~3.4% chance of becoming an SQL within 30 days of the
                 originating post. At a €18 average CPL, that implies an effective{' '}
                 <strong className={STRONG}>cost-per-SQL of approximately €530</strong>, substantially below the €1,200–€1,800 cost-per-SQL most
                 B2B SaaS marketers report on LinkedIn Ads for comparable audiences.
@@ -207,10 +207,10 @@ export default function BenchmarksQ2() {
 
               <ArticleH2 id="channel-mix">Channel mix observations</ArticleH2>
               <p className="my-5">
-                Naano-using brands rarely treat creator-led growth as a stand-alone channel. The dominant pattern in Q1 2026 was a three-layer
-                stack: (1) Naano creator posts to generate initial reach and warm interest, (2) LinkedIn Ads retargeting against the engagers
-                list exported from Naano, and (3) warm SDR outbound sequences to commenters and sharers. Brands that ran all three layers in
-                sequence reported a ~38% lift in pipeline-per-click versus brands that ran Naano alone, a finding consistent with the
+                NaanoX-using brands rarely treat creator-led growth as a stand-alone channel. The dominant pattern in Q1 2026 was a three-layer
+                stack: (1) NaanoX creator posts to generate initial reach and warm interest, (2) LinkedIn Ads retargeting against the engagers
+                list exported from NaanoX, and (3) warm SDR outbound sequences to commenters and sharers. Brands that ran all three layers in
+                sequence reported a ~38% lift in pipeline-per-click versus brands that ran NaanoX alone, a finding consistent with the
                 well-documented retargeting amplification effect.
               </p>
               <p className="my-5">
@@ -220,7 +220,7 @@ export default function BenchmarksQ2() {
                 the 1.5–3× range on retargeting campaigns.
               </p>
               <p className="my-5">
-                The third observation worth flagging: brands that paired Naano with a structured warm-outbound program saw the highest pipeline
+                The third observation worth flagging: brands that paired NaanoX with a structured warm-outbound program saw the highest pipeline
                 conversion. Reply rates on outbound messages referencing a creator's post averaged 39.6% in Q1 2026, versus the ~5% industry
                 baseline for cold outbound. This makes the creator post not just an acquisition asset but also a pre-qualifying signal for SDR
                 teams: every engager is, by construction, an in-market reader of vertical-specific content.
@@ -242,12 +242,12 @@ export default function BenchmarksQ2() {
                 figure on this page with attribution. The recommended citation format is:
               </p>
               <blockquote className="relative border-l-2 border-[#111827] pl-6 my-10 text-[#111827] italic text-[19px] leading-[1.6]">
-                Naano. <em>Q2 2026 B2B Creator-Led Growth Benchmark Report.</em> Published April 27, 2026. https://naano.com/benchmarks/q2-2026.
+                NaanoX. <em>Q2 2026 B2B Creator-Led Growth Benchmark Report.</em> Published April 27, 2026. https://naano.com/benchmarks/q2-2026.
                 Sample: 312 campaigns, 1,847 sponsored posts, ~300 creators, Q1 2026.
               </blockquote>
               <p className="my-5">
                 For external benchmarks referenced in this report, please cite the original source: the LinkedIn B2B Marketing Benchmark report
-                for CTR/CPM comparisons, and any analyst report you draw CPC ranges from. Naano-specific numbers can be cited as “Naano
+                for CTR/CPM comparisons, and any analyst report you draw CPC ranges from. NaanoX-specific numbers can be cited as “NaanoX
                 marketplace data, Q1 2026”.
               </p>
               <p className="my-5">
@@ -259,7 +259,7 @@ export default function BenchmarksQ2() {
               <p className="my-5">
                 Q3 2026 will repeat this analysis on Q2 2026 campaign data, with two additions: a per-creator persistence cohort (do
                 top-performing creators repeat?) and a CAC-payback section for customers who share post-SQL revenue data. If you want to be
-                notified when the next edition publishes, the fastest path is to start a campaign. Naano customers receive each quarterly report
+                notified when the next edition publishes, the fastest path is to start a campaign. NaanoX customers receive each quarterly report
                 two weeks before public release.
               </p>
               <p className="my-5">

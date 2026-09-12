@@ -38,7 +38,7 @@ export default function BrowseCampaigns() {
 
   return (
     <>
-      <PageHeader title="Open campaigns" subtitle="Briefs published by B2B brands. Apply with a short pitch; the brand books you and Naano handles the payment." />
+      <PageHeader title="Open campaigns" subtitle="Briefs published by B2B brands. Apply with a short pitch; the brand books you and NaanoX handles the payment." />
       <div className="flex flex-col gap-3 sm:flex-row mb-6">
         <div className="relative flex-1">
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9CA3AF]" width={18} height={18} />
@@ -66,7 +66,7 @@ export default function BrowseCampaigns() {
             const eligible = !c.min_followers || (creator.data?.followers ?? 0) >= c.min_followers
             return (
               <Link key={c.id} to={`/app/campaigns/${c.id}`} className="block">
-                <Card className="h-full hover:border-[#2563eb]/40 transition-colors">
+                <Card className="h-full hover:border-[#7C5CFC]/40 transition-colors">
                   <div className="flex items-start gap-3">
                     <Avatar src={c.companies?.logo_url} name={c.companies?.name} size={40} className="rounded-xl" />
                     <div className="min-w-0 flex-1">

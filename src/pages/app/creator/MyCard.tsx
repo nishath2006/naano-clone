@@ -251,11 +251,11 @@ export default function MyCard() {
             </div>
             <div className="mt-4 flex flex-col gap-2 text-sm text-[#4B5563]">
               <label className="flex items-center gap-2">
-                <input type="checkbox" checked={form.accepting_bookings} onChange={(e) => set('accepting_bookings', e.target.checked)} className="h-4 w-4 accent-[#2563eb]" />
+                <input type="checkbox" checked={form.accepting_bookings} onChange={(e) => set('accepting_bookings', e.target.checked)} className="h-4 w-4 accent-[#7C5CFC]" />
                 Accepting bookings
               </label>
               <label className="flex items-center gap-2">
-                <input type="checkbox" checked={form.is_public} onChange={(e) => set('is_public', e.target.checked)} className="h-4 w-4 accent-[#2563eb]" />
+                <input type="checkbox" checked={form.is_public} onChange={(e) => set('is_public', e.target.checked)} className="h-4 w-4 accent-[#7C5CFC]" />
                 Show my card on the marketplace
               </label>
             </div>

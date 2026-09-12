@@ -130,7 +130,7 @@ export default function Marketplace() {
               <option value="1000">Up to €1,000</option>
             </Select>
             <label className="flex h-10 items-center gap-2 text-sm text-[#4B5563]">
-              <input type="checkbox" checked={filters.bookingOnly} onChange={(e) => update({ bookingOnly: e.target.checked })} className="h-4 w-4 accent-[#2563eb]" />
+              <input type="checkbox" checked={filters.bookingOnly} onChange={(e) => update({ bookingOnly: e.target.checked })} className="h-4 w-4 accent-[#7C5CFC]" />
               Accepting bookings
             </label>
           </div>

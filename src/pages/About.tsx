@@ -7,7 +7,7 @@ import { LucideArrowRight, LucideLinkedIn } from '@/components/site/icons'
 import { ABOUT_COPY, ABOUT_TEAM } from '@/data/about'
 import { useLocale } from '@/lib/locale'
 
-const GLANCE_LINK = 'text-[#1652F0] underline underline-offset-4 decoration-[#1652F0]/30 hover:decoration-[#1652F0]'
+const GLANCE_LINK = 'text-[#7C5CFC] underline underline-offset-4 decoration-[#7C5CFC]/30 hover:decoration-[#7C5CFC]'
 
 const H2_SMALL = 'text-[clamp(24px,3vw,36px)] font-light leading-[1.15] tracking-[-0.02em] text-foreground'
 
@@ -93,7 +93,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Naano at a glance */}
+      {/* NaanoX at a glance */}
       <section className="bg-white pb-20 px-4 sm:px-6">
         <div className="max-w-[760px] mx-auto">
           <div className="fade-up">

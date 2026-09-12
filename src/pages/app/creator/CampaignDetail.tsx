@@ -76,7 +76,7 @@ export default function CreatorCampaignDetail() {
               <div>
                 <div className="text-sm font-bold">{c.companies?.name}</div>
                 {c.companies?.website && (
-                  <a href={c.companies.website} target="_blank" rel="noreferrer" className="text-xs text-[#2563eb]">
+                  <a href={c.companies.website} target="_blank" rel="noreferrer" className="text-xs text-[#7C5CFC]">
                     {c.companies.website.replace(/^https?:\/\//, '')}
                   </a>
                 )}
@@ -155,7 +155,7 @@ export default function CreatorCampaignDetail() {
             <Card>
               <p className="text-sm text-[#6B7280]">
                 Finish your card before applying.{' '}
-                <Link to="/app/profile" className="font-semibold text-[#2563eb]">
+                <Link to="/app/profile" className="font-semibold text-[#7C5CFC]">
                   Edit card
                 </Link>
               </p>

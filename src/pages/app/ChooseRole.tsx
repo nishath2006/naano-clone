@@ -34,7 +34,7 @@ export default function ChooseRole() {
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
       <div className="w-full max-w-md">
-        <img src="/logo.svg" alt="naano" className="h-7 mb-8" />
+        <img src="/logo.svg" alt="NaanoX" className="h-7 mb-8" />
         <h1 className="text-2xl font-bold text-[#111827]">Who are you here as?</h1>
         <p className="text-sm text-[#6B7280] mt-1 mb-6">This can't be changed later.</p>
         <div className="space-y-3">
@@ -42,7 +42,7 @@ export default function ChooseRole() {
             type="button"
             disabled={pending !== null}
             onClick={() => void choose('creator')}
-            className="w-full text-left rounded-xl border border-[#D1D5DB] bg-white p-5 transition-colors hover:border-[#2563eb] hover:bg-[#F5F8FF] cursor-pointer disabled:opacity-60"
+            className="w-full text-left rounded-xl border border-[#D1D5DB] bg-white p-5 transition-colors hover:border-[#7C5CFC] hover:bg-[#F7F4FF] cursor-pointer disabled:opacity-60"
           >
             <div className="text-base font-semibold text-[#111827]">I'm a creator</div>
             <p className="text-sm text-[#6B7280] mt-1">Get paid to create LinkedIn content for B2B brands you actually use.</p>
@@ -51,7 +51,7 @@ export default function ChooseRole() {
             type="button"
             disabled={pending !== null}
             onClick={() => void choose('company')}
-            className="w-full text-left rounded-xl border border-[#D1D5DB] bg-white p-5 transition-colors hover:border-[#2563eb] hover:bg-[#F5F8FF] cursor-pointer disabled:opacity-60"
+            className="w-full text-left rounded-xl border border-[#D1D5DB] bg-white p-5 transition-colors hover:border-[#7C5CFC] hover:bg-[#F7F4FF] cursor-pointer disabled:opacity-60"
           >
             <div className="text-base font-semibold text-[#111827]">I'm a brand</div>
             <p className="text-sm text-[#6B7280] mt-1">Find creators, launch campaigns, and trace real pipeline back to each post.</p>

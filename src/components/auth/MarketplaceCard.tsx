@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState, type MouseEvent, type ReactNode } from 'react'
+import { BrandWordmark } from '@/components/shared/BrandWordmark'
 
 /**
  * The 3D "Marketplace card" preview shown on /register?role=influencer
@@ -31,7 +32,7 @@ function CardHeader() {
       >
         <span className="absolute -right-16 -top-20 h-32 w-32 rounded-full border border-white/15 shadow-[0_0_0_20px_rgba(255,255,255,0.045),0_0_0_40px_rgba(255,255,255,0.025)]" />
         <span className="absolute -bottom-12 -left-12 h-20 w-20 rounded-full border border-white/15 shadow-[0_0_0_16px_rgba(255,255,255,0.035)]" />
-        <img alt="" className="relative z-10 mb-3 h-auto w-[min(32%,112px)] max-h-7 brightness-0 invert sm:mb-3.5 sm:max-h-8" src="/lp/naano-logo-nav.png" />
+        <BrandWordmark inverted height={28} className="relative z-10 mb-3 sm:mb-3.5" />
       </div>
       <span
         aria-label="Open my LinkedIn profile"
@@ -44,7 +45,7 @@ function CardHeader() {
         </span>
       </span>
       <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 translate-y-1/2">
-        <div className="group/avatar relative rounded-full shadow-[0_10px_24px_rgba(37,99,235,0.20)] ring-[3px] ring-[#2563EB]">
+        <div className="group/avatar relative rounded-full shadow-[0_10px_24px_rgba(124,92,252,0.20)] ring-[3px] ring-[#7C5CFC]">
           <div
             style={{
               width: 78,
@@ -131,10 +132,10 @@ function FlipPill({ label, onClick }: { label: string; onClick: () => void }) {
         e.stopPropagation()
         onClick()
       }}
-      className="absolute bottom-9 left-1/2 z-40 flex h-[43px] min-w-[168px] -translate-x-1/2 translate-y-1/2 items-center justify-between gap-3 rounded-full border border-[#B2C6F1] bg-white/95 pl-4 pr-1.5 px-3.5 text-[13px] font-semibold text-[#24324A] opacity-0 shadow-[0_10px_24px_rgba(37,99,235,0.16)] backdrop-blur-md transition-opacity duration-300 group-hover/physical-card:opacity-100 focus-visible:opacity-100 cursor-pointer"
+      className="absolute bottom-9 left-1/2 z-40 flex h-[43px] min-w-[168px] -translate-x-1/2 translate-y-1/2 items-center justify-between gap-3 rounded-full border border-[#B2C6F1] bg-white/95 pl-4 pr-1.5 px-3.5 text-[13px] font-semibold text-[#24324A] opacity-0 shadow-[0_10px_24px_rgba(124,92,252,0.16)] backdrop-blur-md transition-opacity duration-300 group-hover/physical-card:opacity-100 focus-visible:opacity-100 cursor-pointer"
     >
       <span>{label}</span>
-      <span aria-hidden="true" className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#2563EB] text-white">
+      <span aria-hidden="true" className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#7C5CFC] text-white">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M5 12h14" />
           <path d="m12 5 7 7-7 7" />
@@ -172,7 +173,7 @@ function FrontFace({ onFlip }: { onFlip: () => void }) {
           <div className="mx-auto mt-4 flex max-w-[360px] items-center gap-3 pb-5 text-left">
             <span className="shrink-0 text-xs font-medium text-[#8A909B]">Data</span>
             <span className="h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-[#E8EBF1]" role="progressbar" aria-valuenow={0}>
-              <span className="block h-full rounded-full bg-[linear-gradient(90deg,#2563EB,#7C8DF6)]" style={{ width: '0%' }} />
+              <span className="block h-full rounded-full bg-[linear-gradient(90deg,#7C5CFC,#7C8DF6)]" style={{ width: '0%' }} />
             </span>
             <span className="shrink-0 text-xs font-semibold text-[#6B7280]">Pending</span>
           </div>
@@ -312,8 +313,8 @@ export function MarketplaceCard() {
         onMouseMove={onMove}
         onMouseLeave={onLeave}
       >
-        <span aria-hidden="true" className="pointer-events-none absolute bottom-10 left-1 z-0 h-14 w-[42%] -rotate-[8deg] rounded-[50%] bg-[rgba(59,90,154,0.14)] opacity-70 blur-[24px]" />
-        <span aria-hidden="true" className="pointer-events-none absolute bottom-10 right-1 z-0 h-14 w-[42%] rotate-[8deg] rounded-[50%] bg-[rgba(59,90,154,0.14)] opacity-70 blur-[24px]" />
+        <span aria-hidden="true" className="pointer-events-none absolute bottom-10 left-1 z-0 h-14 w-[42%] -rotate-[8deg] rounded-[50%] bg-[rgba(109,78,245,0.14)] opacity-70 blur-[24px]" />
+        <span aria-hidden="true" className="pointer-events-none absolute bottom-10 right-1 z-0 h-14 w-[42%] rotate-[8deg] rounded-[50%] bg-[rgba(109,78,245,0.14)] opacity-70 blur-[24px]" />
         <div
           ref={tiltRef}
           className="group/tilt relative z-10 [transform-style:preserve-3d] transition-transform duration-200 ease-out"

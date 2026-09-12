@@ -8,9 +8,9 @@ import { ArrowRightIcon } from '@/components/tools/ToolIcons'
 import { Dot, FaqSection, MoreFreeTools, SectionHeading, TOOLS_MAIN_CLASS, ToolHero, ToolSection } from '@/components/tools/ToolSections'
 
 const META = {
-  title: 'LinkedIn Creator Worth Calculator — Free | Naano',
+  title: 'LinkedIn Creator Worth Calculator — Free | NaanoX',
   description:
-    'Free calculator: enter your LinkedIn followers and engagement to see what a sponsored post is worth in euros, based on Naano marketplace flat-fee data.',
+    'Free calculator: enter your LinkedIn followers and engagement to see what a sponsored post is worth in euros, based on NaanoX marketplace flat-fee data.',
 }
 
 /* ---------------------------------------------------------------------------
@@ -36,7 +36,7 @@ const RATINGS = {
   good: {
     label: 'Good',
     detail: 'Above the typical B2B benchmark. Your audience clearly pays attention, which is exactly what sponsors buy.',
-    badgeClass: 'bg-[#E8F0FE] text-[#1652F0] border border-[#1652F0]/20',
+    badgeClass: 'bg-[#EEE9FF] text-[#7C5CFC] border border-[#7C5CFC]/20',
   },
   average: {
     label: 'Average',
@@ -58,7 +58,7 @@ const num = (raw: string) => {
 const euro = (n: number) => `€${n.toLocaleString('en-US')}`
 
 const INPUT =
-  'mt-2 w-full min-h-11 rounded-xl border border-[#E4E1DC] bg-white px-4 py-3 text-[16px] text-[#17181C] placeholder:text-[#B4B4B0] shadow-[0_1px_2px_rgba(23,24,28,0.03)] focus:outline-none focus:ring-2 focus:ring-[#1652F0] focus:border-transparent transition-shadow motion-reduce:transition-none'
+  'mt-2 w-full min-h-11 rounded-xl border border-[#E4E1DC] bg-white px-4 py-3 text-[16px] text-[#17181C] placeholder:text-[#B4B4B0] shadow-[0_1px_2px_rgba(23,24,28,0.03)] focus:outline-none focus:ring-2 focus:ring-[#7C5CFC] focus:border-transparent transition-shadow motion-reduce:transition-none'
 const LABEL = 'block text-[14px] font-semibold text-[#17181C]'
 const HINT = 'mt-1.5 text-[13px] text-[#6B6D74]'
 
@@ -216,13 +216,13 @@ function WorthCalculator() {
               <p className="mt-2 text-3xl font-semibold tracking-[-0.02em] text-[#17181C]">{result.engagementRatePct.toFixed(2)}%</p>
               <p className="mt-2 text-[14px] leading-relaxed text-[#55575E]">{result.rating.detail}</p>
             </div>
-            <div className="rounded-xl border border-[#1652F0]/25 bg-[#E8F0FE]/50 p-5 shadow-[0_8px_24px_rgba(22,82,240,0.10)]">
-              <span className="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#1652F0]">Estimated value per sponsored post</span>
-              <p className="mt-2 text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-[#1652F0]">
+            <div className="rounded-xl border border-[#7C5CFC]/25 bg-[#EEE9FF]/50 p-5 shadow-[0_8px_24px_rgba(124,92,252,0.10)]">
+              <span className="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#7C5CFC]">Estimated value per sponsored post</span>
+              <p className="mt-2 text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-[#7C5CFC]">
                 {euro(result.perPostLow)} – {euro(result.perPostHigh)}
               </p>
               <p className="mt-2 text-[14px] leading-relaxed text-[#55575E]">
-                Flat fee for one sponsored post, the pricing model used on the Naano marketplace. Creators set their own rate; this range is where profiles like yours typically land.
+                Flat fee for one sponsored post, the pricing model used on the NaanoX marketplace. Creators set their own rate; this range is where profiles like yours typically land.
               </p>
             </div>
             <div className="rounded-xl border border-[#ECEAE6] bg-[#FAFAF9] p-5">
@@ -257,7 +257,7 @@ const STEPS = [
   },
   {
     title: 'Base value',
-    text: '€12 per 1,000 followers, with a floor of €100 — the minimum flat fee on Naano. This anchors the estimate to audience size before quality adjustments.',
+    text: '€12 per 1,000 followers, with a floor of €100 — the minimum flat fee on NaanoX. This anchors the estimate to audience size before quality adjustments.',
   },
   {
     title: 'Engagement adjustment',
@@ -265,7 +265,7 @@ const STEPS = [
   },
   {
     title: 'Niche multiplier',
-    text: 'B2B SaaS / Tech ×1.2, Finance ×1.15, Sales / Marketing ×1.1, HR / Future of work ×1.0, Other ×0.9 — reflecting what sponsors pay to reach each audience on Naano.',
+    text: 'B2B SaaS / Tech ×1.2, Finance ×1.15, Sales / Marketing ×1.1, HR / Future of work ×1.0, Other ×0.9 — reflecting what sponsors pay to reach each audience on NaanoX.',
   },
   {
     title: 'Range and monthly potential',
@@ -276,19 +276,19 @@ const STEPS = [
 const FAQ = [
   {
     q: 'How accurate is this calculator?',
-    a: 'It is an estimate, not a quote. The formula is calibrated on flat fees actually paid on the Naano marketplace (Q2 2026), where sponsored posts run from €100 to roughly €1,500 depending on audience and engagement. It cannot see qualitative factors — audience seniority, content quality, niche authority — so treat the range as a starting point for setting or budgeting a rate, not a guarantee.',
+    a: 'It is an estimate, not a quote. The formula is calibrated on flat fees actually paid on the NaanoX marketplace (Q2 2026), where sponsored posts run from €100 to roughly €1,500 depending on audience and engagement. It cannot see qualitative factors — audience seniority, content quality, niche authority — so treat the range as a starting point for setting or budgeting a rate, not a guarantee.',
   },
   {
     q: 'What makes a LinkedIn creator worth more?',
     a: 'Engagement quality beats follower count. A creator with 8,000 followers and a 5% engagement rate is typically worth more per post than one with 50,000 followers and 0.5%, because sponsors buy attention from a relevant audience. Rates also rise with niche (B2B SaaS and finance audiences carry a premium), comment depth, posting consistency, and how senior the audience is.',
   },
   {
-    q: 'How do creators get paid on Naano?',
+    q: 'How do creators get paid on NaanoX?',
     a: 'Each creator sets a flat fee per sponsored post, starting from €100. Companies see that price up front, book the post, and the creator is paid the fee once the post is published. There is no bidding and no percentage-of-spend arrangement: the creator decides the rate, and this calculator helps pick a defensible one.',
   },
   {
     q: 'Can companies use this calculator to budget?',
-    a: 'Yes. Enter the public numbers of a creator you are considering — followers, typical reactions and comments — and the per-post range tells you what a fair flat fee looks like before you reach out. For a full campaign, multiply by the number of creators and posts, or request a free hand-picked shortlist from Naano with real prices attached.',
+    a: 'Yes. Enter the public numbers of a creator you are considering — followers, typical reactions and comments — and the per-post range tells you what a fair flat fee looks like before you reach out. For a full campaign, multiply by the number of creators and posts, or request a free hand-picked shortlist from NaanoX with real prices attached.',
   },
 ]
 
@@ -296,10 +296,10 @@ const EN = {
   back: 'Free Tools',
   h1: 'LinkedIn Creator Worth Calculator',
   intro:
-    'Find out what a sponsored LinkedIn post is worth — as a flat fee in euros. Type your followers and engagement, get an instant range based on real Naano marketplace rates. Free, no account, nothing leaves your browser.',
+    'Find out what a sponsored LinkedIn post is worth — as a flat fee in euros. Type your followers and engagement, get an instant range based on real NaanoX marketplace rates. Free, no account, nothing leaves your browser.',
   howHeading: 'How the estimate works',
   howIntro:
-    'No black box: here is the exact formula, calibrated on flat fees actually paid for sponsored posts on the Naano marketplace, where creators charge from €100 up to roughly €1,500 per post [Naano marketplace data, Q2 2026].',
+    'No black box: here is the exact formula, calibrated on flat fees actually paid for sponsored posts on the NaanoX marketplace, where creators charge from €100 up to roughly €1,500 per post [NaanoX marketplace data, Q2 2026].',
   faqHeading: 'Frequently asked questions',
   moreHeading: 'More free tools',
   open: 'Open',
@@ -307,14 +307,14 @@ const EN = {
   creators: {
     badge: 'For creators',
     title: 'Set your rate and get booked',
-    text: 'Publish your flat fee on Naano — from €100 per post, you decide the price — and let B2B companies book you directly. No pitching, no negotiation threads.',
+    text: 'Publish your flat fee on NaanoX — from €100 per post, you decide the price — and let B2B companies book you directly. No pitching, no negotiation threads.',
     cta: 'Set your rate and get booked',
     href: 'https://naano.com/register?role=influencer',
   },
   companies: {
     badge: 'For companies',
     title: 'Get a free hand-picked creator shortlist',
-    text: 'Describe your campaign and a real person at Naano sends you a shortlist of vetted LinkedIn creators — with their actual flat fees — within 48 hours. Free, no commitment.',
+    text: 'Describe your campaign and a real person at NaanoX sends you a shortlist of vetted LinkedIn creators — with their actual flat fees — within 48 hours. Free, no commitment.',
     cta: 'Get a free creator shortlist',
     href: 'https://naano.com/selection',
   },
@@ -347,7 +347,7 @@ export default function CreatorWorthCalculator() {
         <ol className="mt-8 space-y-6">
           {STEPS.map((s, i) => (
             <li key={s.title} className="flex gap-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#E8F0FE] text-[14px] font-semibold text-[#1652F0]">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#EEE9FF] text-[14px] font-semibold text-[#7C5CFC]">
                 {i + 1}
               </span>
               <div>
@@ -371,14 +371,14 @@ export default function CreatorWorthCalculator() {
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <div className="flex flex-col rounded-2xl border border-[#E4E1DC] bg-white p-7 shadow-[0_2px_10px_rgba(23,24,28,0.05)]">
-              <span className="inline-flex self-start items-center rounded-full bg-[#E8F0FE] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#1652F0]">
+              <span className="inline-flex self-start items-center rounded-full bg-[#EEE9FF] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#7C5CFC]">
                 {c.creators.badge}
               </span>
               <h3 className="mt-5 text-xl font-semibold tracking-[-0.02em] text-[#17181C]">{c.creators.title}</h3>
               <p className="mt-3 text-[15px] leading-relaxed text-[#55575E] flex-1">{c.creators.text}</p>
               <NavAnchor
                 href={c.creators.href}
-                className="mt-6 inline-flex min-h-11 self-start items-center gap-2 rounded-xl bg-[#1652F0] px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#1240D0] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1652F0] focus-visible:ring-offset-2"
+                className="mt-6 inline-flex min-h-11 self-start items-center gap-2 rounded-xl bg-[#7C5CFC] px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#6D4EF5] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC] focus-visible:ring-offset-2"
               >
                 {c.creators.cta}
                 <ArrowRightIcon size={15} />

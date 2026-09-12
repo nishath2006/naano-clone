@@ -29,7 +29,7 @@ export function CreatorAvatar({ profile }: { profile: CreatorProfile }) {
           borderRadius: '50%',
           objectFit: 'cover',
           border: '3px solid #FFFFFF',
-          boxShadow: '0 0 0 1px #E5E9F0, 0 4px 12px rgba(22,82,240,0.10)',
+          boxShadow: '0 0 0 1px #E5E9F0, 0 4px 12px rgba(124,92,252,0.10)',
           flexShrink: 0,
         }}
       />
@@ -41,7 +41,7 @@ export function CreatorAvatar({ profile }: { profile: CreatorProfile }) {
         width: 86,
         height: 86,
         borderRadius: '50%',
-        background: '#EAF0FF',
+        background: '#EEE9FF',
         border: '3px solid #FFFFFF',
         boxShadow: '0 0 0 1px #E5E9F0',
         display: 'flex',
@@ -49,7 +49,7 @@ export function CreatorAvatar({ profile }: { profile: CreatorProfile }) {
         justifyContent: 'center',
         fontSize: 30.96,
         fontWeight: 800,
-        color: '#1652F0',
+        color: '#7C5CFC',
         flexShrink: 0,
       }}
     >
@@ -69,7 +69,7 @@ export function CreatorHeader({ profile, copy }: { profile: CreatorProfile; copy
         border: '1px solid #E5E9F0',
         borderRadius: 16,
         padding: '26px 26px 22px',
-        boxShadow: '0 6px 24px rgba(22,82,240,0.07)',
+        boxShadow: '0 6px 24px rgba(124,92,252,0.07)',
         marginBottom: 14,
       }}
     >
@@ -91,7 +91,7 @@ export function CreatorHeader({ profile, copy }: { profile: CreatorProfile; copy
                 </span>
               )}
               {profile.sectors.map((s) => (
-                <span key={s} style={{ fontSize: 11.5, fontWeight: 600, color: '#1652F0', background: '#EAF0FF', padding: '3px 10px', borderRadius: 999 }}>
+                <span key={s} style={{ fontSize: 11.5, fontWeight: 600, color: '#7C5CFC', background: '#EEE9FF', padding: '3px 10px', borderRadius: 999 }}>
                   {s}
                 </span>
               ))}

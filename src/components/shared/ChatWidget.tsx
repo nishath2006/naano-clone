@@ -28,7 +28,7 @@ export function ChatWidget() {
     setMessages((m) => [
       ...m,
       { role: 'user', text },
-      { role: 'bot', text: 'The live assistant is not part of this front-end clone. Try the navigation above to explore Naano.' },
+      { role: 'bot', text: 'The live assistant is not part of this front-end clone. Try the navigation above to explore NaanoX.' },
     ])
     setValue('')
     setOpen(true)
@@ -40,7 +40,7 @@ export function ChatWidget() {
         <aside className="nn-chat__panel" aria-label="Conversation">
           <div className="nn-chat__panel-head">
             <strong>Hi there</strong>
-            <span>Ask Naano anything.</span>
+            <span>Ask NaanoX anything.</span>
             <button type="button" aria-label="Close chat" className="nn-chat__close" onClick={() => setOpen(false)}>
               <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="currentColor" d="m6.7 5.64 5.3 5.3 5.3-5.3 1.06 1.06-5.3 5.3 5.3 5.3-1.06 1.06-5.3-5.3-5.3 5.3-1.06-1.06 5.3-5.3-5.3-5.3 1.06-1.06Z" />
@@ -88,7 +88,7 @@ export function ChatWidget() {
           }}
         >
           <button type="button" className="nn-chat__mark" tabIndex={-1} aria-label="Assistant">
-            <img src="/lp/naano-logomark.png" alt="" width={22} height={22} />
+            <img src="/logo.svg" alt="" width={22} height={22} />
           </button>
           <div className="nn-chat__body">
             {!value && (

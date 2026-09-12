@@ -77,7 +77,7 @@ export default function Campaigns() {
               {rows.map((c) => (
                 <tr key={c.id} className="hover:bg-[#FAFAFA]">
                   <td className="px-4 py-3">
-                    <Link to={`/app/campaigns/${c.id}`} className="font-semibold text-[#111827] hover:text-[#2563eb]">
+                    <Link to={`/app/campaigns/${c.id}`} className="font-semibold text-[#111827] hover:text-[#7C5CFC]">
                       {c.title}
                     </Link>
                     <div className="text-xs text-[#9CA3AF]">{c.objective ? `${c.objective} · ` : ''}{c.posts_wanted} post{c.posts_wanted > 1 ? 's' : ''} wanted</div>

@@ -23,7 +23,7 @@ export default function Earnings() {
 
   return (
     <>
-      <PageHeader title="Earnings" subtitle="Naano invoices the brand and pays you within 24h of your post going live. No chasing." />
+      <PageHeader title="Earnings" subtitle="NaanoX invoices the brand and pays you within 24h of your post going live. No chasing." />
       {q.loading ? (
         <Skeleton className="h-24" />
       ) : (
@@ -50,7 +50,7 @@ export default function Earnings() {
             {q.data?.payments.map((p) => (
               <li key={p.id} className="flex items-center justify-between gap-3 px-5 py-3.5 text-sm">
                 <div className="min-w-0">
-                  <Link to={`/app/collaborations/${p.collaboration_id}`} className="block truncate font-semibold hover:text-[#2563eb]">
+                  <Link to={`/app/collaborations/${p.collaboration_id}`} className="block truncate font-semibold hover:text-[#7C5CFC]">
                     {p.collaborations?.campaigns?.title ?? 'Sponsored post'}
                   </Link>
                   <div className="text-xs text-[#9CA3AF]">

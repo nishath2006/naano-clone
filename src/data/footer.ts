@@ -12,14 +12,14 @@ export type FooterCopy = {
 
 const press: NavLink[] = [
   { label: 'Interview Thomas Marcelle, Xymag.tv', href: 'https://www.xymag.tv/les-videos/interview-de-thomas-marcelle-createur-de-naano/' },
-  { label: 'Naano on FounderTrace', href: 'https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/' },
-  { label: 'Naano on TechnicalBeep', href: 'https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/' },
+  { label: 'NaanoX on FounderTrace', href: 'https://foundertrace.fr/25-000e-de-ca-en-2-mois-comment-trois-etudiants-ont-reinvente-la-micro-influence-b2b-avec-naano/' },
+  { label: 'NaanoX on TechnicalBeep', href: 'https://technicalbeep.com/naano-b2b-linkedin-creator-pay-per-click/' },
 ]
 
 const pressFr: NavLink[] = [
   { label: 'Entretien avec Thomas Marcelle, Xymag.tv', href: press[0].href },
-  { label: 'Naano sur FounderTrace', href: press[1].href },
-  { label: 'Naano sur TechnicalBeep', href: press[2].href },
+  { label: 'NaanoX sur FounderTrace', href: press[1].href },
+  { label: 'NaanoX sur TechnicalBeep', href: press[2].href },
 ]
 
 const resourceHrefs = [
@@ -53,7 +53,7 @@ const resourcesEn = [
   'Nano vs macro creators in B2B',
   'B2B influence on LinkedIn',
   'Founder-led distribution for SaaS',
-  'Naano vs alternatives',
+  'NaanoX vs alternatives',
 ].map((label, i) => ({ label, href: resourceHrefs[i] }))
 
 const resourcesFr = [
@@ -70,7 +70,7 @@ const resourcesFr = [
   'Créateurs nano vs macro en B2B',
   'Influence B2B sur LinkedIn',
   'Distribution SaaS portée par les fondateurs',
-  'Naano par rapport aux alternatives',
+  'NaanoX par rapport aux alternatives',
 ].map((label, i) => ({ label, href: resourceHrefs[i] }))
 
 /** Footer of the landing pages (home, creators, agencies). */
@@ -181,8 +181,8 @@ export function getSiteFooter(locale: Locale) {
       heading: 'Press',
       links: [
         { label: 'Interview Thomas Marcelle — Xymag.tv', href: press[0].href },
-        { label: 'Naano on FounderTrace', href: press[1].href },
-        { label: 'Naano on TechnicalBeep', href: press[2].href },
+        { label: 'NaanoX on FounderTrace', href: press[1].href },
+        { label: 'NaanoX on TechnicalBeep', href: press[2].href },
       ],
     },
     resources: {
@@ -200,7 +200,7 @@ export function getSiteFooter(locale: Locale) {
         { label: 'Nano vs macro creators in B2B', href: '/blog/nano-vs-macro-creators-b2b-ctr' },
         { label: 'B2B influence on LinkedIn', href: '/blog/b2b-influence-linkedin' },
         { label: 'Founder-led distribution for SaaS', href: '/blog/founder-led-distribution-b2b-saas' },
-        { label: 'Naano vs alternatives', href: '/blog/naano-vs-alternatives' },
+        { label: 'NaanoX vs alternatives', href: '/blog/naano-vs-alternatives' },
       ],
       aiHeading: 'For AI agents',
       aiLinks: [

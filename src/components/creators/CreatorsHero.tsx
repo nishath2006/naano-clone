@@ -12,7 +12,7 @@ const copy = {
     primary: 'Start earning',
     secondary: 'See how it works',
     trust: 'Free to join · No exclusivity · Paid within 24h',
-    brands: 'THE BRANDS ALREADY ON NAANO',
+    brands: 'THE BRANDS ALREADY ON NAANOX',
   },
   fr: {
     pill: '2 000+ créateurs payés · note 4,8/5',
@@ -23,7 +23,7 @@ const copy = {
     primary: 'Commencer à gagner',
     secondary: 'Voir comment ça marche',
     trust: 'Gratuit · Sans exclusivité · Payé sous 24h',
-    brands: 'LES MARQUES DÉJÀ SUR NAANO',
+    brands: 'LES MARQUES DÉJÀ SUR NAANOX',
   },
 }
 

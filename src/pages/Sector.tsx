@@ -40,7 +40,7 @@ function SectorPage({ s }: { s: SectorData }) {
           <HeroBackLink />
         </div>
         <div className="max-w-[840px]">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-white/85 font-semibold mb-6">Naano for {s.label}</p>
+          <p className="text-[11px] uppercase tracking-[0.16em] text-white/85 font-semibold mb-6">NaanoX for {s.label}</p>
           <h1 className="text-[clamp(32px,5vw,54px)] font-light leading-[1.06] tracking-[-0.025em] mb-7">{s.h1}</h1>
           <p className="text-base sm:text-lg text-white/85 leading-relaxed max-w-2xl">{s.intro}</p>
           <div className="mt-9 flex flex-wrap gap-3">
@@ -58,7 +58,7 @@ function SectorPage({ s }: { s: SectorData }) {
         <div className="max-w-[840px] mx-auto">
           <div className="text-[17px] text-[#1F2937] leading-[1.75]">
             <ArticleH2 scrollMargin={false} className="mt-4 border-t-0 pt-0">
-              {s.label} benchmarks on Naano (Q1 2026)
+              {s.label} benchmarks on NaanoX (Q1 2026)
             </ArticleH2>
             <p className="my-5">
               First-party cost-per-qualified-click data from the <TextLink href="/benchmarks/q2-2026">Q2 2026 benchmark report</TextLink>, measured
@@ -75,7 +75,7 @@ function SectorPage({ s }: { s: SectorData }) {
             <p className="my-5">{s.analysis}</p>
             <p className="my-5 text-sm text-[#6B7280]">
               Reference: platform-wide average CPL was €18 vs €55–90 typical for LinkedIn Ads in B2B SaaS. CPL = cost per qualified click
-              (UTM-tracked, ≥30s on-site engagement). Cite as: Naano marketplace data, Q1 2026, n={s.n} {s.label} campaigns
+              (UTM-tracked, ≥30s on-site engagement). Cite as: NaanoX marketplace data, Q1 2026, n={s.n} {s.label} campaigns
               (https://naano.com/for/{s.slug}).
             </p>
 
@@ -87,7 +87,7 @@ function SectorPage({ s }: { s: SectorData }) {
               <TextLink href="/blog/nano-vs-macro-creators-b2b-ctr">nano vs macro creators in B2B</TextLink>.
             </p>
 
-            <ArticleH2 scrollMargin={false}>What {s.short} teams use Naano for</ArticleH2>
+            <ArticleH2 scrollMargin={false}>What {s.short} teams use NaanoX for</ArticleH2>
             <ul className="my-5 list-disc pl-6 marker:text-[#9CA3AF] space-y-2">
               {s.bullets.map((b) => (
                 <li key={b}>{b}</li>
@@ -103,7 +103,7 @@ function SectorPage({ s }: { s: SectorData }) {
             <ArticleH2 scrollMargin={false}>FAQ</ArticleH2>
             <FaqList items={s.faq} />
 
-            <ArticleH2 scrollMargin={false}>Naano in other verticals</ArticleH2>
+            <ArticleH2 scrollMargin={false}>NaanoX in other verticals</ArticleH2>
             <div className="my-6 flex flex-wrap gap-2">
               {others.map((slug) => (
                 <Link key={slug} to={`/for/${slug}`} className={CHIP}>

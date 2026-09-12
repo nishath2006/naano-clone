@@ -9,7 +9,7 @@ import { PENDING_ROLE_KEY } from '@/lib/auth'
  * the captured DOM (recon/html/app/*.dom.html).
  */
 
-export const DEFAULT_TITLE = 'Naano: B2B LinkedIn Creator Marketplace'
+export const DEFAULT_TITLE = 'NaanoX: B2B LinkedIn Creator Marketplace'
 
 /** Dark body + document title, mirroring NotFound.tsx. */
 export function useAppShell(title: string = DEFAULT_TITLE) {
@@ -25,11 +25,11 @@ export const OAUTH_BUTTON_CLASS =
 export const OAUTH_BUTTON_STYLE: CSSProperties = { boxShadow: '0 2px 6px rgba(15,23,42,0.05)' }
 
 export const AUTH_INPUT_CLASS =
-  'w-full bg-white border border-[#D1D5DB] rounded-xl px-4 py-3.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/15 transition-all'
+  'w-full bg-white border border-[#D1D5DB] rounded-xl px-4 py-3.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#7C5CFC] focus:ring-2 focus:ring-[#7C5CFC]/15 transition-all'
 export const AUTH_LABEL_CLASS = 'block text-xs font-semibold text-[#5C5B57] uppercase tracking-wide mb-1.5 ml-1'
 export const AUTH_SUBMIT_CLASS =
-  'w-full h-11 bg-[#2563eb] text-white rounded-xl text-sm font-semibold hover:bg-[#1d4ed8] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2'
-export const AUTH_SUBMIT_STYLE: CSSProperties = { boxShadow: '0 4px 12px rgba(37,99,235,0.24)' }
+  'w-full h-11 bg-[#7C5CFC] text-white rounded-xl text-sm font-semibold hover:bg-[#6D4EF5] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2'
+export const AUTH_SUBMIT_STYLE: CSSProperties = { boxShadow: '0 4px 12px rgba(124,92,252,0.24)' }
 
 /**
  * Inline error box. UNKNOWN on the live site (needs a failed backend call);
@@ -176,7 +176,7 @@ export function OAuthButton({
 export function AuthHeader({ className = 'flex items-center justify-between mb-8', wrapLocale = false }: { className?: string; wrapLocale?: boolean }) {
   return (
     <div className={className}>
-      <img src="/logo.svg" alt="naano" className="h-7" />
+      <img src="/logo.svg" alt="NaanoX" className="h-7" />
       {wrapLocale ? (
         <div className="flex items-center gap-3">
           <LocaleButton />
@@ -191,7 +191,7 @@ export function AuthHeader({ className = 'flex items-center justify-between mb-8
 /** Blue right-hand panel (lg+) of the two-column auth layout. */
 export function AuthSidePanel({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="hidden lg:flex flex-1 items-center justify-center p-12 text-white" style={{ background: '#2563eb' }}>
+    <div className="hidden lg:flex flex-1 items-center justify-center p-12 text-white" style={{ background: '#7C5CFC' }}>
       <div className="max-w-sm">
         <h2 className="text-3xl font-bold mb-4">{title}</h2>
         {children}

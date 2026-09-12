@@ -18,7 +18,7 @@ const CARDS_EN: FreeToolCard[] = [
     title: 'Free LinkedIn creator search',
     tagline: 'Get a hand-picked creator shortlist in 48 hours',
     description:
-      'Describe the campaign you want to launch and a real person at Naano finds every LinkedIn creator genuinely worth contacting — inside the Naano marketplace and across the wider LinkedIn ecosystem. You get names, pricing, and audience fit within 48 hours. Free, no account required, no commitment.',
+      'Describe the campaign you want to launch and a real person at NaanoX finds every LinkedIn creator genuinely worth contacting — inside the NaanoX marketplace and across the wider LinkedIn ecosystem. You get names, pricing, and audience fit within 48 hours. Free, no account required, no commitment.',
     pill: 'Hand-picked by a real human, not an algorithm',
     meta: 'Free · 48h turnaround · No account needed',
   },
@@ -48,7 +48,7 @@ const CARDS_EN: FreeToolCard[] = [
     title: 'Sponsored Post Delivery Odds Estimator',
     tagline: 'See how often offers at your price actually get published',
     description:
-      'Enter what you plan to offer a LinkedIn creator per post and see how often real bookings at that price ended in a published post, how often creators simply never answered, and what brands actually paid at that audience size. Built on 239 real sponsored-post bookings from the Naano marketplace, not rules of thumb. Free, no account required.',
+      'Enter what you plan to offer a LinkedIn creator per post and see how often real bookings at that price ended in a published post, how often creators simply never answered, and what brands actually paid at that audience size. Built on 239 real sponsored-post bookings from the NaanoX marketplace, not rules of thumb. Free, no account required.',
     pill: 'Built on 239 real bookings',
     meta: 'Free · Built on 239 real bookings · No account needed',
   },
@@ -58,7 +58,7 @@ const CARDS_EN: FreeToolCard[] = [
     title: 'Creator Campaign Budget Planner',
     tagline: 'Turn a budget into published posts, not just booked ones',
     description:
-      'Enter your campaign budget and see how many sponsored LinkedIn posts it books at real transacted medians — then how many of those historically ended in a published post, and what that makes the true cost per published post. Built on 239 real sponsored-post bookings from the Naano marketplace. Free, no account required.',
+      'Enter your campaign budget and see how many sponsored LinkedIn posts it books at real transacted medians — then how many of those historically ended in a published post, and what that makes the true cost per published post. Built on 239 real sponsored-post bookings from the NaanoX marketplace. Free, no account required.',
     pill: 'Plans on published posts, not booked ones',
     meta: 'Free · Built on 239 real bookings · No account needed',
   },
@@ -135,13 +135,13 @@ export const MORE_TOOLS: Record<MoreToolKey, { en: MoreToolEntry; fr: MoreToolEn
       href: '/free-tools',
       icon: 'sparkles',
       title: 'All free tools',
-      description: 'Every free Naano tool for B2B creator marketing, in one place.',
+      description: 'Every free NaanoX tool for B2B creator marketing, in one place.',
     },
     fr: {
       href: '/free-tools',
       icon: 'sparkles',
       title: 'Tous les outils gratuits',
-      description: 'Tous les outils Naano gratuits pour le marketing de créateurs B2B, en un seul endroit.',
+      description: 'Tous les outils NaanoX gratuits pour le marketing de créateurs B2B, en un seul endroit.',
     },
   },
 }

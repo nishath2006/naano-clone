@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { PlayAccent } from '@/components/lp/fluidIcons'
 
 /**
- * 4:5 video card with the Naano-logo cover and pulsing play button. The cover
+ * 4:5 video card with the NaanoX-logo cover and pulsing play button. The cover
  * is a real <button>; clicking it starts the video with native controls.
  */
 export function CaseVideoCard({
@@ -54,7 +54,7 @@ export function CaseVideoCard({
         >
           <img
             src="/lp/naano-logo-footer.png"
-            alt="Naano"
+            alt="NaanoX"
             style={{ position: 'absolute', left: '50%', top: '42%', transform: 'translate(-50%, -50%)', width: '52%', height: 'auto' }}
           />
           <span

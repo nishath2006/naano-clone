@@ -131,7 +131,7 @@ export default function CreatorDetail() {
                 {posts.map((p) => (
                   <li key={p.id} className="rounded-xl border border-[#E9EBF0] p-3">
                     <div className="mb-1 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-[#9CA3AF]">
-                      {p.kind || 'post'} {p.via_naano && <Badge tone="blue">via Naano</Badge>}
+                      {p.kind || 'post'} {p.via_naano && <Badge tone="blue">via NaanoX</Badge>}
                     </div>
                     <p className="text-xs leading-5 text-[#4B5563] line-clamp-5 whitespace-pre-line">{p.body}</p>
                     <div className="mt-2 flex items-center justify-between text-[11px] text-[#6B7280]">
@@ -139,7 +139,7 @@ export default function CreatorDetail() {
                         {formatCompact(p.reactions)} reactions · {formatCompact(p.comments)} comments
                       </span>
                       {p.url && (
-                        <a href={p.url} target="_blank" rel="noreferrer" className="font-medium text-[#2563eb]">
+                        <a href={p.url} target="_blank" rel="noreferrer" className="font-medium text-[#7C5CFC]">
                           Open
                         </a>
                       )}
@@ -159,7 +159,7 @@ export default function CreatorDetail() {
                 <div className="text-2xl font-bold">{formatMoney(creator.price_cents)}</div>
                 <div className="text-xs text-[#6B7280]">per sponsored post</div>
                 {creator.bundle_posts && creator.bundle_price_cents && (
-                  <div className="mt-3 rounded-xl bg-[#F5F8FF] px-3 py-2 text-xs text-[#1D4ED8]">
+                  <div className="mt-3 rounded-xl bg-[#F7F4FF] px-3 py-2 text-xs text-[#6D4EF5]">
                     Bundle: {creator.bundle_posts} posts for {formatMoney(creator.bundle_price_cents)}
                   </div>
                 )}

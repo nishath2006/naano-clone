@@ -12,7 +12,7 @@ const copy = {
     stats: [
       ['5M+', 'Impressions generated'],
       ['30K+', 'Leads generated'],
-      ['2,000+', 'Creators on Naano'],
+      ['2,000+', 'Creators on NaanoX'],
       ['5K+', 'Posts published'],
     ],
     cta: 'Get started',
@@ -25,7 +25,7 @@ const copy = {
     stats: [
       ['5M+', 'Impressions générées'],
       ['30K+', 'Leads générés'],
-      ['2,000+', 'Créateurs sur Naano'],
+      ['2,000+', 'Créateurs sur NaanoX'],
       ['5K+', 'Posts publiés'],
     ],
     cta: 'Commencer',

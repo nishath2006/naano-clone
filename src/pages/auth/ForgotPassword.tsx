@@ -7,7 +7,7 @@ import { useAuthSubmit } from '@/lib/useAuthSubmit'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const INPUT_CLASS =
-  'w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/10 transition-all'
+  'w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#7C5CFC] focus:ring-2 focus:ring-[#7C5CFC]/10 transition-all'
 const SUBMIT_CLASS =
   'w-full h-11 mt-2 bg-[#0F172A] text-white rounded-xl text-sm font-medium hover:bg-[#1E293B] transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2'
 
@@ -107,8 +107,8 @@ export default function ForgotPassword() {
         <div className="w-full max-w-md bg-white border border-[#E9E9E7] rounded-2xl p-8 shadow-lg">
           <div className="flex items-center justify-between mb-8">
             <Link className="flex items-center gap-2 group cursor-pointer" to="/">
-              <img src="/logo.svg" alt="naano" className="h-8 w-8 object-contain" />
-              <span className="text-2xl font-bold tracking-tight text-[#37352F]">naano</span>
+              <img src="/logo.svg" alt="NaanoX" className="h-8 w-8 object-contain" />
+              <span className="text-2xl font-bold tracking-tight text-[#37352F]">naano<span style={{ color: '#7C5CFC' }}>X</span></span>
             </Link>
             <LocaleButton />
           </div>
@@ -238,7 +238,7 @@ export default function ForgotPassword() {
           )}
 
           <div className="mt-6 text-center">
-            <Link className="text-sm text-[#1652F0] hover:text-[#1652F0] transition-colors font-medium cursor-pointer" to="/login">
+            <Link className="text-sm text-[#7C5CFC] hover:text-[#7C5CFC] transition-colors font-medium cursor-pointer" to="/login">
               ← Sign in
             </Link>
           </div>

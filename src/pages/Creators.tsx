@@ -12,11 +12,11 @@ import { useLocale } from '@/lib/locale'
 
 const META = {
   en: {
-    title: 'Get paid for your LinkedIn content: Naano for creators',
+    title: 'Get paid for your LinkedIn content: NaanoX for creators',
     description: 'Choose deals from B2B brands you know, post in your own voice, and get paid within 24h. No negotiating, no admin.',
   },
   fr: {
-    title: 'Soyez payé pour votre contenu LinkedIn : Naano pour les créateurs',
+    title: 'Soyez payé pour votre contenu LinkedIn : NaanoX pour les créateurs',
     description: 'Choisissez des deals de marques B2B que vous connaissez, postez avec votre voix, et soyez payé sous 24h.',
   },
 }

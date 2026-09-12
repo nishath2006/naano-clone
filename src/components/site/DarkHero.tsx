@@ -18,7 +18,7 @@ export function DarkHero({
   return (
     <section
       className={`relative ${padding} overflow-hidden text-white`}
-      style={{ background: 'linear-gradient(135deg, #111827 0%, #1652F0 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #111827 0%, #7C5CFC 100%)' }}
     >
       <div
         aria-hidden="true"
@@ -33,7 +33,7 @@ export function DarkHero({
 export function HeroBackLink() {
   return (
     <Link to="/" className={HERO_BACK}>
-      ← Naano
+      ← NaanoX
     </Link>
   )
 }

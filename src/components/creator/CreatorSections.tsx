@@ -37,7 +37,7 @@ const BUTTON: CSSProperties = {
   gap: 8,
   padding: '11px 20px',
   borderRadius: 12,
-  background: '#1652F0',
+  background: '#7C5CFC',
   color: '#FFFFFF',
   fontSize: 14,
   fontWeight: 700,
@@ -63,7 +63,7 @@ function About({ s, copy }: { s: AboutSection; copy: CreatorCopy }) {
         {s.sectors.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
             {s.sectors.map((x) => (
-              <span key={x} style={{ fontSize: 12, fontWeight: 500, color: '#1652F0', background: '#EAF0FF', padding: '4px 11px', borderRadius: 999 }}>
+              <span key={x} style={{ fontSize: 12, fontWeight: 500, color: '#7C5CFC', background: '#EEE9FF', padding: '4px 11px', borderRadius: 999 }}>
                 {x}
               </span>
             ))}
@@ -112,8 +112,8 @@ function Posts({ s, copy }: { s: PostsSection; copy: CreatorCopy }) {
                     style={{
                       fontSize: 9,
                       fontWeight: 700,
-                      color: '#1652F0',
-                      background: '#EAF0FF',
+                      color: '#7C5CFC',
+                      background: '#EEE9FF',
                       padding: '2px 6px',
                       borderRadius: 4,
                       textTransform: 'uppercase',
@@ -153,7 +153,7 @@ function Posts({ s, copy }: { s: PostsSection; copy: CreatorCopy }) {
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   aria-label="View on LinkedIn"
-                  style={{ marginLeft: 'auto', color: '#1652F0', display: 'inline-flex', alignItems: 'center' }}
+                  style={{ marginLeft: 'auto', color: '#7C5CFC', display: 'inline-flex', alignItems: 'center' }}
                 >
                   <ArrowUpRight />
                 </a>
@@ -183,7 +183,7 @@ function Engagers({ s, copy }: { s: EngagersSection; copy: CreatorCopy }) {
                   <span style={{ fontWeight: 600 }}>{row.value}</span>
                 </div>
                 <div style={{ width: '100%', height: 6, background: '#EEF1F6', borderRadius: 99, overflow: 'hidden' }}>
-                  <div style={{ width: row.width, height: '100%', background: '#1652F0', borderRadius: 99 }} />
+                  <div style={{ width: row.width, height: '100%', background: '#7C5CFC', borderRadius: 99 }} />
                 </div>
               </div>
             ))}

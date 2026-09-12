@@ -6,7 +6,7 @@ import { useEffect } from 'react'
  */
 export default function NotFound() {
   useEffect(() => {
-    document.title = 'Naano: B2B LinkedIn Creator Marketplace'
+    document.title = 'NaanoX: B2B LinkedIn Creator Marketplace'
     document.body.dataset.shell = 'dark'
     return () => {
       delete document.body.dataset.shell

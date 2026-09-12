@@ -83,7 +83,7 @@ export default function AppLayout() {
   const bare = location.pathname.startsWith('/app/onboarding') || location.pathname.startsWith('/app/choose-role')
 
   useEffect(() => {
-    document.title = 'Naano · Dashboard'
+    document.title = 'NaanoX · Dashboard'
     setOpen(false)
   }, [location.pathname])
 
@@ -110,7 +110,7 @@ export default function AppLayout() {
           to={to}
           end={end}
           className={({ isActive }) =>
-            `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isActive ? 'bg-[#E8F0FE] text-[#2563eb]' : 'text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827]'}`
+            `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isActive ? 'bg-[#EEE9FF] text-[#7C5CFC]' : 'text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827]'}`
           }
         >
           <Icon />
@@ -120,13 +120,13 @@ export default function AppLayout() {
       <NavLink
         to="/app/notifications"
         className={({ isActive }) =>
-          `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isActive ? 'bg-[#E8F0FE] text-[#2563eb]' : 'text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827]'}`
+          `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isActive ? 'bg-[#EEE9FF] text-[#7C5CFC]' : 'text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827]'}`
         }
       >
         <span className="relative">
           <BellIcon />
           {unread > 0 && (
-            <span className="absolute -right-1.5 -top-1.5 min-w-[16px] h-4 rounded-full bg-[#2563eb] px-1 text-[10px] font-bold leading-4 text-white text-center" aria-label={`${unread} unread`}>
+            <span className="absolute -right-1.5 -top-1.5 min-w-[16px] h-4 rounded-full bg-[#7C5CFC] px-1 text-[10px] font-bold leading-4 text-white text-center" aria-label={`${unread} unread`}>
               {unread > 9 ? '9+' : unread}
             </span>
           )}
@@ -136,7 +136,7 @@ export default function AppLayout() {
       <NavLink
         to="/app/settings"
         className={({ isActive }) =>
-          `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isActive ? 'bg-[#E8F0FE] text-[#2563eb]' : 'text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827]'}`
+          `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isActive ? 'bg-[#EEE9FF] text-[#7C5CFC]' : 'text-[#4B5563] hover:bg-[#F3F4F6] hover:text-[#111827]'}`
         }
       >
         <SettingsIcon />
@@ -151,7 +151,7 @@ export default function AppLayout() {
         {/* Desktop sidebar */}
         <aside className="hidden md:flex fixed inset-y-0 left-0 w-[232px] flex-col border-r border-[#E9EBF0] bg-white px-3 py-5">
           <NavLink to="/" className="flex items-center gap-2 px-2 mb-6">
-            <img src="/logo.svg" alt="naano" className="h-7" />
+            <img src="/logo.svg" alt="NaanoX" className="h-7" />
           </NavLink>
           {nav}
           <div className="mt-auto pt-4 border-t border-[#F3F4F6]">
@@ -173,17 +173,17 @@ export default function AppLayout() {
           <button type="button" onClick={() => setOpen(true)} aria-label="Open menu" className="rounded-lg p-1.5 text-[#4B5563] cursor-pointer">
             <MenuIcon />
           </button>
-          <img src="/logo.svg" alt="naano" className="h-6" />
+          <img src="/logo.svg" alt="NaanoX" className="h-6" />
           <NavLink to="/app/notifications" className="relative rounded-lg p-1.5 text-[#4B5563]" aria-label="Notifications">
             <BellIcon />
-            {unread > 0 && <span className="absolute right-0.5 top-0.5 h-2 w-2 rounded-full bg-[#2563eb]" />}
+            {unread > 0 && <span className="absolute right-0.5 top-0.5 h-2 w-2 rounded-full bg-[#7C5CFC]" />}
           </NavLink>
         </header>
         {open && (
           <div className="md:hidden fixed inset-0 z-40 bg-[#0f172a]/40" onClick={() => setOpen(false)}>
             <div className="h-full w-[260px] bg-white p-4 flex flex-col" onClick={(e) => e.stopPropagation()}>
               <div className="flex items-center justify-between mb-4">
-                <img src="/logo.svg" alt="naano" className="h-6" />
+                <img src="/logo.svg" alt="NaanoX" className="h-6" />
                 <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="p-1.5 text-[#4B5563] cursor-pointer">
                   <XIcon />
                 </button>

@@ -34,18 +34,18 @@ const builtHrefs = [
 
 export const reportsCopy: { en: ReportsCopy; fr: ReportsCopy } = {
   en: {
-    title: 'Naano Reports: B2B LinkedIn Creator Marketing Data',
+    title: 'NaanoX Reports: B2B LinkedIn Creator Marketing Data',
     description:
-      'First-party data on B2B LinkedIn creator marketing, published by Naano: real sponsored-post prices from marketplace bookings, campaign benchmarks (CPL, CTR, time-to-launch), and methodology you can cite.',
+      'First-party data on B2B LinkedIn creator marketing, published by NaanoX: real sponsored-post prices from marketplace bookings, campaign benchmarks (CPL, CTR, time-to-launch), and methodology you can cite.',
     h1: 'B2B LinkedIn creator marketing, measured',
-    lede: 'First-party data from the Naano marketplace: what sponsored LinkedIn posts really cost, and what B2B creator campaigns really deliver. Every number ships with its sample size, time period and methodology — built to be cited.',
+    lede: 'First-party data from the NaanoX marketplace: what sponsored LinkedIn posts really cost, and what B2B creator campaigns really deliver. Every number ships with its sample size, time period and methodology — built to be cited.',
     cards: [
       {
         href: priceIndexHref,
         badge: 'First-party data',
         title: 'LinkedIn Sponsored Post Price Index 2026',
         subtitle: 'What sponsored LinkedIn posts actually cost, from real bookings',
-        body: 'Transacted prices from 239 sponsored-post bookings on the Naano marketplace between June and August 2026: median €84 per post for creators under 5K followers, €180 at 5–10K, €312 at 10–25K — against rate-card guides quoting $500–$2,500 for the same tiers. Includes price-spread analysis (a 25x spread inside a single follower tier), how much follower count actually explains price (~29%), and delivery odds by price level.',
+        body: 'Transacted prices from 239 sponsored-post bookings on the NaanoX marketplace between June and August 2026: median €84 per post for creators under 5K followers, €180 at 5–10K, €312 at 10–25K — against rate-card guides quoting $500–$2,500 for the same tiers. Includes price-spread analysis (a 25x spread inside a single follower tier), how much follower count actually explains price (~29%), and delivery odds by price level.',
         meta: 'n=239 bookings · June–August 2026 · First-party transaction data',
         read: 'Read the report →',
       },
@@ -54,7 +54,7 @@ export const reportsCopy: { en: ReportsCopy; fr: ReportsCopy } = {
         badge: 'First-party data',
         title: 'Q2 2026 B2B Creator-Led Growth Benchmarks',
         subtitle: 'CPL, CTR and conversion benchmarks from 312 B2B creator campaigns',
-        body: "First-party benchmark dataset covering cost per qualified click, CTR, time-to-launch and conversion rates for B2B creator campaigns: 312 campaigns and 1,847 sponsored posts measured in Q1 2026, with per-vertical medians, full methodology, sample sizes and limitations. Historical dataset — measured under Naano's earlier pricing model and labeled as such; performance benchmarks remain valid as reference points.",
+        body: "First-party benchmark dataset covering cost per qualified click, CTR, time-to-launch and conversion rates for B2B creator campaigns: 312 campaigns and 1,847 sponsored posts measured in Q1 2026, with per-vertical medians, full methodology, sample sizes and limitations. Historical dataset — measured under NaanoX's earlier pricing model and labeled as such; performance benchmarks remain valid as reference points.",
         meta: 'n=312 campaigns · 1,847 posts · Q1 2026 data · Dataset schema',
         read: 'Read the report →',
       },
@@ -71,12 +71,12 @@ export const reportsCopy: { en: ReportsCopy; fr: ReportsCopy } = {
       h2: 'Using this data',
       items: [
         {
-          q: "Can I cite Naano's data in an article or report?",
-          a: 'Yes — that is what these reports are for. Cite the specific report with a link, e.g. "Naano Index, n=239 sponsored-post bookings, June–August 2026 (naano.com/reports)". Every number is published with its sample size and time period; please carry both in the citation. Claims we attribute to third parties (Edelman, LinkedIn benchmarks) should be attributed to the original source, not to Naano.',
+          q: "Can I cite NaanoX's data in an article or report?",
+          a: 'Yes — that is what these reports are for. Cite the specific report with a link, e.g. "NaanoX Index, n=239 sponsored-post bookings, June–August 2026 (naano.com/reports)". Every number is published with its sample size and time period; please carry both in the citation. Claims we attribute to third parties (Edelman, LinkedIn benchmarks) should be attributed to the original source, not to NaanoX.',
         },
         {
           q: 'Where does the data come from?',
-          a: 'From anonymized, aggregated transactions and campaigns on the Naano marketplace — the B2B LinkedIn creator marketplace. No customer or creator is identifiable in any published number. Each report states its own sample, time window and known limitations; we publish the caveats alongside the findings.',
+          a: 'From anonymized, aggregated transactions and campaigns on the NaanoX marketplace — the B2B LinkedIn creator marketplace. No customer or creator is identifiable in any published number. Each report states its own sample, time window and known limitations; we publish the caveats alongside the findings.',
         },
         {
           q: 'How often are the reports updated?',
@@ -96,18 +96,18 @@ export const reportsCopy: { en: ReportsCopy; fr: ReportsCopy } = {
     },
   },
   fr: {
-    title: 'Rapports Naano : données sur le creator marketing LinkedIn B2B',
+    title: 'Rapports NaanoX : données sur le creator marketing LinkedIn B2B',
     description:
-      'Données propriétaires sur le creator marketing LinkedIn B2B publiées par Naano : prix réels de posts sponsorisés issus des réservations de la marketplace, benchmarks de campagne (CPL, CTR, délai de lancement) et méthodologie que vous pouvez citer.',
+      'Données propriétaires sur le creator marketing LinkedIn B2B publiées par NaanoX : prix réels de posts sponsorisés issus des réservations de la marketplace, benchmarks de campagne (CPL, CTR, délai de lancement) et méthodologie que vous pouvez citer.',
     h1: 'Le creator marketing LinkedIn B2B, mesuré',
-    lede: "Données propriétaires de la marketplace Naano : le prix réel des posts LinkedIn sponsorisés et les résultats réels des campagnes de créateurs B2B. Chaque chiffre est accompagné de sa taille d'échantillon, de sa période et de sa méthodologie — prêt à être cité.",
+    lede: "Données propriétaires de la marketplace NaanoX : le prix réel des posts LinkedIn sponsorisés et les résultats réels des campagnes de créateurs B2B. Chaque chiffre est accompagné de sa taille d'échantillon, de sa période et de sa méthodologie — prêt à être cité.",
     cards: [
       {
         href: priceIndexHref,
         badge: 'Données propriétaires',
         title: 'Indice des prix des publications Post sponsorisées LinkedIn 2026',
         subtitle: "Le prix réel des posts LinkedIn sponsorisés, d'après des réservations effectives",
-        body: "Prix transactionnels de 239 réservations de publications sponsorisées sur le marketplace Naano entre juin et août 2026 : médiane de 84 € par publication pour les créateurs avec moins de 5K followers, 180 € à 5–10K, 312 € à 10–25K — par rapport aux guides de tarification citant 500–2 500 $ pour les mêmes niveaux. Inclut l'analyse de la répartition des prix (un écart de 25x au sein d'un seul niveau de followers), combien le nombre de followers explique réellement le prix (~29 %), et les probabilités de livraison par niveau de prix.",
+        body: "Prix transactionnels de 239 réservations de publications sponsorisées sur le marketplace NaanoX entre juin et août 2026 : médiane de 84 € par publication pour les créateurs avec moins de 5K followers, 180 € à 5–10K, 312 € à 10–25K — par rapport aux guides de tarification citant 500–2 500 $ pour les mêmes niveaux. Inclut l'analyse de la répartition des prix (un écart de 25x au sein d'un seul niveau de followers), combien le nombre de followers explique réellement le prix (~29 %), et les probabilités de livraison par niveau de prix.",
         meta: 'n=239 réservations · Juin–août 2026 · Données de transaction propriétaires',
         read: 'Lire le rapport →',
       },
@@ -116,7 +116,7 @@ export const reportsCopy: { en: ReportsCopy; fr: ReportsCopy } = {
         badge: 'Données propriétaires',
         title: 'Benchmarks Q2 2026 de la croissance portée par les créateurs B2B',
         subtitle: 'Benchmarks de CPL, CTR et conversion issus de 312 campagnes de créateurs B2B',
-        body: "Jeu de données propriétaire couvrant le coût par clic qualifié, le CTR, le délai de lancement et les taux de conversion de campagnes de créateurs B2B : 312 campagnes et 1 847 posts sponsorisés mesurés au T1 2026, avec médianes par secteur, méthodologie complète, tailles d'échantillon et limites. Jeu de données historique — mesuré avec l'ancien modèle tarifaire de Naano et présenté comme tel ; les benchmarks de performance restent des références valables.",
+        body: "Jeu de données propriétaire couvrant le coût par clic qualifié, le CTR, le délai de lancement et les taux de conversion de campagnes de créateurs B2B : 312 campagnes et 1 847 posts sponsorisés mesurés au T1 2026, avec médianes par secteur, méthodologie complète, tailles d'échantillon et limites. Jeu de données historique — mesuré avec l'ancien modèle tarifaire de NaanoX et présenté comme tel ; les benchmarks de performance restent des références valables.",
         meta: 'n=312 campagnes · 1 847 posts · Données T1 2026 · Schéma du jeu de données',
         read: 'Lire le rapport →',
       },
@@ -133,12 +133,12 @@ export const reportsCopy: { en: ReportsCopy; fr: ReportsCopy } = {
       h2: 'Utiliser ces données',
       items: [
         {
-          q: 'Puis-je citer les données de Naano dans un article ou un rapport ?',
-          a: "Oui — c'est précisément le but de ces rapports. Citez le rapport concerné avec un lien, par exemple « Naano Index, n=239 réservations de publications sponsorisées, juin–août 2026 (naano.com/reports) ». Chaque chiffre est publié avec la taille de son échantillon et sa période ; merci d'indiquer les deux. Les affirmations attribuées à des tiers (Edelman, benchmarks LinkedIn) doivent citer la source originale, et non Naano.",
+          q: 'Puis-je citer les données de NaanoX dans un article ou un rapport ?',
+          a: "Oui — c'est précisément le but de ces rapports. Citez le rapport concerné avec un lien, par exemple « NaanoX Index, n=239 réservations de publications sponsorisées, juin–août 2026 (naano.com/reports) ». Chaque chiffre est publié avec la taille de son échantillon et sa période ; merci d'indiquer les deux. Les affirmations attribuées à des tiers (Edelman, benchmarks LinkedIn) doivent citer la source originale, et non NaanoX.",
         },
         {
           q: "D'où proviennent les données ?",
-          a: "Elles proviennent de transactions et de campagnes agrégées et anonymisées sur la marketplace Naano — la marketplace de créateurs LinkedIn B2B. Aucun client ni créateur n'est identifiable dans les chiffres publiés. Chaque rapport précise son échantillon, sa période et ses limites connues ; nous publions les réserves avec les résultats.",
+          a: "Elles proviennent de transactions et de campagnes agrégées et anonymisées sur la marketplace NaanoX — la marketplace de créateurs LinkedIn B2B. Aucun client ni créateur n'est identifiable dans les chiffres publiés. Chaque rapport précise son échantillon, sa période et ses limites connues ; nous publions les réserves avec les résultats.",
         },
         {
           q: 'À quelle fréquence les rapports sont-ils mis à jour ?',

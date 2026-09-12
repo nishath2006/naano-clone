@@ -53,8 +53,8 @@ export default function ResetPassword() {
         <div className="w-full max-w-md bg-white border border-[#E9E9E7] rounded-2xl p-8 shadow-lg">
           <div className="flex items-center justify-between mb-8">
             <Link className="flex items-center gap-2 group cursor-pointer" to="/">
-              <img src="/logo.svg" alt="naano" className="h-8 w-8 object-contain" />
-              <span className="text-2xl font-bold tracking-tight text-[#37352F]">naano</span>
+              <img src="/logo.svg" alt="NaanoX" className="h-8 w-8 object-contain" />
+              <span className="text-2xl font-bold tracking-tight text-[#37352F]">naano<span style={{ color: '#7C5CFC' }}>X</span></span>
             </Link>
             <LocaleButton />
           </div>
@@ -75,7 +75,7 @@ export default function ResetPassword() {
                     autoComplete="new-password"
                     placeholder="••••••••"
                     aria-label="New password"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 pr-11 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/10 transition-all"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 pr-11 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#7C5CFC] focus:ring-2 focus:ring-[#7C5CFC]/10 transition-all"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={pending}
@@ -103,7 +103,7 @@ export default function ResetPassword() {
           ) : noSession ? (
             <div className="space-y-4">
               <AuthError>This recovery link is invalid or has expired. Request a new one.</AuthError>
-              <Link to="/login/forgot-password" className="block text-center text-sm text-[#1652F0] font-medium">
+              <Link to="/login/forgot-password" className="block text-center text-sm text-[#7C5CFC] font-medium">
                 Request a new code
               </Link>
             </div>

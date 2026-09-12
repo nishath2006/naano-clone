@@ -96,7 +96,7 @@ function EmailSignupForm({ role }: { role: Role }) {
   const prefix = `register-${role}`
   if (confirmSent) {
     return (
-      <div className="rounded-xl border border-[#BFDBFE] bg-[#EFF6FF] p-5 text-sm text-[#1E3A8A]" role="status">
+      <div className="rounded-xl border border-[#DDD4FF] bg-[#F7F4FF] p-5 text-sm text-[#4B3BA8]" role="status">
         <div className="font-semibold text-[#111827]">Check your inbox</div>
         <p className="mt-1">
           We sent a confirmation link to <span className="font-medium">{email.trim()}</span>. Open it to activate your account, then sign in.
@@ -143,7 +143,7 @@ function EmailSignupForm({ role }: { role: Role }) {
           />
           <button
             type="button"
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg text-[#9B9A97] hover:text-[#37352F] hover:bg-[#F7F6F3] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#1652F0]/20"
+            className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg text-[#9B9A97] hover:text-[#37352F] hover:bg-[#F7F6F3] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#7C5CFC]/20"
             aria-label={show ? 'Hide password' : 'Show password'}
             onClick={() => setShow((s) => !s)}
           >
@@ -180,7 +180,7 @@ function SignupButtons({ role, dark }: { role: Role; dark: boolean }) {
       )}
       <p className={`text-xs text-center ${dark ? 'text-[#64748b]' : 'text-[#6B7280]'}`}>
         Already have an account?{' '}
-        <Link to="/login?reauth=1" className={`text-[#2563eb] ${dark ? 'font-semibold' : 'font-medium'}`}>
+        <Link to="/login?reauth=1" className={`text-[#7C5CFC] ${dark ? 'font-semibold' : 'font-medium'}`}>
           Sign in here
         </Link>
       </p>
@@ -199,25 +199,25 @@ function RolePicker() {
           <h1 className="text-2xl font-bold text-[#111827]">{t({ en: 'Create your account', fr: 'Créez votre compte' })}</h1>
           <p className="text-sm text-[#6B7280] mt-1 mb-6">First, who are you here as?</p>
           <div className="space-y-3">
-            <Link to="/register?role=influencer" className="block rounded-xl border border-[#D1D5DB] p-5 transition-colors hover:border-[#2563eb] hover:bg-[#F5F8FF]">
+            <Link to="/register?role=influencer" className="block rounded-xl border border-[#D1D5DB] p-5 transition-colors hover:border-[#7C5CFC] hover:bg-[#F7F4FF]">
               <div className="text-base font-semibold text-[#111827]">I'm a creator</div>
               <p className="text-sm text-[#6B7280] mt-1">Get paid to create LinkedIn content for B2B brands you actually use.</p>
             </Link>
-            <Link to="/register?role=saas" className="block rounded-xl border border-[#D1D5DB] p-5 transition-colors hover:border-[#2563eb] hover:bg-[#F5F8FF]">
+            <Link to="/register?role=saas" className="block rounded-xl border border-[#D1D5DB] p-5 transition-colors hover:border-[#7C5CFC] hover:bg-[#F7F4FF]">
               <div className="text-base font-semibold text-[#111827]">I'm a brand</div>
               <p className="text-sm text-[#6B7280] mt-1">Find creators, launch campaigns, and trace real pipeline back to each post.</p>
             </Link>
           </div>
           <p className="text-xs text-center text-[#6B7280] mt-6">
             Already have an account?{' '}
-            <Link to="/login?reauth=1" className="text-[#2563eb] font-medium">
+            <Link to="/login?reauth=1" className="text-[#7C5CFC] font-medium">
               Sign in
             </Link>
           </p>
         </div>
       </div>
       <AuthSidePanel title="One platform. Two sides.">
-        <p className="text-blue-100">
+        <p className="text-violet-100">
           Creators get paid to post. B2B brands get real pipeline. Pick where you fit and we'll set the rest up in a couple of minutes.
         </p>
       </AuthSidePanel>
@@ -233,16 +233,16 @@ function BrandSignup() {
         <div className="w-full max-w-md">
           <AuthHeader className="flex items-center justify-between gap-4 mb-8" wrapLocale />
           <div className="space-y-4">
-            <h1 className="text-[1.75rem] font-extrabold tracking-tight text-[#0f172a]">Join Naano</h1>
-            <p className="text-[0.95rem] font-bold text-[#2563eb]">Creators. Brands. Results.</p>
+            <h1 className="text-[1.75rem] font-extrabold tracking-tight text-[#0f172a]">Join NaanoX</h1>
+            <p className="text-[0.95rem] font-bold text-[#7C5CFC]">Creators. Brands. Results.</p>
             <p className="text-sm text-[#64748b]">The #1 platform to run LinkedIn creator campaigns that drive real business.</p>
             <SignupButtons role="saas" dark />
           </div>
         </div>
       </div>
       <AuthSidePanel title="Creators. Brands. Results.">
-        <p className="text-blue-100 mb-8">Run LinkedIn creator campaigns that drive real business - discover creators, track performance, pay in one click.</p>
-        <div className="text-sm text-blue-200">Built for B2B marketing teams</div>
+        <p className="text-violet-100 mb-8">Run LinkedIn creator campaigns that drive real business - discover creators, track performance, pay in one click.</p>
+        <div className="text-sm text-violet-200">Built for B2B marketing teams</div>
       </AuthSidePanel>
     </div>
   )
@@ -256,8 +256,8 @@ function CreatorSignup() {
         <div className="w-full max-w-md pb-4">
           <AuthHeader />
           <div className="space-y-4">
-            <div className="text-xs font-semibold uppercase tracking-wide text-[#2563eb]">Step 1 of 4</div>
-            <h1 className="text-2xl font-bold text-[#111827]">Join Naano</h1>
+            <div className="text-xs font-semibold uppercase tracking-wide text-[#7C5CFC]">Step 1 of 4</div>
+            <h1 className="text-2xl font-bold text-[#111827]">Join NaanoX</h1>
             <p className="text-sm text-[#6B7280]">Get paid to create LinkedIn content for B2B brands you actually use.</p>
             <SignupButtons role="influencer" dark={false} />
           </div>
@@ -266,7 +266,7 @@ function CreatorSignup() {
       <div className="hidden h-full min-h-0 flex-1 items-start justify-center bg-[radial-gradient(circle_at_top_left,#FFFFFF_0%,#F1F6FF_46%,#EEF0FF_100%)] px-8 pb-10 pt-[clamp(1.75rem,7dvh,4.5rem)] xl:px-12 lg:flex overflow-hidden">
         <div className="flex w-full max-w-[560px] flex-col items-center ">
           <div className="mb-4 max-w-[500px] text-center xl:mb-5">
-            <div className="text-xs font-bold uppercase tracking-[0.16em] text-[#2563EB]">Your Marketplace card</div>
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-[#7C5CFC]">Your Marketplace card</div>
             <h2 className="mt-2 text-2xl font-bold tracking-[-0.035em] text-[#111827] xl:text-3xl">Build a card brands can trust.</h2>
             <p className="mt-2 text-sm leading-6 text-[#596273]">It updates live with your profile, analytics, positioning and price.</p>
           </div>

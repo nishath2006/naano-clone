@@ -47,7 +47,7 @@ export function CreatorCardView({
             onClick={onBookmark}
             aria-pressed={bookmarked}
             aria-label={bookmarked ? 'Remove from saved creators' : 'Save creator'}
-            className={`flex h-8 w-8 items-center justify-center rounded-lg shadow-sm cursor-pointer ${bookmarked ? 'bg-[#2563eb] text-white' : 'bg-white text-[#6B7280] hover:text-[#111827]'}`}
+            className={`flex h-8 w-8 items-center justify-center rounded-lg shadow-sm cursor-pointer ${bookmarked ? 'bg-[#7C5CFC] text-white' : 'bg-white text-[#6B7280] hover:text-[#111827]'}`}
           >
             <StarIcon width={16} height={16} filled={bookmarked} />
           </button>
@@ -68,12 +68,12 @@ export function CreatorCardView({
       <div className="px-5 pt-3">
         <div className="flex items-center justify-between text-[11px]">
           <span className="flex items-center gap-1.5 font-semibold uppercase tracking-wide text-[#6B7280]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#2563eb]" /> Matching
+            <span className="h-1.5 w-1.5 rounded-full bg-[#7C5CFC]" /> Matching
           </span>
           <span className="font-bold text-[#111827]">{score}/100</span>
         </div>
         <div className="mt-1.5 h-1 rounded-full bg-[#E5E7EB]">
-          <div className="h-1 rounded-full bg-[#2563eb]" style={{ width: `${score}%` }} />
+          <div className="h-1 rounded-full bg-[#7C5CFC]" style={{ width: `${score}%` }} />
         </div>
       </div>
       <div className="m-4 mt-3 grid grid-cols-3 divide-x divide-[#E9EBF0] rounded-xl border border-[#E9EBF0] bg-[#FAFBFC]">

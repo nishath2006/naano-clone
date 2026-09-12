@@ -49,7 +49,7 @@ export default function Notifications() {
           {q.data?.map((n) => (
             <li key={n.id}>
               <Link to={n.href ?? '#'} onClick={() => void markOne(n)} className={`flex items-start gap-3 px-5 py-3.5 hover:bg-[#FAFAFA] ${n.read_at ? '' : 'bg-[#F8FAFF]'}`}>
-                <span className={`mt-2 h-2 w-2 shrink-0 rounded-full ${n.read_at ? 'bg-transparent' : 'bg-[#2563eb]'}`} />
+                <span className={`mt-2 h-2 w-2 shrink-0 rounded-full ${n.read_at ? 'bg-transparent' : 'bg-[#7C5CFC]'}`} />
                 <div className="min-w-0 flex-1">
                   <div className={`text-sm ${n.read_at ? 'text-[#4B5563]' : 'font-semibold text-[#111827]'}`}>{n.title}</div>
                   {n.body && <div className="text-xs text-[#6B7280] line-clamp-2">{n.body}</div>}

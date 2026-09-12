@@ -31,7 +31,7 @@ export default function CreatorProfile() {
   }, [slug])
 
   const profile = state?.slug === slug ? state.profile : undefined
-  useDocumentMeta(profile?.title ?? 'Naano', profile?.description)
+  useDocumentMeta(profile?.title ?? 'NaanoX', profile?.description)
 
   useEffect(() => {
     document.documentElement.style.background = '#F7F8FA'
@@ -60,13 +60,13 @@ export default function CreatorProfile() {
             }}
           >
             <Link to="/creators" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-              <img src="/logo.svg" alt="naano" style={{ width: 28, height: 28, objectFit: 'contain', flexShrink: 0 }} />
+              <img src="/logo.svg" alt="NaanoX" style={{ width: 28, height: 28, objectFit: 'contain', flexShrink: 0 }} />
               <div>
-                <div style={{ fontSize: 18, fontWeight: 800, color: '#1652F0', letterSpacing: '-0.02em', lineHeight: 1.05 }}>naano</div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: '#7C5CFC', letterSpacing: '-0.02em', lineHeight: 1.05 }}>naanoX</div>
                 <div style={{ fontSize: 11.5, color: '#64748B', marginTop: 1 }}>{copy.brandTagline}</div>
               </div>
             </Link>
-            <Link to="/creators" style={{ fontSize: 12.5, fontWeight: 600, color: '#1652F0', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            <Link to="/creators" style={{ fontSize: 12.5, fontWeight: 600, color: '#7C5CFC', textDecoration: 'none', whiteSpace: 'nowrap' }}>
               {copy.browseCreatorsLink}
             </Link>
           </header>

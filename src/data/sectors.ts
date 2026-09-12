@@ -55,12 +55,12 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 11,
     median: 16,
     p90: 23,
-    title: 'B2B Influencer Marketing for Sales-Tech SaaS | Naano',
+    title: 'B2B Influencer Marketing for Sales-Tech SaaS | NaanoX',
     description:
       'Run LinkedIn creator campaigns for sales-tech products: vetted SDR, AE and sales-leadership creators, fixed per-post pricing from €20, median CPL €16 (Q1 2026, n=58 campaigns).',
     h1: 'LinkedIn creator marketing for sales-tech SaaS',
     intro:
-      "Sales-tech is Naano's deepest creator pool: SDR coaches, AE practitioners, and sales leaders whose audiences are the exact buyers of prospecting, engagement, and revenue tooling. A sponsored post from a voice their feed already trusts outperforms a cold ad on every click metric.",
+      "Sales-tech is NaanoX's deepest creator pool: SDR coaches, AE practitioners, and sales leaders whose audiences are the exact buyers of prospecting, engagement, and revenue tooling. A sponsored post from a voice their feed already trusts outperforms a cold ad on every click metric.",
     analysis:
       'Sales-tech runs below the €18 platform mean because creator supply is dense and the buyer persona is sharply defined: the audiences of sales creators are overwhelmingly quota-carrying practitioners feeling pipeline pain daily.',
     who: 'SDR managers and coaches posting about cold outbound, AEs sharing discovery and closing frameworks, RevOps-adjacent sales leaders — typically 2k–8k followers with 70–90% sales-practitioner audiences.',
@@ -71,7 +71,7 @@ export const sectors: Record<SectorSlug, Sector> = {
     ],
     faq: [
       {
-        q: 'What does a sales-tech creator campaign cost on Naano?',
+        q: 'What does a sales-tech creator campaign cost on NaanoX?',
         a: 'Posts are booked at a fixed price from €20 per post (median creator ~€150). In Q1 2026, sales-tech campaigns delivered a median cost per qualified click of €16 across 58 campaigns — the second-cheapest vertical on the platform.',
       },
       {
@@ -92,12 +92,12 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 12,
     median: 17,
     p90: 24,
-    title: 'B2B Influencer Marketing for RevOps SaaS | Naano',
+    title: 'B2B Influencer Marketing for RevOps SaaS | NaanoX',
     description:
       'Reach RevOps leaders through the LinkedIn creators they already read: fixed per-post pricing from €20, median CPL €17 (Q1 2026, n=41 campaigns).',
     h1: 'LinkedIn creator marketing for RevOps SaaS',
     intro:
-      "RevOps audiences are small and extremely high-intent: operators who evaluate tooling for a living. Naano's RevOps creators — practitioners posting about pipeline hygiene, forecasting, and go-to-market ops — reliably outperform paid retargeting on click quality.",
+      "RevOps audiences are small and extremely high-intent: operators who evaluate tooling for a living. NaanoX's RevOps creators — practitioners posting about pipeline hygiene, forecasting, and go-to-market ops — reliably outperform paid retargeting on click quality.",
     analysis:
       'Median CPL sits just below the €18 platform mean. The long tail reflects scarcer creators in niche sub-verticals like usage-based pricing or PLG ops — briefs in those niches take an extra matching pass.',
     who: 'RevOps leads and consultants with 2k–6k followers posting about CRM hygiene, forecasting, territory design, and GTM tooling — audiences dense in exactly the operators who own the tooling budget.',
@@ -108,7 +108,7 @@ export const sectors: Record<SectorSlug, Sector> = {
     ],
     faq: [
       {
-        q: 'What does a RevOps creator campaign cost on Naano?',
+        q: 'What does a RevOps creator campaign cost on NaanoX?',
         a: 'Fixed per-post pricing from €20 (median creator ~€150/post). Q1 2026 RevOps campaigns delivered a €17 median cost per qualified click across 41 campaigns.',
       },
       {
@@ -129,12 +129,12 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 13,
     median: 19,
     p90: 26,
-    title: 'B2B Influencer Marketing for Devtools | Naano',
+    title: 'B2B Influencer Marketing for Devtools | NaanoX',
     description:
       'Sponsor developer creators on LinkedIn: engineering audiences, fixed per-post pricing from €20, median CPL €19 and the highest click-to-demo conversion of any vertical (Q1 2026, n=47).',
     h1: 'LinkedIn creator marketing for devtools',
     intro:
-      "Developers are famously ad-resistant — and famously receptive to practitioners showing real workflows. Naano's devtools creators are engineers and DevRel voices whose audiences click deliberately: raw CTR runs slightly lower, but click-to-demo conversion is the highest of any vertical on the platform.",
+      "Developers are famously ad-resistant — and famously receptive to practitioners showing real workflows. NaanoX's devtools creators are engineers and DevRel voices whose audiences click deliberately: raw CTR runs slightly lower, but click-to-demo conversion is the highest of any vertical on the platform.",
     analysis:
       'Devtools trends slightly above the €18 platform mean: technical content takes longer to draft (raising creator pricing) and engineering audiences click more deliberately. The offset is downstream — conversion-to-demo on devtools clicks is the best on the platform.',
     who: 'Staff engineers, DevRel practitioners, and technical founders with 1k–10k followers posting about infrastructure, tooling, and developer workflows — audiences that are largely working engineers.',
@@ -146,7 +146,7 @@ export const sectors: Record<SectorSlug, Sector> = {
     faq: [
       {
         q: 'Do developer audiences accept sponsored posts?',
-        a: 'Yes, when the post is written by a practitioner in their own voice about a real workflow. Naano briefs are one page — context, constraints, link — and creators draft in their own words, which is why devtools CTR holds up.',
+        a: 'Yes, when the post is written by a practitioner in their own voice about a real workflow. NaanoX briefs are one page — context, constraints, link — and creators draft in their own words, which is why devtools CTR holds up.',
       },
       {
         q: 'What does a devtools campaign cost?',
@@ -166,12 +166,12 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 12,
     median: 18,
     p90: 25,
-    title: 'B2B Influencer Marketing for Product & PM Tools | Naano',
+    title: 'B2B Influencer Marketing for Product & PM Tools | NaanoX',
     description:
       'Reach product managers through LinkedIn creators: PM and product-leadership voices, fixed per-post pricing from €20, median CPL €18 (Q1 2026, n=39 campaigns).',
     h1: 'LinkedIn creator marketing for product & PM tools',
     intro:
-      "PMs are a generalist audience reachable through many adjacent niches — product leadership, research, analytics, design. Naano's product creators give roadmap, discovery, and analytics tools a route to PMs that doesn't depend on outbidding every other PM tool on the same ad inventory.",
+      "PMs are a generalist audience reachable through many adjacent niches — product leadership, research, analytics, design. NaanoX's product creators give roadmap, discovery, and analytics tools a route to PMs that doesn't depend on outbidding every other PM tool on the same ad inventory.",
     analysis:
       'Median CPL aligns with the €18 platform mean. Variance is moderate: creator supply is broad across product niches without being deep in any single one, so matching optimizes for audience overlap with your specific PM segment.',
     who: 'Product leads, PM coaches, and product-analytics practitioners with 2k–8k followers posting about discovery, prioritization, and product craft — audiences of working PMs and product leaders.',
@@ -203,12 +203,12 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 14,
     median: 20,
     p90: 27,
-    title: 'B2B Influencer Marketing for HR-Tech | Naano',
+    title: 'B2B Influencer Marketing for HR-Tech | NaanoX',
     description:
       'Run LinkedIn creator campaigns for HR-tech: People Ops and talent-leadership creators, fixed per-post pricing from €20, median CPL €20 (Q1 2026, n=34 campaigns).',
     h1: 'LinkedIn creator marketing for HR-tech',
     intro:
-      "HR buyers sit on LinkedIn all day — it is their professional network in the most literal sense. Naano's HR-tech creators are People Ops leads, talent leaders, and HR consultants whose audiences map directly onto the buying committee for HRIS, recruiting, and people-analytics tools.",
+      "HR buyers sit on LinkedIn all day — it is their professional network in the most literal sense. NaanoX's HR-tech creators are People Ops leads, talent leaders, and HR consultants whose audiences map directly onto the buying committee for HRIS, recruiting, and people-analytics tools.",
     analysis:
       'HR-tech sits above the €18 platform mean: creator supply is thinner than in sales or RevOps and the buying committee is wider, which pushes both creator pricing and click filtering up. The gap narrows as more People Ops creators onboard.',
     who: 'People Ops leads, heads of talent, and HR consultants with 2k–7k followers posting about hiring, retention, comp, and people analytics — audiences of HR decision-makers and their influencers.',
@@ -224,7 +224,7 @@ export const sectors: Record<SectorSlug, Sector> = {
       },
       {
         q: 'Is HR-tech creator supply sufficient?',
-        a: 'The pool is thinner than sales or RevOps but growing; most briefs match in one pass. Naano flags upfront when a niche brief (e.g. comp-specific) needs a wider matching window.',
+        a: 'The pool is thinner than sales or RevOps but growing; most briefs match in one pass. NaanoX flags upfront when a niche brief (e.g. comp-specific) needs a wider matching window.',
       },
       {
         q: 'Do HR audiences convert on creator posts?',
@@ -240,12 +240,12 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 13,
     median: 19,
     p90: 26,
-    title: 'B2B Influencer Marketing for Fintech | Naano',
+    title: 'B2B Influencer Marketing for Fintech | NaanoX',
     description:
       'Sponsor finance and fintech creators on LinkedIn: CFO-audience voices, compliance-aware briefs, fixed per-post pricing from €20, median CPL €19 (Q1 2026, n=29 campaigns).',
     h1: 'LinkedIn creator marketing for B2B fintech',
     intro:
-      "Finance buyers are precise, skeptical, and highly active on LinkedIn. Naano's fintech creators — finance operators, fractional CFOs, and payments practitioners — deliver some of the strongest click quality on the platform, with time-on-site among the best of any vertical.",
+      "Finance buyers are precise, skeptical, and highly active on LinkedIn. NaanoX's fintech creators — finance operators, fractional CFOs, and payments practitioners — deliver some of the strongest click quality on the platform, with time-on-site among the best of any vertical.",
     analysis:
       'Fintech hovers slightly above the €18 mean: compliance constraints on creator copy lengthen review cycles and creators charge a small premium for regulated content. Click quality (time-on-site) is among the strongest on the platform.',
     who: 'Fractional CFOs, finance-ops leads, and payments practitioners with 2k–8k followers posting about cash management, spend, billing, and finance tooling — audiences of finance decision-makers.',
@@ -277,14 +277,14 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 10,
     median: 16,
     p90: 22,
-    title: 'B2B Influencer Marketing for Martech & Marketing-Ops | Naano',
+    title: 'B2B Influencer Marketing for Martech & Marketing-Ops | NaanoX',
     description:
-      'The cheapest vertical on Naano: martech and demand-gen creators, fixed per-post pricing from €20, median CPL €16 (Q1 2026, n=36 campaigns).',
+      'The cheapest vertical on NaanoX: martech and demand-gen creators, fixed per-post pricing from €20, median CPL €16 (Q1 2026, n=36 campaigns).',
     h1: 'LinkedIn creator marketing for martech & marketing-ops',
     intro:
-      'Marketers are the easiest audience to reach with creator content — they are the audience that invented the playbook. Martech analysts, demand-gen leads, and lifecycle marketers on Naano deliver the cheapest qualified clicks on the platform, with a self-selecting practitioner audience.',
+      'Marketers are the easiest audience to reach with creator content — they are the audience that invented the playbook. Martech analysts, demand-gen leads, and lifecycle marketers on NaanoX deliver the cheapest qualified clicks on the platform, with a self-selecting practitioner audience.',
     analysis:
-      "Marketing-ops is the cheapest vertical on Naano in Q1 2026: dense creator supply (martech analysts, demand-gen leads, lifecycle marketers) and a self-selecting practitioner audience push both CTR and CPL into the platform's best territory.",
+      "Marketing-ops is the cheapest vertical on NaanoX in Q1 2026: dense creator supply (martech analysts, demand-gen leads, lifecycle marketers) and a self-selecting practitioner audience push both CTR and CPL into the platform's best territory.",
     who: 'Demand-gen leads, martech analysts, and lifecycle marketers with 2k–10k followers posting about attribution, automation, and channel strategy — audiences of practicing marketers who evaluate tools constantly.',
     bullets: [
       'Launch an attribution, automation, or content tool to marketers who try new tools weekly',
@@ -314,7 +314,7 @@ export const sectors: Record<SectorSlug, Sector> = {
     p10: 14,
     median: 21,
     p90: 28,
-    title: 'B2B Influencer Marketing for Vertical SaaS | Naano',
+    title: 'B2B Influencer Marketing for Vertical SaaS | NaanoX',
     description:
       'Creator campaigns for niche-industry SaaS (legal-tech, construction-tech, insurance-tech): rare niche voices, fixed per-post pricing from €20, median CPL €21 (Q1 2026, n=28).',
     h1: 'LinkedIn creator marketing for vertical SaaS',
@@ -331,7 +331,7 @@ export const sectors: Record<SectorSlug, Sector> = {
     faq: [
       {
         q: 'Are there creators for my specific niche industry?',
-        a: 'Supply is checked before you commit: Naano verifies matching creators for your niche at brief time and tells you upfront if the pool is thin. Vertical SaaS briefs sometimes take a wider matching window than horizontal categories.',
+        a: 'Supply is checked before you commit: NaanoX verifies matching creators for your niche at brief time and tells you upfront if the pool is thin. Vertical SaaS briefs sometimes take a wider matching window than horizontal categories.',
       },
       {
         q: 'Why is vertical SaaS CPL higher?',

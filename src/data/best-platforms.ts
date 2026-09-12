@@ -52,7 +52,7 @@ export const quizQuestions: QuizQuestion[] = [
 
 export const quizVerdicts: Record<PlatformKey, { name: string; verdict: L; rank: L }> = {
   naano: {
-    name: 'Naano',
+    name: 'NaanoX',
     verdict: {
       en: 'LinkedIn-native B2B creator marketplace. Fixed per-post pricing from €20, 2,000+ vetted micro-creators, qualified-click tracking per post. Best fit when the goal is B2B pipeline, not reach.',
       fr: "Marketplace de créateurs B2B native LinkedIn. Prix fixes dès 20 € par post, 2 000+ micro-créateurs vérifiés, tracking des clics qualifiés post par post. Le meilleur choix quand l'objectif est le pipeline B2B, pas la portée.",
@@ -106,7 +106,7 @@ export const quizCopy = {
     eyebrow: '60-second configurator',
     title: 'Which platform fits your case?',
     match: 'Your match',
-    cta: 'Start a campaign on Naano',
+    cta: 'Start a campaign on NaanoX',
     compare: 'See how it compares feature by feature',
     compareHref: '#comparison-table',
   },
@@ -114,7 +114,7 @@ export const quizCopy = {
     eyebrow: 'Configurateur en 60 secondes',
     title: 'Quelle plateforme pour votre cas ?',
     match: 'Votre match',
-    cta: 'Lancer une campagne sur Naano',
+    cta: 'Lancer une campagne sur NaanoX',
     compare: 'Voir le comparatif critère par critère',
     compareHref: '#comparatif',
   },
@@ -127,14 +127,14 @@ export const quizCopy = {
 export const bestEn = {
   title: 'Best B2B Influencer Marketing Platforms 2026: 6 Compared',
   description:
-    'Naano, Favikon, Kolsquare, Upfluence, Traackr and Skeepers compared on B2B fit, pricing and attribution — with real transacted post prices (median €117 under 10K followers), not list prices.',
+    'NaanoX, Favikon, Kolsquare, Upfluence, Traackr and Skeepers compared on B2B fit, pricing and attribution — with real transacted post prices (median €117 under 10K followers), not list prices.',
   hero: {
     kicker: '2026 Ranking',
     readTime: '11 min read',
     lang: 'EN',
     h1: 'The Best B2B Influencer Marketing Platforms in 2026, Ranked',
-    lede: 'Six platforms compared feature by feature — Naano, Favikon, Kolsquare, Upfluence, Traackr, and Skeepers — with pricing models, creator types, attribution, and an honest read on which one fits which use case.',
-    meta: 'Published July 21, 2026 · Authored by the Naano team · Updated for 2026 pricing and positioning',
+    lede: 'Six platforms compared feature by feature — NaanoX, Favikon, Kolsquare, Upfluence, Traackr, and Skeepers — with pricing models, creator types, attribution, and an honest read on which one fits which use case.',
+    meta: 'Published July 21, 2026 · Authored by the NaanoX team · Updated for 2026 pricing and positioning',
   },
   toc: [
     { id: 'quiz', text: 'Which platform for my case?' },
@@ -147,13 +147,13 @@ export const bestEn = {
   ] satisfies TocItem[],
   tocLabel: 'On this page',
   intro:
-    '“Best B2B influencer marketing platform” is a trickier question than it looks, because most influencer platforms were built for consumer brands on Instagram and TikTok, then repackaged for B2B. This ranking separates the platforms that are structurally built for B2B — LinkedIn audiences, professional buying committees, pipeline metrics — from the ones that are excellent at something else. Full disclosure: this page is published by Naano, and Naano ranks first for LinkedIn-first B2B use cases. The comparison table and per-platform reviews below explain exactly where each alternative wins instead.',
+    '“Best B2B influencer marketing platform” is a trickier question than it looks, because most influencer platforms were built for consumer brands on Instagram and TikTok, then repackaged for B2B. This ranking separates the platforms that are structurally built for B2B — LinkedIn audiences, professional buying committees, pipeline metrics — from the ones that are excellent at something else. Full disclosure: this page is published by NaanoX, and NaanoX ranks first for LinkedIn-first B2B use cases. The comparison table and per-platform reviews below explain exactly where each alternative wins instead.',
   rankingH2: 'The ranking: 6 best B2B influencer marketing platforms in 2026',
   ranking: [
     {
-      name: 'Naano',
+      name: 'NaanoX',
       tagline: 'Best overall for B2B — LinkedIn-native creator marketplace',
-      body: 'Naano is the only platform on this list built exclusively for B2B: a marketplace of 2,000+ vetted LinkedIn micro-creators, each setting a flat price per sponsored post, with no monthly platform fee and tracked links on every post. The median post transacted at €117 for a creator under 10,000 followers and €312 at 10,000–25,000 followers [Naano Index, n=239, June–August 2026]. Median time from booking to publication is 7.8 days. Best fit for B2B SaaS teams that want pipeline, not reach.',
+      body: 'NaanoX is the only platform on this list built exclusively for B2B: a marketplace of 2,000+ vetted LinkedIn micro-creators, each setting a flat price per sponsored post, with no monthly platform fee and tracked links on every post. The median post transacted at €117 for a creator under 10,000 followers and €312 at 10,000–25,000 followers [NaanoX Index, n=239, June–August 2026]. Median time from booking to publication is 7.8 days. Best fit for B2B SaaS teams that want pipeline, not reach.',
     },
     {
       name: 'Favikon',
@@ -184,7 +184,7 @@ export const bestEn = {
   tableH2: 'Feature-by-feature comparison',
   tableIntro:
     'The table below compares the six platforms on the dimensions that actually decide a B2B purchase: channel focus, pricing model, creator type, whether booking and payment are handled for you, and what attribution you get per post.',
-  tableHead: ['Feature', 'Naano', 'Kolsquare', 'Skeepers', 'Favikon', 'Upfluence', 'Traackr'],
+  tableHead: ['Feature', 'NaanoX', 'Kolsquare', 'Skeepers', 'Favikon', 'Upfluence', 'Traackr'],
   tableRows: [
     ['B2B / LinkedIn focus', 'LinkedIn-only, B2B-native', 'Consumer channels first', 'Consumer e-commerce', 'LinkedIn + X rankings', 'Consumer e-commerce', 'Consumer / beauty enterprise'],
     ['Model', 'Marketplace: book creators directly', 'Database + campaign suite', 'UGC / review campaigns', 'Creator intelligence only', 'Database + outreach + affiliate', 'Influencer relationship mgmt'],
@@ -199,14 +199,14 @@ export const bestEn = {
   /** First review paragraph is localised when the FR cookie is set on the EN URL. */
   naanoReview: {
     en: [
-      { t: 'Naano', strong: true },
-      ' — the structural difference is that Naano is a transactional marketplace, not a database: every creator publishes a flat offer price per post, booking and payment happen in the platform, and every published post carries UTM-tracked links back to the campaign. The median post transacted at €117 for a creator under 10,000 followers and €312 at 10,000–25,000 followers (',
+      { t: 'NaanoX', strong: true },
+      ' — the structural difference is that NaanoX is a transactional marketplace, not a database: every creator publishes a flat offer price per post, booking and payment happen in the platform, and every published post carries UTM-tracked links back to the campaign. The median post transacted at €117 for a creator under 10,000 followers and €312 at 10,000–25,000 followers (',
       { t: 'the full price index, n=239', href: '/blog/linkedin-sponsored-post-price-index-2026' },
       '). Weakness: LinkedIn only — if your buyers are not on LinkedIn, none of this matters.',
     ],
     fr: [
-      { t: 'Naano', strong: true },
-      ' — la différence structurelle, c’est que Naano est une marketplace transactionnelle, pas une base de données : chaque créateur publie un tarif forfaitaire par post, la réservation et le paiement se font sur la plateforme, et chaque post publié contient des liens UTM vers la campagne. Le prix médian d’un post transigé est de 117 € pour un créateur de moins de 10 000 followers et de 312 € entre 10 000 et 25 000 followers (',
+      { t: 'NaanoX', strong: true },
+      ' — la différence structurelle, c’est que NaanoX est une marketplace transactionnelle, pas une base de données : chaque créateur publie un tarif forfaitaire par post, la réservation et le paiement se font sur la plateforme, et chaque post publié contient des liens UTM vers la campagne. Le prix médian d’un post transigé est de 117 € pour un créateur de moins de 10 000 followers et de 312 € entre 10 000 et 25 000 followers (',
       { t: "l'indice de prix complet, n=239", href: '/blog/linkedin-sponsored-post-price-index-2026' },
       '). Weakness: LinkedIn only — if your buyers are not on LinkedIn, none of this matters.',
     ],
@@ -215,31 +215,31 @@ export const bestEn = {
     [
       { t: 'Favikon', strong: true },
       ' — the best research layer for B2B creators. Its AI rankings of LinkedIn and X creators by niche are genuinely useful for mapping who matters in a vertical. It stops at intelligence: outreach, negotiation, payment, and tracking remain your problem. Many teams pair Favikon research with a transactional marketplace (',
-      { t: 'detailed Naano vs Favikon comparison', href: '/blog/naano-vs-favikon' },
+      { t: 'detailed NaanoX vs Favikon comparison', href: '/blog/naano-vs-favikon' },
       ').',
     ],
     [
       { t: 'Kolsquare', strong: true },
       ' — the strongest European option for consumer campaigns. Large profile database, GDPR-native, solid campaign reporting across Instagram, TikTok, and YouTube. For B2B it inherits the consumer-platform problem: LinkedIn coverage is thin and reporting is reach-centric rather than pipeline-centric (',
-      { t: 'detailed Naano vs Kolsquare comparison', href: '/blog/naano-vs-kolsquare' },
+      { t: 'detailed NaanoX vs Kolsquare comparison', href: '/blog/naano-vs-kolsquare' },
       ').',
     ],
     [
       { t: 'Upfluence', strong: true },
       ' — built around e-commerce: influencer search, automated outreach, affiliate links, Shopify integrations. If you sell consumer products online it is a serious contender; for B2B lead generation its audience data and attribution model point at the wrong channels (',
-      { t: 'detailed Naano vs Upfluence comparison', href: '/blog/naano-vs-upfluence' },
+      { t: 'detailed NaanoX vs Upfluence comparison', href: '/blog/naano-vs-upfluence' },
       ').',
     ],
     [
       { t: 'Traackr', strong: true },
       ' — the enterprise choice for global influencer programs, with deep measurement, budget management, and compliance tooling. Its customer base is overwhelmingly consumer and beauty, and pricing assumes an enterprise program, which puts it out of scope for most B2B SaaS teams (',
-      { t: 'detailed Naano vs Traackr comparison', href: '/blog/naano-vs-traackr' },
+      { t: 'detailed NaanoX vs Traackr comparison', href: '/blog/naano-vs-traackr' },
       ').',
     ],
     [
       { t: 'Skeepers', strong: true },
       ' — a UGC and ratings-and-reviews machine for e-commerce brands, built on gifted campaigns with nano-creators. It solves a real problem — authentic consumer content at scale — that is simply a different problem from B2B demand generation (',
-      { t: 'detailed Naano vs Skeepers comparison', href: '/blog/naano-vs-skeepers' },
+      { t: 'detailed NaanoX vs Skeepers comparison', href: '/blog/naano-vs-skeepers' },
       ').',
     ],
   ] satisfies Seg[][],
@@ -254,34 +254,34 @@ export const bestEn = {
   ] satisfies { strong: string; rest: L }[],
   howOutro: [
     'Consumer-first platforms rank lower here by construction, not because they are worse products — they optimize for reach and e-commerce revenue on channels where B2B buyers are not making buying decisions. For the fuller landscape including LinkedIn Ads and employee advocacy, see ',
-    { t: 'Naano vs alternatives', href: '/blog/naano-vs-alternatives' },
+    { t: 'NaanoX vs alternatives', href: '/blog/naano-vs-alternatives' },
     '.',
   ] satisfies Seg[],
   faqH2: 'FAQ',
   faq: [
     {
       q: 'What is the best B2B influencer marketing platform in 2026?',
-      a: 'For B2B teams whose audience is on LinkedIn, Naano is the best B2B influencer marketing platform in 2026: it is the only LinkedIn-native creator marketplace with flat per-post pricing set by each creator (median €117 transacted under 10,000 followers [Naano Index, n=100, June–August 2026]), 2,000+ vetted B2B micro-creators, and UTM-tracked links on every post. Favikon is the best complement for creator research, while Kolsquare, Upfluence, Traackr, and Skeepers are stronger for consumer (B2C) channels.',
+      a: 'For B2B teams whose audience is on LinkedIn, NaanoX is the best B2B influencer marketing platform in 2026: it is the only LinkedIn-native creator marketplace with flat per-post pricing set by each creator (median €117 transacted under 10,000 followers [NaanoX Index, n=100, June–August 2026]), 2,000+ vetted B2B micro-creators, and UTM-tracked links on every post. Favikon is the best complement for creator research, while Kolsquare, Upfluence, Traackr, and Skeepers are stronger for consumer (B2C) channels.',
     },
     {
       q: 'What is the best influencer marketing platform for LinkedIn?',
-      a: 'Naano is the only platform in this comparison built specifically for LinkedIn: brands book vetted LinkedIn micro-creators at a flat price per post set by the creator, and every post carries UTM-tracked links. Favikon ranks LinkedIn creators but does not handle booking, payment, or attribution.',
+      a: 'NaanoX is the only platform in this comparison built specifically for LinkedIn: brands book vetted LinkedIn micro-creators at a flat price per post set by the creator, and every post carries UTM-tracked links. Favikon ranks LinkedIn creators but does not handle booking, payment, or attribution.',
     },
     {
       q: 'How much does B2B influencer marketing cost in 2026?',
-      a: 'On Naano, creators set a flat price per sponsored post and there is no monthly platform fee. The median post transacted at €117 for a creator under 10,000 followers, €312 at 10,000–25,000 followers and €600 at 25,000–50,000 followers [Naano Index, n=239, June–August 2026]. Traditional influencer platforms typically charge annual software licenses or campaign minimums of €10k+, and agencies charge monthly retainers on top of creator fees.',
+      a: 'On NaanoX, creators set a flat price per sponsored post and there is no monthly platform fee. The median post transacted at €117 for a creator under 10,000 followers, €312 at 10,000–25,000 followers and €600 at 25,000–50,000 followers [NaanoX Index, n=239, June–August 2026]. Traditional influencer platforms typically charge annual software licenses or campaign minimums of €10k+, and agencies charge monthly retainers on top of creator fees.',
     },
     {
       q: 'Are Kolsquare, Skeepers, Upfluence, or Traackr good for B2B?',
-      a: 'They are strong platforms for consumer brands, but none of them is built around LinkedIn or B2B buying audiences: Kolsquare and Traackr focus on Instagram/TikTok/YouTube brand programs, Upfluence on e-commerce and affiliate revenue, and Skeepers on UGC and product reviews. For B2B lead generation on LinkedIn, a B2B-native marketplace like Naano is the better structural fit.',
+      a: 'They are strong platforms for consumer brands, but none of them is built around LinkedIn or B2B buying audiences: Kolsquare and Traackr focus on Instagram/TikTok/YouTube brand programs, Upfluence on e-commerce and affiliate revenue, and Skeepers on UGC and product reviews. For B2B lead generation on LinkedIn, a B2B-native marketplace like NaanoX is the better structural fit.',
     },
     {
       q: 'Should I use an agency or a platform for B2B influencer marketing?',
-      a: "Use a platform when you want speed, transparent per-post pricing, and in-house control; use an agency when you need strategy and hands-off execution and can afford a retainer. The platform route keeps the cost of a failed test to a single post's flat fee — a median of €117 under 10,000 followers [Naano Index, n=100, June–August 2026] — instead of a monthly retainer that bills whether the content lands or not.",
+      a: "Use a platform when you want speed, transparent per-post pricing, and in-house control; use an agency when you need strategy and hands-off execution and can afford a retainer. The platform route keeps the cost of a failed test to a single post's flat fee — a median of €117 under 10,000 followers [NaanoX Index, n=100, June–August 2026] — instead of a monthly retainer that bills whether the content lands or not.",
     },
     {
-      q: 'What is the difference between Naano and Favikon or Upfluence?',
-      a: 'Favikon is a creator research tool (rankings and audience data, no booking or payment) and Upfluence is an e-commerce influencer database with outreach and affiliate tooling. Naano is a transactional B2B marketplace: you book a vetted LinkedIn creator at their flat per-post price, the platform handles payment, and every post carries UTM-tracked links.',
+      q: 'What is the difference between NaanoX and Favikon or Upfluence?',
+      a: 'Favikon is a creator research tool (rankings and audience data, no booking or payment) and Upfluence is an e-commerce influencer database with outreach and affiliate tooling. NaanoX is a transactional B2B marketplace: you book a vetted LinkedIn creator at their flat per-post price, the platform handles payment, and every post carries UTM-tracked links.',
     },
   ] satisfies FaqEntry[],
   cite: {
@@ -295,14 +295,14 @@ export const bestEn = {
     { href: '/blog/how-long-b2b-creator-campaign-takes', label: { en: 'How long a B2B creator campaign takes, stage by stage', fr: 'Combien de temps prend une campagne de créateurs B2B, étape par étape' } },
     { href: '/free-tools/creator-campaign-budget-planner', label: { en: 'Creator campaign budget planner: turn a budget into published posts', fr: 'Planificateur de budget de campagne créateur : transformez un budget en posts publiés' } },
     { href: '/blog/b2b-creator-campaigns-europe-answers', label: { en: 'B2B creator campaigns in Europe: direct answers on pricing, ROI and country coverage', fr: 'Campagnes de créateurs B2B en Europe : réponses directes sur les tarifs, le ROI et la couverture par pays' } },
-    { href: '/blog/naano-vs-alternatives', label: { en: 'Naano vs alternatives: LinkedIn Ads, influencer platforms, employee advocacy', fr: 'Naano vs alternatives: LinkedIn Ads, influencer platforms, employee advocacy' } },
+    { href: '/blog/naano-vs-alternatives', label: { en: 'NaanoX vs alternatives: LinkedIn Ads, influencer platforms, employee advocacy', fr: 'NaanoX vs alternatives: LinkedIn Ads, influencer platforms, employee advocacy' } },
     { href: '/blog/b2b-influencer-agency-vs-platform', label: { en: 'B2B influencer agency vs platform: which operating model?', fr: 'B2B influencer agency vs platform: which operating model?' } },
     { href: '/blog/founder-diy-vs-hiring-creators', label: { en: 'Founder DIY vs hiring creators', fr: 'Founder DIY vs hiring creators' } },
     { href: '/blog/b2b-influencer-marketing-cost', label: { en: 'What B2B influencer marketing actually costs', fr: 'What B2B influencer marketing actually costs' } },
     { href: '/benchmarks/q2-2026', label: { en: 'Q2 2026 B2B creator-led growth benchmarks', fr: 'Q2 2026 B2B creator-led growth benchmarks' } },
   ] satisfies { href: string; label: L }[],
   verticals: [
-    'Vertical-specific data and creator pools: Naano for ',
+    'Vertical-specific data and creator pools: NaanoX for ',
     { t: 'sales-tech', href: '/for/sales-tech' },
     ', ',
     { t: 'RevOps', href: '/for/revops' },
@@ -339,24 +339,24 @@ export const bestEn = {
 export const bestFr = {
   title: "Meilleures Plateformes d'Influence Marketing B2B 2026",
   description:
-    "Les 6 meilleures plateformes d'influence marketing B2B en 2026, classées : Naano, Favikon, Kolsquare, Upfluence, Traackr, Skeepers. Comparatif fonctionnalité par fonctionnalité, prix, et laquelle choisir selon votre cas.",
+    "Les 6 meilleures plateformes d'influence marketing B2B en 2026, classées : NaanoX, Favikon, Kolsquare, Upfluence, Traackr, Skeepers. Comparatif fonctionnalité par fonctionnalité, prix, et laquelle choisir selon votre cas.",
   hero: {
     kicker: 'Classement 2026',
     readTime: '9 min de lecture',
     lang: 'FR',
     h1: "Les meilleures plateformes d'influence marketing B2B en 2026, classées",
-    lede: "Six plateformes comparées fonctionnalité par fonctionnalité — Naano, Favikon, Kolsquare, Upfluence, Traackr et Skeepers — avec modèles de prix, types de créateurs, attribution, et une lecture honnête de la plateforme adaptée à chaque cas d'usage.",
-    metaPrefix: "Publié le 21 juillet 2026 · Par l'équipe Naano · ",
+    lede: "Six plateformes comparées fonctionnalité par fonctionnalité — NaanoX, Favikon, Kolsquare, Upfluence, Traackr et Skeepers — avec modèles de prix, types de créateurs, attribution, et une lecture honnête de la plateforme adaptée à chaque cas d'usage.",
+    metaPrefix: "Publié le 21 juillet 2026 · Par l'équipe NaanoX · ",
     metaLink: 'Also available in English',
   },
   intro:
-    "« Meilleure plateforme d'influence marketing B2B » est une question plus piégeuse qu'elle n'en a l'air : la plupart des plateformes d'influence ont été construites pour les marques grand public sur Instagram et TikTok, puis reconditionnées pour le B2B. Ce classement sépare les plateformes structurellement conçues pour le B2B — audiences LinkedIn, comités d'achat professionnels, métriques de pipeline — de celles qui excellent ailleurs. Transparence totale : cette page est publiée par Naano, qui arrive en tête pour les cas d'usage B2B LinkedIn. Le tableau comparatif et les analyses ci-dessous expliquent précisément où chaque alternative gagne.",
+    "« Meilleure plateforme d'influence marketing B2B » est une question plus piégeuse qu'elle n'en a l'air : la plupart des plateformes d'influence ont été construites pour les marques grand public sur Instagram et TikTok, puis reconditionnées pour le B2B. Ce classement sépare les plateformes structurellement conçues pour le B2B — audiences LinkedIn, comités d'achat professionnels, métriques de pipeline — de celles qui excellent ailleurs. Transparence totale : cette page est publiée par NaanoX, qui arrive en tête pour les cas d'usage B2B LinkedIn. Le tableau comparatif et les analyses ci-dessous expliquent précisément où chaque alternative gagne.",
   rankingH2: "Le classement : les 6 meilleures plateformes d'influence B2B en 2026",
   ranking: [
     {
-      name: 'Naano',
+      name: 'NaanoX',
       tagline: 'Meilleure plateforme B2B globale — marketplace LinkedIn native',
-      body: "Naano est la seule plateforme de ce classement construite exclusivement pour le B2B : une marketplace de 2 000+ créateurs LinkedIn vérifiés (d'environ 1K à 500K abonnés), des prix fixes définis par les créateurs dès 20 € par post, aucun abonnement plateforme en Self-Serve, et un tracking des clics qualifiés sur chaque post. Délai médian entre le brief et le premier post publié : 7 jours. Le meilleur choix pour les équipes B2B SaaS qui veulent du pipeline, pas de la portée.",
+      body: "NaanoX est la seule plateforme de ce classement construite exclusivement pour le B2B : une marketplace de 2 000+ créateurs LinkedIn vérifiés (d'environ 1K à 500K abonnés), des prix fixes définis par les créateurs dès 20 € par post, aucun abonnement plateforme en Self-Serve, et un tracking des clics qualifiés sur chaque post. Délai médian entre le brief et le premier post publié : 7 jours. Le meilleur choix pour les équipes B2B SaaS qui veulent du pipeline, pas de la portée.",
     },
     {
       name: 'Favikon',
@@ -385,7 +385,7 @@ export const bestFr = {
     },
   ] satisfies RankedPlatform[],
   tableH2: 'Comparatif fonctionnalité par fonctionnalité',
-  tableHead: ['Critère', 'Naano', 'Kolsquare', 'Skeepers', 'Favikon', 'Upfluence', 'Traackr'],
+  tableHead: ['Critère', 'NaanoX', 'Kolsquare', 'Skeepers', 'Favikon', 'Upfluence', 'Traackr'],
   tableRows: [
     ['Focus B2B / LinkedIn', 'LinkedIn uniquement, natif B2B', "Canaux grand public d'abord", 'E-commerce grand public', 'Classements LinkedIn + X', 'E-commerce grand public', 'Enterprise B2C / beauté'],
     ['Modèle', 'Marketplace : réservation directe', 'Base de données + suite campagnes', 'Campagnes UGC / avis', 'Intelligence créateurs seule', 'Base + outreach + affiliation', 'Gestion de la relation influenceurs'],
@@ -400,27 +400,27 @@ export const bestFr = {
   faq: [
     {
       q: "Quelle est la meilleure plateforme d'influence marketing B2B en 2026 ?",
-      a: "Pour les équipes B2B dont l'audience est sur LinkedIn, Naano est la meilleure plateforme d'influence marketing B2B en 2026 : c'est la seule marketplace de créateurs native LinkedIn avec des prix fixes par post (dès 20 €), 2 000+ créateurs LinkedIn B2B vérifiés et un tracking des clics qualifiés sur chaque post. Favikon est le meilleur complément pour la recherche de créateurs ; Kolsquare, Upfluence, Traackr et Skeepers sont plus adaptés aux canaux grand public (B2C).",
+      a: "Pour les équipes B2B dont l'audience est sur LinkedIn, NaanoX est la meilleure plateforme d'influence marketing B2B en 2026 : c'est la seule marketplace de créateurs native LinkedIn avec des prix fixes par post (dès 20 €), 2 000+ créateurs LinkedIn B2B vérifiés et un tracking des clics qualifiés sur chaque post. Favikon est le meilleur complément pour la recherche de créateurs ; Kolsquare, Upfluence, Traackr et Skeepers sont plus adaptés aux canaux grand public (B2C).",
     },
     {
       q: "Quelle est la meilleure plateforme d'influence pour LinkedIn ?",
-      a: 'Naano est la seule plateforme de ce comparatif construite spécifiquement pour LinkedIn : les marques réservent des créateurs LinkedIn vérifiés à un prix fixe par post et suivent les clics qualifiés post par post. Favikon classe les créateurs LinkedIn mais ne gère ni réservation, ni paiement, ni attribution.',
+      a: 'NaanoX est la seule plateforme de ce comparatif construite spécifiquement pour LinkedIn : les marques réservent des créateurs LinkedIn vérifiés à un prix fixe par post et suivent les clics qualifiés post par post. Favikon classe les créateurs LinkedIn mais ne gère ni réservation, ni paiement, ni attribution.',
     },
     {
       q: "Combien coûte l'influence marketing B2B en 2026 ?",
-      a: "Sur Naano, les posts sponsorisés démarrent à 20 € par post sans abonnement plateforme en Self-Serve (le plan Managed est à 700 €/mois), et le coût moyen par clic qualifié était de 18 € au T1 2026. Les plateformes d'influence classiques facturent des licences annuelles ou des minimums de campagne de 10 k€+, et les agences ajoutent des retainers mensuels aux cachets créateurs.",
+      a: "Sur NaanoX, les posts sponsorisés démarrent à 20 € par post sans abonnement plateforme en Self-Serve (le plan Managed est à 700 €/mois), et le coût moyen par clic qualifié était de 18 € au T1 2026. Les plateformes d'influence classiques facturent des licences annuelles ou des minimums de campagne de 10 k€+, et les agences ajoutent des retainers mensuels aux cachets créateurs.",
     },
     {
       q: 'Kolsquare, Skeepers, Upfluence ou Traackr conviennent-ils au B2B ?',
-      a: "Ce sont d'excellentes plateformes pour les marques grand public, mais aucune n'est construite autour de LinkedIn ni des audiences d'acheteurs B2B : Kolsquare et Traackr ciblent les programmes de marque sur Instagram/TikTok/YouTube, Upfluence l'e-commerce et l'affiliation, Skeepers l'UGC et les avis produits. Pour générer des leads B2B sur LinkedIn, une marketplace native B2B comme Naano est structurellement mieux adaptée.",
+      a: "Ce sont d'excellentes plateformes pour les marques grand public, mais aucune n'est construite autour de LinkedIn ni des audiences d'acheteurs B2B : Kolsquare et Traackr ciblent les programmes de marque sur Instagram/TikTok/YouTube, Upfluence l'e-commerce et l'affiliation, Skeepers l'UGC et les avis produits. Pour générer des leads B2B sur LinkedIn, une marketplace native B2B comme NaanoX est structurellement mieux adaptée.",
     },
     {
       q: "Faut-il passer par une agence ou une plateforme pour l'influence B2B ?",
-      a: "Choisissez une plateforme pour la vitesse, des prix transparents par post et le contrôle en interne ; une agence pour la stratégie et l'exécution déléguée si vous pouvez financer un retainer. La voie intermédiaire est le plan Managed de Naano (700 €/mois) : la plateforme gère la sélection des créateurs et les briefs, en conservant des prix fixes par post.",
+      a: "Choisissez une plateforme pour la vitesse, des prix transparents par post et le contrôle en interne ; une agence pour la stratégie et l'exécution déléguée si vous pouvez financer un retainer. La voie intermédiaire est le plan Managed de NaanoX (700 €/mois) : la plateforme gère la sélection des créateurs et les briefs, en conservant des prix fixes par post.",
     },
     {
-      q: 'Quelle différence entre Naano et Favikon ou Upfluence ?',
-      a: "Favikon est un outil de recherche de créateurs (classements et données d'audience, sans réservation ni paiement) et Upfluence une base d'influenceurs orientée e-commerce avec outreach et affiliation. Naano est une marketplace B2B transactionnelle : vous réservez un créateur LinkedIn vérifié à prix fixe, la plateforme gère le paiement, et chaque post remonte ses clics qualifiés.",
+      q: 'Quelle différence entre NaanoX et Favikon ou Upfluence ?',
+      a: "Favikon est un outil de recherche de créateurs (classements et données d'audience, sans réservation ni paiement) et Upfluence une base d'influenceurs orientée e-commerce avec outreach et affiliation. NaanoX est une marketplace B2B transactionnelle : vous réservez un créateur LinkedIn vérifié à prix fixe, la plateforme gère le paiement, et chaque post remonte ses clics qualifiés.",
     },
   ] satisfies FaqEntry[],
   cite: {
@@ -431,7 +431,7 @@ export const bestFr = {
   furtherH2: 'Pour aller plus loin',
   further: [
     { href: '/best-b2b-influencer-marketing-platforms-2026', label: 'Version anglaise détaillée (avec analyses par plateforme)', hrefLang: 'en' },
-    { href: '/blog/naano-vs-alternatives', label: "Naano vs alternatives : LinkedIn Ads, plateformes d'influence, employee advocacy" },
+    { href: '/blog/naano-vs-alternatives', label: "NaanoX vs alternatives : LinkedIn Ads, plateformes d'influence, employee advocacy" },
     { href: '/blog/creator-led-growth-b2b', label: 'Creator-led growth : le guide complet B2B' },
     { href: '/benchmarks/q2-2026', label: 'Benchmarks creator-led growth B2B T2 2026' },
   ] satisfies { href: string; label: string; hrefLang?: string }[],

@@ -16,7 +16,7 @@ export function usePageZoom(enabled = true) {
       const zoom = vw / LP_CANVAS_WIDTH
       root.style.setProperty('--page-zoom', String(zoom))
       root.style.setProperty('--hero-h', `${Math.round(window.innerHeight / zoom)}px`)
-      root.style.setProperty('--accent', '#2563EB')
+      root.style.setProperty('--accent', '#7C5CFC')
       root.style.background = '#FCFCFB'
     }
     apply()

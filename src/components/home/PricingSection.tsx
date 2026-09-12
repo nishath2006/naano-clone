@@ -6,7 +6,7 @@ const copy = {
   en: {
     title: 'Pricing',
     lead: 'Start free. Upgrade when you want your time back.',
-    sub: 'Choose whether you want to run creator campaigns in-house or have Naano operate them.',
+    sub: 'Choose whether you want to run creator campaigns in-house or have NaanoX operate them.',
     self: {
       eyebrow: 'SELF-SERVE',
       title: 'Run it yourself.',
@@ -19,7 +19,7 @@ const copy = {
     managed: {
       eyebrow: 'MANAGED CAMPAIGNS',
       title: 'Get your time back.',
-      body: 'For teams that want Naano to operate their creator channel end to end.',
+      body: 'For teams that want NaanoX to operate their creator channel end to end.',
       price: 'Custom quote',
       items: ['Campaign strategy and positioning', 'Creator sourcing and coordination', 'Brief creation and campaign launch', 'Reporting and optimisation'],
       cta: 'Book a campaign call',
@@ -29,7 +29,7 @@ const copy = {
   fr: {
     title: 'Tarifs',
     lead: 'Commencez gratuitement. Passez à la vitesse supérieure quand vous voulez récupérer du temps.',
-    sub: 'Choisissez entre gérer vos campagnes avec des créateurs en interne ou les confier à Naano.',
+    sub: 'Choisissez entre gérer vos campagnes avec des créateurs en interne ou les confier à NaanoX.',
     self: {
       eyebrow: 'SELF-SERVE',
       title: 'Pilotez vous-même.',
@@ -42,7 +42,7 @@ const copy = {
     managed: {
       eyebrow: 'MANAGED CAMPAIGNS',
       title: 'Récupérez votre temps.',
-      body: 'Pour les équipes qui veulent confier à Naano la gestion de leur canal créateurs de A à Z.',
+      body: 'Pour les équipes qui veulent confier à NaanoX la gestion de leur canal créateurs de A à Z.',
       price: 'Devis personnalisé',
       items: ['Stratégie et positionnement de campagne', 'Sourcing et coordination des créateurs', 'Création du brief et lancement de la campagne', 'Reporting et optimisation'],
       cta: 'Réserver un appel de cadrage',

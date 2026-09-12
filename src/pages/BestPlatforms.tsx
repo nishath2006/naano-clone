@@ -22,7 +22,7 @@ function Ranking({ items }: { items: RankedPlatform[] }) {
       {items.map((p, i) => (
         <li key={p.name} className="rounded-xl border border-[#E5E7EB] p-5 sm:p-6">
           <div className="flex items-baseline gap-3 mb-2">
-            <span aria-hidden="true" className="text-[#1652F0] font-medium tabular-nums text-lg">
+            <span aria-hidden="true" className="text-[#7C5CFC] font-medium tabular-nums text-lg">
               {i + 1}.
             </span>
             <h3 className="text-xl font-medium tracking-[-0.01em] text-[#111827]">{p.name}</h3>
@@ -50,7 +50,7 @@ function ComparisonTable({ head, rows }: { head: string[]; rows: string[][] }) {
 function CiteBox({ label, title, rest }: { label: string; title: string; rest: string }) {
   return (
     <div className="my-10 rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] px-5 py-4 text-sm text-[#374151] leading-relaxed">
-      <strong className={STRONG}>{label}</strong> Naano. <em>{title}</em>
+      <strong className={STRONG}>{label}</strong> NaanoX. <em>{title}</em>
       {rest}
     </div>
   )

@@ -79,8 +79,8 @@ export function SiteNav() {
       <div className="flex items-center justify-between max-w-7xl mx-auto relative transition-all duration-200 px-0 py-0" style={{ fontFamily: 'var(--font-jakarta)' }}>
         <div className="flex items-center gap-6 lg:gap-8">
           <Link to="/" className="navbar-brand flex items-center gap-2 cursor-pointer transition-transform duration-150 hover:scale-[1.03] active:scale-[0.98]">
-            <img src="/logo.svg" alt="naano" className="h-5 w-5 sm:h-6 sm:w-6 object-contain" />
-            <span className="font-bold text-base sm:text-lg text-[var(--lp-ink)]">naano</span>
+            <img src="/logo.svg" alt="NaanoX" className="h-5 w-5 sm:h-6 sm:w-6 object-contain" />
+            <span className="font-bold text-base sm:text-lg text-[var(--lp-ink)]">naano<span style={{ color: '#7C5CFC' }}>X</span></span>
           </Link>
           <div className="hidden md:flex items-center gap-6 lg:gap-8" style={fade}>
             {c.links.map((l) => (

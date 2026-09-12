@@ -22,7 +22,7 @@
 }
 .tas-intro {
   color: #fff;
-  background: linear-gradient(145deg, #111827 0%, #172554 64%, #2762ee 150%);
+  background: linear-gradient(145deg, #111827 0%, #241B5E 64%, #6D4EF5 150%);
   flex-direction: column;
   justify-content: space-between;
   gap: 48px;
@@ -94,7 +94,7 @@
   height: 4px;
 }
 .tas-progress .tas-current {
-  background: #2762ee;
+  background: #6D4EF5;
 }
 .tas-progress .tas-done {
   background: #93c5fd;
@@ -135,7 +135,7 @@
   transition: all 0.16s;
 }
 .tas-form input:focus {
-  border-color: #2762ee;
+  border-color: #6D4EF5;
   box-shadow: 0 0 0 4px #2762ee1a;
 }
 .tas-form small {
@@ -151,7 +151,7 @@
 .tas-form button {
   color: #fff;
   cursor: pointer;
-  background: #2762ee;
+  background: #6D4EF5;
   border: 0;
   border-radius: 12px;
   justify-content: center;
@@ -184,11 +184,11 @@
   margin: 0 !important;
 }
 .tas-login a {
-  color: #2762ee;
+  color: #6D4EF5;
   font-weight: 700;
 }
 .tas-icon {
-  color: #2762ee;
+  color: #6D4EF5;
   background: #eef3ff;
   border-radius: 14px;
   place-items: center;
@@ -242,11 +242,11 @@
   }
 }
 .tas-status {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  background: #F7F4FF;
+  border: 1px solid #DDD4FF;
   border-radius: 11px;
   padding: 11px 13px;
-  color: #1d4ed8 !important;
+  color: #6D4EF5 !important;
   margin: 0 !important;
 }
 .tas-codeActions {
@@ -256,7 +256,7 @@
   display: flex;
 }
 .tas-codeActions button {
-  color: #2762ee;
+  color: #6D4EF5;
   min-height: 0;
   box-shadow: none;
   background: 0 0;

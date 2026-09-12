@@ -4,10 +4,10 @@ import { NavAnchor } from '@/components/lp/LpNav'
 
 /** Inline link inside long-form article copy (benchmarks, sector pages, rankings). */
 export const LINK_ARTICLE =
-  'text-[#1652F0] underline underline-offset-4 decoration-[#1652F0]/30 hover:decoration-[#1652F0] transition-colors duration-150 motion-reduce:transition-none'
+  'text-[#7C5CFC] underline underline-offset-4 decoration-[#7C5CFC]/30 hover:decoration-[#7C5CFC] transition-colors duration-150 motion-reduce:transition-none'
 /** Inline link inside the hub-style pages (reports, creator marketplace). */
 export const LINK_HUB =
-  'font-semibold text-[#1652F0] underline underline-offset-2 hover:text-[#1240C4] transition-colors duration-150 motion-reduce:transition-none'
+  'font-semibold text-[#7C5CFC] underline underline-offset-2 hover:text-[#1240C4] transition-colors duration-150 motion-reduce:transition-none'
 
 /** Router-aware anchor: internal paths use <Link>, hashes/external use NavAnchor. */
 export function TextLink({

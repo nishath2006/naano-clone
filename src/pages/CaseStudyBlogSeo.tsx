@@ -44,8 +44,8 @@ export default function CaseStudyBlogSeo() {
 
   return (
     <StandaloneShell
-      title="How BlogSEO turned creator marketing into a measurable acquisition channel — Naano case study"
-      description="After one €2,000 sponsored post returned just three sign-ups, BlogSEO rebuilt creator marketing on Naano: 150% ROAS, 1,500+ qualified leads and hundreds of sign-ups from one LinkedIn creator campaign."
+      title="How BlogSEO turned creator marketing into a measurable acquisition channel — NaanoX case study"
+      description="After one €2,000 sponsored post returned just three sign-ups, BlogSEO rebuilt creator marketing on NaanoX: 150% ROAS, 1,500+ qualified leads and hundreds of sign-ups from one LinkedIn creator campaign."
       background="#FCFCFB"
     >
       <main
@@ -81,7 +81,7 @@ export default function CaseStudyBlogSeo() {
                 How BlogSEO turned creator marketing into a measurable acquisition channel
               </h1>
               <p style={{ margin: '24px 0 0 0', fontSize: 19, lineHeight: 1.55, color: '#55575E', maxWidth: 560 }}>
-                After one €2,000 sponsored post returned just three sign-ups, BlogSEO rebuilt creator marketing on Naano, and turned it into
+                After one €2,000 sponsored post returned just three sign-ups, BlogSEO rebuilt creator marketing on NaanoX, and turned it into
                 predictable, trackable pipeline.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 22, marginTop: 34, flexWrap: 'wrap', rowGap: 14 }}>
@@ -142,7 +142,7 @@ export default function CaseStudyBlogSeo() {
         {/* 01 The challenge */}
         <CaseChapter index="01" title="The challenge">
           <p style={LEAD}>
-            Before Naano, BlogSEO had already tested influencer marketing. They paid <Strong>€2,000 for a single sponsored post</Strong> and
+            Before NaanoX, BlogSEO had already tested influencer marketing. They paid <Strong>€2,000 for a single sponsored post</Strong> and
             generated only three sign-ups.
           </p>
           <p style={{ margin: '22px 0 0 0', ...BODY }}>
@@ -182,12 +182,12 @@ export default function CaseStudyBlogSeo() {
         {/* 02 The campaign */}
         <CaseChapter index="02" title="The campaign">
           <p style={LEAD}>
-            BlogSEO launched a LinkedIn creator campaign with Naano, matched with <Strong>~10 relevant creators</Strong> and a{' '}
+            BlogSEO launched a LinkedIn creator campaign with NaanoX, matched with <Strong>~10 relevant creators</Strong> and a{' '}
             <Strong>€5,000 budget</Strong>.
           </p>
           <p style={{ margin: '22px 0 0 0', ...BODY }}>
             Over the campaign, creators published around 15 posts designed to reach BlogSEO&apos;s target audience and generate qualified
-            demand. Every post was tracked through Naano, so the team could see which creators and which content generated real commercial
+            demand. Every post was tracked through NaanoX, so the team could see which creators and which content generated real commercial
             intent.
           </p>
           <a
@@ -224,7 +224,7 @@ export default function CaseStudyBlogSeo() {
                   <span style={{ fontSize: 15, fontWeight: 700, color: '#17181C' }}>Creator campaign post</span>
                   <LinkedInSquare />
                 </div>
-                <div style={{ fontSize: 13, color: '#8B8D94', marginTop: 1 }}>Tracked in Naano · LinkedIn</div>
+                <div style={{ fontSize: 13, color: '#8B8D94', marginTop: 1 }}>Tracked in NaanoX · LinkedIn</div>
               </div>
             </div>
             <p style={{ margin: '14px 0 0 0', fontSize: 15.5, lineHeight: 1.5, color: '#26272C', fontWeight: 500 }}>
@@ -255,7 +255,7 @@ export default function CaseStudyBlogSeo() {
           title="Why it worked"
           aside={
             <p style={{ margin: '16px 0 0 0', fontSize: 16, lineHeight: 1.55, color: '#8B8D94' }}>
-              The difference wasn&apos;t spending more on creators. Naano made the campaign operational.
+              The difference wasn&apos;t spending more on creators. NaanoX made the campaign operational.
             </p>
           }
           contentStyle={{ display: 'flex', flexDirection: 'column', gap: 2 }}
@@ -271,7 +271,7 @@ export default function CaseStudyBlogSeo() {
                   width: 26,
                   height: 26,
                   borderRadius: '50%',
-                  background: 'rgba(37,99,235,0.1)',
+                  background: 'rgba(124,92,252,0.1)',
                   marginTop: 1,
                 }}
               >
@@ -290,7 +290,7 @@ export default function CaseStudyBlogSeo() {
             className="rv rv-d1"
             style={{ margin: '40px 0 0 0', fontSize: 40, lineHeight: 1.3, fontWeight: 500, letterSpacing: '-0.02em', color: '#17181C', textWrap: 'balance' }}
           >
-            &quot;We had tried influencer marketing before and spent €2,000 on one post for three sign-ups. With Naano, we saw{' '}
+            &quot;We had tried influencer marketing before and spent €2,000 on one post for three sign-ups. With NaanoX, we saw{' '}
             <span style={{ color: 'var(--accent)' }}>150% ROAS</span> and generated more than 1,500 leads we could follow up with.&quot;
           </blockquote>
           <div className="rv rv-d2" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginTop: 44 }}>
@@ -362,7 +362,7 @@ export default function CaseStudyBlogSeo() {
                 }}
                 to="/book"
               >
-                Launch your campaign with Naano
+                Launch your campaign with NaanoX
                 <ArrowRightLong size={17} />
               </Link>
             </div>

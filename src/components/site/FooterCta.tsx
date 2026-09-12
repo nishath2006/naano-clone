@@ -19,7 +19,7 @@ export function FooterCta() {
     <div
       className="relative overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #0A2A6B 0%, #1652F0 55%, #2563EB 100%)',
+        background: 'linear-gradient(135deg, #0A2A6B 0%, #7C5CFC 55%, #7C5CFC 100%)',
         padding: 'clamp(48px, 8vw, 80px) 24px clamp(56px, 8vw, 96px)',
         fontFamily: 'var(--font-jakarta)',
       }}
@@ -42,7 +42,7 @@ export function FooterCta() {
         </p>
         <h2 className="font-bold text-white leading-[1.08] tracking-[-0.03em] mb-5" style={{ fontSize: 'clamp(28px, 3.4vw, 46px)' }}>
           {c.title}
-          <span style={{ color: '#FFFFFF' }}>naano</span>?
+          <span style={{ color: '#FFFFFF' }}>naanoX</span>?
         </h2>
         <p className="text-white/75 text-base leading-relaxed max-w-md mx-auto mb-10">
           Launch your first campaign in minutes. Top up your wallet and pay per post, with tracked clicks on every one.

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { StandaloneShell } from '@/layouts/StandaloneShell'
 import { AccentCheck, ArrowLeft, ArrowRightShort, Clock, VideoCamera } from '@/components/lp/fluidIcons'
+import { BrandWordmark } from '@/components/shared/BrandWordmark'
 
 // naano.com serves this page in English for both locales (the FR capture is
 // identical apart from the Cloudflare email hash). The address decodes to:
@@ -43,8 +44,8 @@ const PILL = {
 export default function Book() {
   return (
     <StandaloneShell
-      title="Book a campaign call — Naano"
-      description="In 30 minutes, we'll map the right creator angles, campaign format and budget for your ICP. Book a free campaign strategy call with the Naano team."
+      title="Book a campaign call — NaanoX"
+      description="In 30 minutes, we'll map the right creator angles, campaign format and budget for your ICP. Book a free campaign strategy call with the NaanoX team."
       background="#FCFCFB"
     >
       <div
@@ -70,7 +71,7 @@ export default function Book() {
           }}
         >
           <Link style={{ display: 'inline-flex', alignItems: 'center' }} to="/">
-            <img src="/lp/naano-logo-nav.png" alt="naano" style={{ height: 26, display: 'block' }} />
+            <BrandWordmark height={26} />
           </Link>
           <Link
             className="lp-fhover"
@@ -124,7 +125,7 @@ export default function Book() {
                       width: 22,
                       height: 22,
                       borderRadius: '50%',
-                      background: 'rgba(37,99,235,0.1)',
+                      background: 'rgba(124,92,252,0.1)',
                     }}
                   >
                     <AccentCheck />
@@ -187,7 +188,7 @@ export default function Book() {
               </div>
               <div style={{ marginTop: 18, border: '1px solid #E7E5E1', borderRadius: 12, overflow: 'hidden', background: '#FFFFFF' }}>
                 <iframe
-                  title="Book a campaign call with Naano"
+                  title="Book a campaign call with NaanoX"
                   src={CAL_URL}
                   style={{ border: 0, display: 'block', width: '100%' }}
                   width="100%"

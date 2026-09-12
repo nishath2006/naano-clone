@@ -120,7 +120,7 @@ export default function CollaborationDetail() {
       {!terminal && (
         <ol className="mb-6 grid grid-cols-3 gap-2 sm:grid-cols-6">
           {STEPS.map((s, i) => (
-            <li key={s} className={`rounded-xl border px-3 py-2 text-[11px] font-semibold ${i < stepIndex ? 'border-[#A7F3D0] bg-[#ECFDF5] text-[#047857]' : i === stepIndex ? 'border-[#2563eb] bg-[#EFF6FF] text-[#1D4ED8]' : 'border-[#E5E7EB] bg-white text-[#9CA3AF]'}`}>
+            <li key={s} className={`rounded-xl border px-3 py-2 text-[11px] font-semibold ${i < stepIndex ? 'border-[#A7F3D0] bg-[#ECFDF5] text-[#047857]' : i === stepIndex ? 'border-[#7C5CFC] bg-[#F7F4FF] text-[#6D4EF5]' : 'border-[#E5E7EB] bg-white text-[#9CA3AF]'}`}>
               {i + 1}. {COLLAB_STATUS_LABEL[s]}
             </li>
           ))}
@@ -192,7 +192,7 @@ export default function CollaborationDetail() {
             <Card>
               <h2 className="text-sm font-bold mb-1">Review the draft</h2>
               {d.post_url ? (
-                <a href={d.post_url} target="_blank" rel="noreferrer" className="text-sm font-medium text-[#2563eb] break-all">
+                <a href={d.post_url} target="_blank" rel="noreferrer" className="text-sm font-medium text-[#7C5CFC] break-all">
                   {d.post_url}
                 </a>
               ) : (
@@ -298,7 +298,7 @@ export default function CollaborationDetail() {
                 <p className="mt-2 text-xs text-[#6B7280]">{payment.paid_at ? `Paid ${formatDate(payment.paid_at)}` : payment.scheduled_for ? `Scheduled for ${formatDate(payment.scheduled_for)}` : ''}</p>
               </>
             ) : (
-              <p className="text-sm text-[#9CA3AF]">Scheduled automatically when the post goes live; Naano invoices the brand and pays the creator within 24h.</p>
+              <p className="text-sm text-[#9CA3AF]">Scheduled automatically when the post goes live; NaanoX invoices the brand and pays the creator within 24h.</p>
             )}
           </Card>
         </div>

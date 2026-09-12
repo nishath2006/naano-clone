@@ -4,6 +4,7 @@ import { getLpNav, type LpNavVariant } from '@/data/nav'
 import { useLocale } from '@/lib/locale'
 import { LocaleButton } from '@/components/shared/LocaleButton'
 import { Burger } from './icons'
+import { BrandWordmark } from '@/components/shared/BrandWordmark'
 
 const LINK_STYLE = { textDecoration: 'none', color: '#17181C', fontSize: 15, fontWeight: 500 } as const
 
@@ -98,12 +99,7 @@ export function LpNav({
             }}
           >
             <Link to={nav.logoHref} style={{ display: 'block' }}>
-              <img
-                id="naano-nav-logo"
-                src="/lp/naano-logo-nav.png"
-                alt="naano"
-                style={{ height: compact ? 26 : 30, display: 'block', transition: 'height 0.32s cubic-bezier(.22,.61,.36,1)' }}
-              />
+              <BrandWordmark id="naano-nav-logo" height={compact ? 26 : 30} style={{ transition: 'height 0.32s cubic-bezier(.22,.61,.36,1)' }} />
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
               <div className="lp-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 32, marginRight: 22 }}>

@@ -7,6 +7,7 @@ import { SelectionForm } from '@/components/selection/SelectionForm'
 import { SelectionAside } from '@/components/selection/SelectionAside'
 import { FaqSection, HowToSection, ManagedBanner, RelatedReading, TrustedLogos, WhatIsNaanoSection } from '@/components/selection/SelectionSections'
 import { selectionHeader, selectionHero, selectionMeta } from '@/components/selection/selectionCopy'
+import { BrandWordmark } from '@/components/shared/BrandWordmark'
 
 const RESPONSIVE_CSS = `
         .sel-card{display:grid;grid-template-columns:minmax(0,0.92fr) minmax(400px,1.08fr)}
@@ -66,7 +67,7 @@ export default function Selection() {
           }}
         >
           <Link to="/" style={{ display: 'inline-flex', alignItems: 'center' }}>
-            <img src="/lp/naano-logo-nav.png" alt="naano" style={{ height: 26, display: 'block' }} />
+            <BrandWordmark height={26} />
           </Link>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <span className="sel-signin-label" style={{ color: '#8A8D93', fontSize: 13.5 }}>
@@ -127,7 +128,7 @@ export default function Selection() {
                       width: 22,
                       height: 22,
                       borderRadius: '50%',
-                      background: 'rgba(37,99,235,0.1)',
+                      background: 'rgba(124,92,252,0.1)',
                     }}
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">

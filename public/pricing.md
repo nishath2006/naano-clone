@@ -1,9 +1,9 @@
-# Pricing: Naano
+# Pricing: NaanoX
 
-Naano is a B2B LinkedIn creator marketplace based in Paris. Brands run
+NaanoX is a B2B LinkedIn creator marketplace based in Paris. Brands run
 sponsored-post campaigns with vetted LinkedIn (and X, YouTube) creators.
 There are two plans: **Self-Serve** (free platform access) and **Managed
-Campaigns** (done for you by the Naano team). Creator campaigns cost from
+Campaigns** (done for you by the NaanoX team). Creator campaigns cost from
 **€20 per published post** on both plans.
 
 ## Self-Serve: €0 / month
@@ -28,10 +28,10 @@ Campaigns** (done for you by the Naano team). Creator campaigns cost from
   - Campaign strategy and positioning
   - Creator sourcing and coordination
   - Brief creation and campaign launch
-  - Reporting and optimisation, run end to end by the Naano team
+  - Reporting and optimisation, run end to end by the NaanoX team
 - **Creator cost:** same per-post pricing as Self-Serve, from €20 per
-  published post. Naano manages creator payments on your behalf.
-- **Support:** dedicated Naano team, book a campaign call to start
+  published post. NaanoX manages creator payments on your behalf.
+- **Support:** dedicated NaanoX team, book a campaign call to start
   (https://naano.com/book).
 - **Billing:** month-to-month, cancel anytime. The €700/month fee is
   separate from campaign spend on creator posts.
@@ -40,11 +40,11 @@ Campaigns** (done for you by the Naano team). Creator campaigns cost from
 
 1. You choose a plan: Self-Serve (€0/month) or Managed Campaigns
    (€700/month).
-2. You (or the Naano team, on Managed) source creators and create briefs.
+2. You (or the NaanoX team, on Managed) source creators and create briefs.
    Each creator's post price (from €20) is shown before you book it.
 3. The creator publishes the post. You review and approve the content.
 4. Once approved, the creator is paid automatically via Stripe Connect.
-   Naano handles invoices and approval records.
+   NaanoX handles invoices and approval records.
 5. There is no cost per click, impression, or lead, pricing is flat per
    published post. Campaign spend on creator posts is always separate from
    the monthly plan fee.

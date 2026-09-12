@@ -57,7 +57,7 @@ export function StatCard({ label, value, hint, tone }: { label: string; value: R
   return (
     <Card className="min-w-0">
       <div className="text-[11px] font-semibold uppercase tracking-wide text-[#6B7280]">{label}</div>
-      <div className={`mt-1 text-2xl font-bold tracking-tight ${tone === 'blue' ? 'text-[#2563eb]' : 'text-[#111827]'}`}>{value}</div>
+      <div className={`mt-1 text-2xl font-bold tracking-tight ${tone === 'blue' ? 'text-[#7C5CFC]' : 'text-[#111827]'}`}>{value}</div>
       {hint && <div className="mt-1 text-xs text-[#9CA3AF]">{hint}</div>}
     </Card>
   )
@@ -67,7 +67,7 @@ export function Badge({ status, children, tone }: { status?: string; children: R
   const t = tone ?? (status ? statusTone(status) : 'gray')
   const cls = {
     green: 'bg-[#ECFDF5] text-[#047857] border-[#A7F3D0]',
-    blue: 'bg-[#EFF6FF] text-[#1D4ED8] border-[#BFDBFE]',
+    blue: 'bg-[#F7F4FF] text-[#6D4EF5] border-[#DDD4FF]',
     amber: 'bg-[#FFFBEB] text-[#B45309] border-[#FDE68A]',
     red: 'bg-[#FEF2F2] text-[#B91C1C] border-[#FECACA]',
     gray: 'bg-[#F3F4F6] text-[#4B5563] border-[#E5E7EB]',
@@ -87,7 +87,7 @@ export function Avatar({ src, name, size = 40, className = '' }: { src?: string 
   }
   return (
     <span
-      className={`inline-flex items-center justify-center rounded-full bg-[#DBEAFE] text-[#1D4ED8] font-semibold shrink-0 ${className}`}
+      className={`inline-flex items-center justify-center rounded-full bg-[#EEE9FF] text-[#6D4EF5] font-semibold shrink-0 ${className}`}
       style={{ width: size, height: size, fontSize: Math.max(11, size * 0.38) }}
       aria-hidden
     >
@@ -99,7 +99,7 @@ export function Avatar({ src, name, size = 40, className = '' }: { src?: string 
 export function EmptyState({ icon, title, body, action }: { icon?: ReactNode; title: string; body?: ReactNode; action?: ReactNode }) {
   return (
     <div className="rounded-2xl border border-dashed border-[#D1D5DB] bg-white px-6 py-12 text-center">
-      {icon && <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-[#EFF6FF] text-[#2563eb]">{icon}</div>}
+      {icon && <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-[#F7F4FF] text-[#7C5CFC]">{icon}</div>}
       <div className="text-sm font-semibold text-[#111827]">{title}</div>
       {body && <p className="mx-auto mt-1 max-w-sm text-sm text-[#6B7280]">{body}</p>}
       {action && <div className="mt-4 flex justify-center">{action}</div>}
@@ -144,7 +144,7 @@ export function Spinner({ className = '' }: { className?: string }) {
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'danger'
 const VARIANT: Record<Variant, string> = {
-  primary: 'bg-[#2563eb] text-white hover:bg-[#1d4ed8] shadow-[0_2px_8px_rgba(37,99,235,0.24)]',
+  primary: 'bg-[#7C5CFC] text-white hover:bg-[#6D4EF5] shadow-[0_2px_8px_rgba(124,92,252,0.24)]',
   secondary: 'bg-white text-[#111827] border border-[#E5E7EB] hover:bg-[#F9FAFB] hover:border-[#D1D5DB]',
   ghost: 'bg-transparent text-[#4B5563] hover:bg-[#F3F4F6]',
   danger: 'bg-white text-[#B91C1C] border border-[#FECACA] hover:bg-[#FEF2F2]',
@@ -186,7 +186,7 @@ export function LinkButton({ to, variant = 'primary', size = 'md', className = '
 /* ------------------------------------------------------------------ */
 
 export const INPUT =
-  'w-full h-10 rounded-xl border border-[#E5E7EB] bg-white px-3.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/15 transition-all disabled:bg-[#F9FAFB] disabled:text-[#9CA3AF]'
+  'w-full h-10 rounded-xl border border-[#E5E7EB] bg-white px-3.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#7C5CFC] focus:ring-2 focus:ring-[#7C5CFC]/15 transition-all disabled:bg-[#F9FAFB] disabled:text-[#9CA3AF]'
 
 export function Field({ label, hint, error, children, htmlFor }: { label: string; hint?: ReactNode; error?: string | null; children: ReactNode; htmlFor?: string }) {
   return (
@@ -232,7 +232,7 @@ export function ChipSelect({ options, value, onChange, max }: { options: readonl
             type="button"
             onClick={() => toggle(o)}
             aria-pressed={on}
-            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer ${on ? 'border-[#2563eb] bg-[#EFF6FF] text-[#1D4ED8]' : 'border-[#E5E7EB] bg-white text-[#4B5563] hover:border-[#D1D5DB]'}`}
+            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer ${on ? 'border-[#7C5CFC] bg-[#F7F4FF] text-[#6D4EF5]' : 'border-[#E5E7EB] bg-white text-[#4B5563] hover:border-[#D1D5DB]'}`}
           >
             {o}
           </button>

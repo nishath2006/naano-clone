@@ -3,10 +3,10 @@ import { useT } from '@/lib/locale'
 
 const copy = {
   en: {
-    eyebrow: 'The Naano creator marketplace',
+    eyebrow: 'The NaanoX creator marketplace',
     title: 'Work with all the best creators.',
     body: 'Find the right B2B voices, compare their audience fit, and book every collaboration from one place.',
-    screenshotAlt: 'Naano marketplace showing a curated selection of B2B creators',
+    screenshotAlt: 'NaanoX marketplace showing a curated selection of B2B creators',
     creators: ['3,000+ vetted creators', 'Specialist B2B voices, ready to collaborate.'],
     countries: ['Across 100 countries', 'Local expertise with genuinely global reach.'],
     matching: ['Matched to your buyers', 'Audience fit comes before follower count.'],
@@ -14,10 +14,10 @@ const copy = {
     buyers: ['Founders', 'Sales leaders', 'GTM teams'],
   },
   fr: {
-    eyebrow: 'La marketplace de créateurs Naano',
+    eyebrow: 'La marketplace de créateurs NaanoX',
     title: 'Collaborez avec les meilleurs créateurs.',
     body: "Trouvez les bonnes voix B2B, comparez l'adéquation de leur audience et réservez chaque collaboration en un seul endroit.",
-    screenshotAlt: 'Marketplace Naano présentant une sélection de créateurs B2B',
+    screenshotAlt: 'Marketplace NaanoX présentant une sélection de créateurs B2B',
     creators: ['Plus de 3 000 créateurs vérifiés', 'Des voix B2B spécialisées, prêtes à collaborer.'],
     countries: ['Présents dans 100 pays', 'Une expertise locale avec une portée véritablement mondiale.'],
     matching: ['Alignés avec vos acheteurs', "L'adéquation de l'audience prime sur le nombre de followers."],

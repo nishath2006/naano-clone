@@ -12,7 +12,7 @@ const H2 = 'text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-[#111827]'
 const BODY = 'text-[17px] leading-[1.75] text-[#374151]'
 const STRONG = 'font-semibold text-[#111827]'
 
-/** `/linkedin-creator-marketplace` — category page positioning Naano against LinkedIn's alpha. */
+/** `/linkedin-creator-marketplace` — category page positioning NaanoX against LinkedIn's alpha. */
 export default function LinkedinCreatorMarketplace() {
   const { locale } = useLocale()
   const c = marketplaceCopy[locale]
@@ -50,7 +50,7 @@ export default function LinkedinCreatorMarketplace() {
           <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5 list-none pl-0">
             {c.how.steps.map((step, i) => (
               <li key={step.title} className="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-[0_1px_3px_rgba(17,24,39,0.05)]">
-                <span aria-hidden="true" className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#1652F0]/10 text-sm font-bold text-[#1652F0] tabular-nums">
+                <span aria-hidden="true" className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#7C5CFC]/10 text-sm font-bold text-[#7C5CFC] tabular-nums">
                   {i + 1}
                 </span>
                 <h3 className="mt-4 text-lg font-bold tracking-[-0.01em] text-[#111827]">{step.title}</h3>
@@ -87,7 +87,7 @@ export default function LinkedinCreatorMarketplace() {
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {c.cost.tiles.map((t) => (
               <div key={t.value} className="rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-[0_1px_3px_rgba(17,24,39,0.05)]">
-                <p className="text-4xl font-bold tracking-[-0.03em] text-[#1652F0] tabular-nums">{t.value}</p>
+                <p className="text-4xl font-bold tracking-[-0.03em] text-[#7C5CFC] tabular-nums">{t.value}</p>
                 <p className="mt-3 text-[14px] leading-relaxed text-[#4B5563]">{t.label}</p>
               </div>
             ))}

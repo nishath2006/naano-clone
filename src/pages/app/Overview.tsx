@@ -25,7 +25,7 @@ function RecentNotifications({ items }: { items: NotificationRow[] }) {
     <Card>
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-sm font-bold">Latest activity</h2>
-        <Link to="/app/notifications" className="text-xs font-medium text-[#2563eb]">
+        <Link to="/app/notifications" className="text-xs font-medium text-[#7C5CFC]">
           View all
         </Link>
       </div>
@@ -85,7 +85,7 @@ function CompanyOverview() {
         <Card>
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-bold">Your campaigns</h2>
-            <Link to="/app/campaigns" className="text-xs font-medium text-[#2563eb]">
+            <Link to="/app/campaigns" className="text-xs font-medium text-[#7C5CFC]">
               View all
             </Link>
           </div>
@@ -174,7 +174,7 @@ function CreatorOverview() {
           <Card>
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-bold">Deals</h2>
-              <Link to="/app/collaborations" className="text-xs font-medium text-[#2563eb]">
+              <Link to="/app/collaborations" className="text-xs font-medium text-[#7C5CFC]">
                 View all
               </Link>
             </div>
@@ -201,7 +201,7 @@ function CreatorOverview() {
           <Card>
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-bold">Applications</h2>
-              <Link to="/app/applications" className="text-xs font-medium text-[#2563eb]">
+              <Link to="/app/applications" className="text-xs font-medium text-[#7C5CFC]">
                 View all
               </Link>
             </div>

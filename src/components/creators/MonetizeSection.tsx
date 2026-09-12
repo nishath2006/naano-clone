@@ -2,7 +2,7 @@ import { useT } from '@/lib/locale'
 
 const copy = {
   en: {
-    title: 'Monetize your content on Naano',
+    title: 'Monetize your content on NaanoX',
     body: 'Accept deals from brands you know, or bring your own onto the platform and get paid faster.',
     captions: {
       mediaKit: ['Launch a professional', 'media kit in minutes'],
@@ -13,7 +13,7 @@ const copy = {
     },
   },
   fr: {
-    title: 'Monétisez votre contenu sur Naano',
+    title: 'Monétisez votre contenu sur NaanoX',
     body: 'Acceptez des deals de marques que vous connaissez, ou amenez les vôtres sur la plateforme et soyez payé plus vite.',
     captions: {
       mediaKit: ['Launch a professional', 'media kit in minutes'],
@@ -90,21 +90,21 @@ export function MonetizeSection() {
                   <div style={{ fontSize: 13.5, fontWeight: 700, color: '#17181C' }}>Robin Tempe</div>
                   <div style={{ fontSize: 11.5, color: '#8A8C92' }}>B2B SaaS · Product</div>
                 </div>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: '#EAF3FF', color: 'var(--accent)', fontSize: 10.5, fontWeight: 700, padding: '4px 8px', borderRadius: 6 }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: '#F7F4FF', color: 'var(--accent)', fontSize: 10.5, fontWeight: 700, padding: '4px 8px', borderRadius: 6 }}>
                   in LinkedIn
                 </span>
               </div>
               <div style={{ display: 'flex', gap: 7, marginTop: 16 }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: '#FDECEC', color: '#E0455A', fontSize: 11.5, fontWeight: 700, padding: '5px 9px', borderRadius: 7 }}>▶ 97K views</span>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: '#EAF3FF', color: 'var(--accent)', fontSize: 11.5, fontWeight: 700, padding: '5px 9px', borderRadius: 7 }}>◎ 34K reach</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: '#F7F4FF', color: 'var(--accent)', fontSize: 11.5, fontWeight: 700, padding: '5px 9px', borderRadius: 7 }}>◎ 34K reach</span>
               </div>
               <div style={{ marginTop: 16, display: 'flex', alignItems: 'flex-end', gap: 6, height: 44 }}>
                 {[
                   ['38%', '#E7E4DF'],
-                  ['62%', '#DFE9FB'],
+                  ['62%', '#E4DDFF'],
                   ['52%', '#E7E4DF'],
                   ['88%', 'var(--accent)'],
-                  ['70%', '#DFE9FB'],
+                  ['70%', '#E4DDFF'],
                   ['100%', 'var(--accent)'],
                 ].map(([h, bg], i) => (
                   <span key={i} style={{ flex: 1, height: h, background: bg, borderRadius: '4px 4px 0 0' }} />
@@ -189,14 +189,14 @@ export function MonetizeSection() {
                   height: 62,
                   borderRadius: 16,
                   background: 'var(--accent)',
-                  boxShadow: '0 12px 30px -8px rgba(37,99,235,0.6)',
+                  boxShadow: '0 12px 30px -8px rgba(124,92,252,0.6)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   transform: 'rotate(5deg)',
                 }}
               >
-                <img src="/lp/naano-logo-footer.png" alt="Naano" style={{ maxHeight: 22, maxWidth: 52, objectFit: 'contain' }} />
+                <img src="/lp/naano-logo-footer.png" alt="NaanoX" style={{ maxHeight: 22, maxWidth: 52, objectFit: 'contain' }} />
               </span>
             </div>
           </div>
@@ -208,7 +208,7 @@ export function MonetizeSection() {
           <div style={PREVIEW}>
             <div style={MINI(264)}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ width: 34, height: 34, borderRadius: 9, background: '#EAF3FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ width: 34, height: 34, borderRadius: 9, background: '#F7F4FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <line x1="5" y1="12" x2="19" y2="12" />
@@ -225,7 +225,7 @@ export function MonetizeSection() {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M13 2 3 14h7l-1 8 10-12h-7z" />
                   </svg>
-                  Naano bonus
+                  NaanoX bonus
                 </span>
                 <span style={{ fontSize: 13, fontWeight: 800, color: '#16A34A' }}>+ €300</span>
               </div>
@@ -240,14 +240,14 @@ export function MonetizeSection() {
           <div style={PREVIEW}>
             <div style={MINI(264, 18)}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-                <span style={{ width: 30, height: 30, borderRadius: 8, background: '#EEF0FF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13 }}>🔔</span>
+                <span style={{ width: 30, height: 30, borderRadius: 8, background: '#EEE9FF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13 }}>🔔</span>
                 <div style={{ fontSize: 13, lineHeight: 1.35, color: '#26272C' }}>
                   <span style={{ fontWeight: 700 }}>Attio</span> sent a collaboration request
                 </div>
               </div>
               <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EEF0FF', color: '#5B5FE0', fontSize: 11.5, fontWeight: 700, padding: '5px 10px', borderRadius: 999 }}>◆ Sponsored post</span>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: '#EAF3FF', color: 'var(--accent)', fontSize: 11.5, fontWeight: 700, padding: '5px 10px', borderRadius: 7 }}>€1,000</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: '#EEE9FF', color: '#5B5FE0', fontSize: 11.5, fontWeight: 700, padding: '5px 10px', borderRadius: 999 }}>◆ Sponsored post</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: '#F7F4FF', color: 'var(--accent)', fontSize: 11.5, fontWeight: 700, padding: '5px 10px', borderRadius: 7 }}>€1,000</span>
               </div>
               <div style={{ marginTop: 12, fontSize: 11, color: '#8A8C92' }}>Deliver by · Aug 12 · 1 post + 1 repost</div>
               <div style={{ display: 'flex', gap: 8, marginTop: 14 }}>

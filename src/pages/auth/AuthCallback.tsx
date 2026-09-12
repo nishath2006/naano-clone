@@ -56,7 +56,7 @@ export default function AuthCallback() {
       <div className="min-h-screen flex items-center justify-center bg-white p-6" style={{ fontFamily: 'Inter, sans-serif' }}>
         <div className="w-full max-w-md space-y-4">
           <AuthError>{error}</AuthError>
-          <a href="/login" className="text-sm text-[#2563eb] font-medium">
+          <a href="/login" className="text-sm text-[#7C5CFC] font-medium">
             ← Back to sign in
           </a>
         </div>

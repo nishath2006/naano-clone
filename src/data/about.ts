@@ -70,9 +70,9 @@ export type AboutCopy = {
 }
 
 const en: AboutCopy = {
-  title: 'About Naano: the team behind the B2B LinkedIn creator marketplace',
+  title: 'About NaanoX: the team behind the B2B LinkedIn creator marketplace',
   description:
-    "Meet Naano's founders, Thomas Marcelle (CEO), Alexis Jarre (CMO), Justine Namour (CTO), and the LinkedIn creator marketplace with flat per-post pricing.",
+    "Meet NaanoX's founders, Thomas Marcelle (CEO), Alexis Jarre (CMO), Justine Namour (CTO), and the LinkedIn creator marketplace with flat per-post pricing.",
   story: {
     eyebrow: 'Our story',
     h1: ['Built by founders,', 'for founders.'],
@@ -82,7 +82,7 @@ const en: AboutCopy = {
     eyebrow: 'How we started',
     h2: 'Built on Proven Results',
     paragraphs: [
-      'Naano connects companies that want to grow with LinkedIn creators who want to monetize their audience.',
+      'NaanoX connects companies that want to grow with LinkedIn creators who want to monetize their audience.',
       "We believe growth works better when it's driven by people, not ads.",
       "That's why we help businesses scale through Creator-Led Growth: real professionals talking to real audiences.",
     ],
@@ -95,7 +95,7 @@ const en: AboutCopy = {
     outro: 'Real professionals talking to real audiences-at scale.',
   },
   glance: {
-    eyebrow: 'Naano at a glance',
+    eyebrow: 'NaanoX at a glance',
     facts: [
       { term: 'Founded', value: '2025, Paris, France' },
       { term: 'Category', value: 'B2B LinkedIn creator marketplace' },
@@ -109,7 +109,7 @@ const en: AboutCopy = {
       benchmark: 'quarterly benchmark report',
       afterBenchmark: '. New to the category? Start with ',
       guide: 'the creator-led growth guide',
-      afterGuide: ', see how Naano ranks against ',
+      afterGuide: ', see how NaanoX ranks against ',
       platforms: 'the other B2B influencer platforms',
       afterPlatforms: ', or browse ',
       network: 'the creator network',
@@ -156,7 +156,7 @@ const fr: AboutCopy = {
     ...en.started,
     h2: 'Des résultats éprouvés',
     paragraphs: [
-      'Naano met en relation des entreprises qui souhaitent se développer avec des créateurs LinkedIn qui souhaitent monétiser leur audience.',
+      'NaanoX met en relation des entreprises qui souhaitent se développer avec des créateurs LinkedIn qui souhaitent monétiser leur audience.',
       "Nous pensons que la croissance est plus efficace lorsqu'elle est alimentée par des personnes, et non par des annonces.",
       "C'est pourquoi nous aidons les entreprises à se développer grâce à une croissance dirigée par les créateurs : de vrais professionnels s'adressant à de vrais publics.",
     ],

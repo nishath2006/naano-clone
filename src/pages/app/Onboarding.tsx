@@ -23,8 +23,8 @@ function Frame({ step, title, subtitle, children }: { step: string; title: strin
   return (
     <div className="min-h-screen flex items-start justify-center p-6 sm:p-10">
       <div className="w-full max-w-xl">
-        <img src="/logo.svg" alt="naano" className="h-7 mb-8" />
-        <div className="text-xs font-semibold uppercase tracking-wide text-[#2563eb]">{step}</div>
+        <img src="/logo.svg" alt="NaanoX" className="h-7 mb-8" />
+        <div className="text-xs font-semibold uppercase tracking-wide text-[#7C5CFC]">{step}</div>
         <h1 className="mt-2 text-2xl font-bold text-[#111827]">{title}</h1>
         <p className="mt-1 mb-6 text-sm text-[#6B7280]">{subtitle}</p>
         {children}
@@ -282,7 +282,7 @@ function CreatorOnboarding() {
   const titles = {
     2: ['Build your card', 'Brands see this on the marketplace. You can edit everything later.'],
     3: ['Your niches & audience', 'Pick the topics you post about and share your LinkedIn numbers.'],
-    4: ['Your offer', 'Set a flat price per sponsored post. Naano handles invoicing and pays you within 24h of going live.'],
+    4: ['Your offer', 'Set a flat price per sponsored post. NaanoX handles invoicing and pays you within 24h of going live.'],
   } as const
 
   return (

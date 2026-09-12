@@ -4,14 +4,14 @@ import type { SectorSlug } from './sectors'
 /** Tabular data of the Q2 2026 benchmark report. Prose lives in the page. */
 
 export const benchmarksMeta = {
-  title: 'B2B Creator-Led Growth Benchmarks Q2 2026 | Naano',
+  title: 'B2B Creator-Led Growth Benchmarks Q2 2026 | NaanoX',
   description:
-    'First-party CPL, CTR, and conversion benchmarks from 312 B2B creator-led campaigns on Naano in Q1 2026. Per-vertical and per-tier breakdowns, methodology, and sample sizes.',
+    'First-party CPL, CTR, and conversion benchmarks from 312 B2B creator-led campaigns on NaanoX in Q1 2026. Per-vertical and per-tier breakdowns, methodology, and sample sizes.',
   kicker: 'Q2 2026 Benchmark Report',
   readTime: '14 min read',
   h1: 'B2B Creator-Led Growth Benchmarks: Q2 2026',
-  lede: 'First-party CPL, CTR, and conversion data from ~300 vetted B2B nano-creators on Naano. Methodology, sample sizes, and per-vertical breakdowns.',
-  published: 'Published April 27, 2026 · Authored by the Naano team · Sample: 312 campaigns, 1,847 sponsored posts, Q1 2026',
+  lede: 'First-party CPL, CTR, and conversion data from ~300 vetted B2B nano-creators on NaanoX. Methodology, sample sizes, and per-vertical breakdowns.',
+  published: 'Published April 27, 2026 · Authored by the NaanoX team · Sample: 312 campaigns, 1,847 sponsored posts, Q1 2026',
 }
 
 export const benchmarksToc: TocItem[] = [
@@ -28,7 +28,7 @@ export const benchmarksToc: TocItem[] = [
   { id: 'next-steps', text: 'Next steps' },
 ]
 
-export const headlineHead = ['Metric', 'Naano (Q1 2026)', 'LinkedIn Ads benchmark', 'Delta']
+export const headlineHead = ['Metric', 'NaanoX (Q1 2026)', 'LinkedIn Ads benchmark', 'Delta']
 export const headlineRows: string[][] = [
   ['Average CPL (cost per qualified click)', '€18.10', '€55–€90 (LinkedIn Ads, B2B SaaS)', '−67% to −80%'],
   ['Average CTR (sponsored content)', '12.0%', '0.8% (LinkedIn B2B Marketing Benchmark 2025)', '+15× absolute'],
@@ -42,7 +42,7 @@ export const cplHead = ['Vertical', 'CPL p10', 'CPL median', 'CPL p90', 'n campa
 export const verticalNotes: { slug: SectorSlug; text: string }[] = [
   {
     slug: 'sales-tech',
-    text: "Sales-tech is Naano's deepest creator pool, with dense overlap between AE, sales-leader, and SDR audiences. High creator supply and a well-defined buyer persona compress CPL well below the platform mean. CTR remains strong because creators speak directly to readers' day-to-day pipeline pain.",
+    text: "Sales-tech is NaanoX's deepest creator pool, with dense overlap between AE, sales-leader, and SDR audiences. High creator supply and a well-defined buyer persona compress CPL well below the platform mean. CTR remains strong because creators speak directly to readers' day-to-day pipeline pain.",
   },
   {
     slug: 'revops',
@@ -66,7 +66,7 @@ export const verticalNotes: { slug: SectorSlug; text: string }[] = [
   },
   {
     slug: 'marketing-ops',
-    text: 'Marketing-ops is the cheapest vertical on Naano in Q1 2026. Dense creator supply (martech analysts, demand-gen leads, lifecycle marketers) and a self-selecting practitioner audience drive both CTR and CPL into favorable territory.',
+    text: 'Marketing-ops is the cheapest vertical on NaanoX in Q1 2026. Dense creator supply (martech analysts, demand-gen leads, lifecycle marketers) and a self-selecting practitioner audience drive both CTR and CPL into favorable territory.',
   },
   {
     slug: 'vertical-saas',
@@ -102,7 +102,7 @@ export const funnelRows: string[][] = [
 export const limitations: { strong: string; text: string }[] = [
   {
     strong: 'Selection bias.',
-    text: ' Brands that choose to run on Naano are pre-disposed to creator-led growth. They have already decided that a performance-priced micro-creator marketplace fits their GTM thesis. Outcomes for brands that have not yet self-selected into the channel are likely to be more dispersed than the numbers reported here.',
+    text: ' Brands that choose to run on NaanoX are pre-disposed to creator-led growth. They have already decided that a performance-priced micro-creator marketplace fits their GTM thesis. Outcomes for brands that have not yet self-selected into the channel are likely to be more dispersed than the numbers reported here.',
   },
   {
     strong: 'One quarter is short.',
@@ -114,7 +114,7 @@ export const limitations: { strong: string; text: string }[] = [
   },
   {
     strong: 'Funnel data is opt-in.',
-    text: ' Demo-to-SQL conversion rates are computed on the n=104 campaigns where brands granted Naano access to downstream CRM events. This sub-sample skews toward more measurement-mature brands and may overstate funnel quality for the broader population.',
+    text: ' Demo-to-SQL conversion rates are computed on the n=104 campaigns where brands granted NaanoX access to downstream CRM events. This sub-sample skews toward more measurement-mature brands and may overstate funnel quality for the broader population.',
   },
   {
     strong: 'Public benchmarks evolve.',

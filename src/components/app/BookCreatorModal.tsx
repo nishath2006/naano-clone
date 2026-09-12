@@ -93,7 +93,7 @@ export function BookCreatorModal({
       {campaigns && campaigns.length === 0 ? (
         <p className="text-sm text-[#6B7280]">
           You need a campaign first.{' '}
-          <Link to="/app/campaigns/new" className="font-semibold text-[#2563eb]">
+          <Link to="/app/campaigns/new" className="font-semibold text-[#7C5CFC]">
             Create one
           </Link>
           , then come back to book creators.

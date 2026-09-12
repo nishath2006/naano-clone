@@ -21,9 +21,9 @@ export function SelectionAside() {
         style={{
           marginTop: 20,
           padding: '14px 15px',
-          border: '1px solid rgba(37,99,235,0.18)',
+          border: '1px solid rgba(124,92,252,0.18)',
           borderRadius: 13,
-          background: 'rgba(37,99,235,0.05)',
+          background: 'rgba(124,92,252,0.05)',
           display: 'flex',
           alignItems: 'flex-start',
           gap: 11,
@@ -86,7 +86,7 @@ export function SelectionAside() {
       </div>
 
       <div style={{ marginTop: 18, paddingTop: 15, borderTop: '1px solid #EFEDE9', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <img src="/lp/naano-logomark.png" alt="" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'contain' }} />
+        <img src="/logo.svg" alt="" style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'contain' }} />
         <div>
           <b style={{ display: 'block', fontSize: 13.5, color: '#0E0F12' }}>{c.sourced.title}</b>
           <span style={{ display: 'block', marginTop: 2, color: '#A7A9AF', fontSize: 12 }}>{c.sourced.body}</span>

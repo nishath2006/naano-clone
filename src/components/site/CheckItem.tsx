@@ -21,7 +21,7 @@ export function CheckItem({
       {iconTone === 'foreground' ? (
         <LucideCheck size={iconSize} className="mt-0.5 flex-shrink-0 text-foreground" />
       ) : (
-        <LucideCheck size={iconSize} className="mt-0.5 flex-shrink-0" style={{ color: '#1652F0' }} />
+        <LucideCheck size={iconSize} className="mt-0.5 flex-shrink-0" style={{ color: '#7C5CFC' }} />
       )}
       <span className={textClassName}>{children}</span>
     </div>

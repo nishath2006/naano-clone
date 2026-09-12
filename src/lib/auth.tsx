@@ -137,7 +137,7 @@ export function safeRedirect(value: string | null | undefined, fallback = '/app'
 export function FullPageLoader({ label = 'Loading…' }: { label?: string }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white text-sm text-[#6B7280]" role="status" aria-live="polite">
-      <span className="inline-block h-5 w-5 mr-3 rounded-full border-2 border-[#E5E7EB] border-t-[#2563eb] animate-spin" />
+      <span className="inline-block h-5 w-5 mr-3 rounded-full border-2 border-[#E5E7EB] border-t-[#7C5CFC] animate-spin" />
       {label}
     </div>
   )
@@ -209,7 +209,7 @@ function ProfilePending() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white p-6" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="max-w-md w-full rounded-2xl border border-[#E9E9E7] p-8 shadow-lg">
-        <img src="/logo.svg" alt="naano" className="h-7 mb-6" />
+        <img src="/logo.svg" alt="NaanoX" className="h-7 mb-6" />
         <h1 className="text-xl font-bold text-[#111827]">We couldn't load your profile</h1>
         <p className="mt-2 text-sm text-[#6B7280]">
           {permission
@@ -222,7 +222,7 @@ function ProfilePending() {
         </p>
         {profileError && <pre className="mt-3 max-h-24 overflow-auto rounded-lg bg-[#F9FAFB] border border-[#E5E7EB] p-2 text-[11px] text-[#B91C1C] whitespace-pre-wrap">{profileError}</pre>}
         <div className="mt-5 flex gap-2">
-          <button type="button" onClick={() => window.location.reload()} className="h-10 rounded-xl bg-[#2563eb] px-4 text-sm font-semibold text-white cursor-pointer">
+          <button type="button" onClick={() => window.location.reload()} className="h-10 rounded-xl bg-[#7C5CFC] px-4 text-sm font-semibold text-white cursor-pointer">
             Reload
           </button>
           <button type="button" onClick={() => void signOut()} className="h-10 rounded-xl border border-[#E5E7EB] px-4 text-sm font-semibold text-[#111827] cursor-pointer">
@@ -238,7 +238,7 @@ function NotConfigured() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white p-6" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="max-w-md w-full rounded-2xl border border-[#E9E9E7] p-8 shadow-lg">
-        <img src="/logo.svg" alt="naano" className="h-7 mb-6" />
+        <img src="/logo.svg" alt="NaanoX" className="h-7 mb-6" />
         <h1 className="text-xl font-bold text-[#111827]">Supabase is not configured</h1>
         <p className="mt-2 text-sm text-[#6B7280]">
           The app needs the public project URL and anon key. Copy <code>.env.example</code> to <code>.env.local</code> for local development, or add

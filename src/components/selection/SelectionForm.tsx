@@ -156,10 +156,10 @@ export function SelectionForm() {
                 style={{
                   minHeight: 72,
                   padding: 12,
-                  border: on ? '1px solid rgba(37,99,235,0.45)' : '1px solid #E7E5E1',
+                  border: on ? '1px solid rgba(124,92,252,0.45)' : '1px solid #E7E5E1',
                   borderRadius: 11,
-                  background: on ? 'rgba(37,99,235,0.06)' : '#FFFFFF',
-                  boxShadow: on ? 'inset 0 0 0 1px rgba(37,99,235,0.25)' : 'none',
+                  background: on ? 'rgba(124,92,252,0.06)' : '#FFFFFF',
+                  boxShadow: on ? 'inset 0 0 0 1px rgba(124,92,252,0.25)' : 'none',
                   textAlign: 'left',
                   cursor: 'pointer',
                   fontFamily: 'inherit',

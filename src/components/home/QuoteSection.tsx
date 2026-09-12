@@ -3,14 +3,14 @@ import { useT } from '@/lib/locale'
 
 const copy = {
   en: {
-    words: ['We', 'manage', '€10M+', 'of', 'influence', 'budget', 'every', 'year.', 'For', 'B2B,', 'Naano', 'simply', 'makes', 'our', 'life'],
+    words: ['We', 'manage', '€10M+', 'of', 'influence', 'budget', 'every', 'year.', 'For', 'B2B,', 'NaanoX', 'simply', 'makes', 'our', 'life'],
     accent: 'easier',
     name: 'David Zmirov',
     role: 'CEO, Zmirov Communication',
     kind: 'Influence agency',
   },
   fr: {
-    words: ['Nous', 'gérons', 'plus', 'de', '10', 'M€', 'de', 'budget', 'influence', 'chaque', 'année.', 'Pour', 'le', 'B2B,', 'Naano', 'nous', 'simplifie', 'vraiment', 'la'],
+    words: ['Nous', 'gérons', 'plus', 'de', '10', 'M€', 'de', 'budget', 'influence', 'chaque', 'année.', 'Pour', 'le', 'B2B,', 'NaanoX', 'nous', 'simplifie', 'vraiment', 'la'],
     accent: 'vie',
     name: 'David Zmirov',
     role: 'PDG, Zmirov Communication',

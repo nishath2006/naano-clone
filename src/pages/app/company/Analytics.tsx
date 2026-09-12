@@ -68,7 +68,7 @@ export default function Analytics() {
                   {q.data?.deals.map((d) => (
                     <tr key={d.id} className="hover:bg-[#FAFAFA]">
                       <td className="px-5 py-3">
-                        <Link to={`/app/collaborations/${d.id}`} className="font-semibold hover:text-[#2563eb]">
+                        <Link to={`/app/collaborations/${d.id}`} className="font-semibold hover:text-[#7C5CFC]">
                           {d.creators?.name}
                         </Link>
                         <div className="text-xs text-[#9CA3AF]">{d.campaigns?.title}</div>

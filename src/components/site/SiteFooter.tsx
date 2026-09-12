@@ -17,15 +17,15 @@ export function SiteFooter() {
       <div className="relative overflow-hidden" style={{ background: 'var(--lp-footer)' }}>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 select-none pointer-events-none" style={{ lineHeight: 1 }}>
           <span className="font-black text-white tracking-[-0.05em]" style={{ fontSize: 'clamp(80px, 14vw, 180px)', opacity: 0.03 }}>
-            NAANO
+            NAANOX
           </span>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 pt-16 pb-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">
             <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <img src="/logo.svg" alt="naano" loading="lazy" style={{ height: 20, width: 20, objectFit: 'contain', filter: 'invert(1)' }} />
-                <span className="font-bold text-white text-base">naano</span>
+                <img src="/logo.svg" alt="NaanoX" loading="lazy" style={{ height: 20, width: 20, objectFit: 'contain', filter: 'invert(1)' }} />
+                <span className="font-bold text-white text-base">naano<span style={{ color: '#DDD4FF' }}>X</span></span>
               </div>
               <p className="text-[13px] leading-relaxed" style={{ color: 'var(--lp-ink-soft)', maxWidth: 220 }}>
                 {f.tagline}

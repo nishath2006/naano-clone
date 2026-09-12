@@ -180,9 +180,9 @@ export function People() {
 export function BlogSeoMark() {
   return (
     <svg width="30" height="24" viewBox="0 0 40 32" fill="none" style={{ flexShrink: 0 }} aria-hidden="true">
-      <rect x="3" y="3" width="27" height="19" rx="6" fill="none" stroke="#2B9BF9" strokeWidth="3.4" />
-      <circle cx="25" cy="21" r="6.2" fill="none" stroke="#2B9BF9" strokeWidth="3.4" />
-      <line x1="29.6" y1="25.6" x2="34.5" y2="30.5" stroke="#2B9BF9" strokeWidth="3.4" strokeLinecap="round" />
+      <rect x="3" y="3" width="27" height="19" rx="6" fill="none" stroke="#7C5CFC" strokeWidth="3.4" />
+      <circle cx="25" cy="21" r="6.2" fill="none" stroke="#7C5CFC" strokeWidth="3.4" />
+      <line x1="29.6" y1="25.6" x2="34.5" y2="30.5" stroke="#7C5CFC" strokeWidth="3.4" strokeLinecap="round" />
     </svg>
   )
 }

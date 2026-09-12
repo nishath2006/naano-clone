@@ -5,7 +5,7 @@ export const TD = 'px-4 py-3 text-[#374151] border-b border-[#F3F4F6] align-top'
 export const TD_STRONG = 'px-4 py-3 text-[#111827] font-medium border-b border-[#F3F4F6] align-top'
 export const TD_MUTED = 'px-4 py-3 text-[#6B7280] border-b border-[#F3F4F6] align-top'
 export const TD_GREEN = 'px-4 py-3 text-[#1A7F4B] font-medium border-b border-[#F3F4F6] align-top'
-/** Comparison tables: label column / Naano column rendered as the "strong" variant of TD. */
+/** Comparison tables: label column / NaanoX column rendered as the "strong" variant of TD. */
 export const TD_LEAD = 'px-4 py-3 text-[#374151] border-b border-[#F3F4F6] align-top font-medium text-[#111827]'
 
 export type Cell = ReactNode | { content: ReactNode; className: string }

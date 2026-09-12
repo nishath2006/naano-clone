@@ -8,7 +8,7 @@ import { useLocale } from '@/lib/locale'
 import { reportsCopy } from '@/data/reports'
 
 const CARD =
-  'group flex flex-col rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-[0_1px_3px_rgba(17,24,39,0.05)] transition-all duration-200 hover:border-[#1652F0]/40 hover:shadow-[0_12px_32px_rgba(22,82,240,0.10)] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1652F0]'
+  'group flex flex-col rounded-2xl border border-[#E5E7EB] bg-white p-7 shadow-[0_1px_3px_rgba(17,24,39,0.05)] transition-all duration-200 hover:border-[#7C5CFC]/40 hover:shadow-[0_12px_32px_rgba(124,92,252,0.10)] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC]'
 
 /** `/reports` — hub listing the first-party data reports. */
 export default function Reports() {
@@ -28,14 +28,14 @@ export default function Reports() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {c.cards.map((card) => (
               <Link key={card.href} to={card.href} className={CARD}>
-                <span className="inline-flex self-start items-center rounded-full bg-[#1652F0]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#1652F0]">
+                <span className="inline-flex self-start items-center rounded-full bg-[#7C5CFC]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#7C5CFC]">
                   {card.badge}
                 </span>
                 <h2 className="mt-5 text-xl font-bold tracking-[-0.02em] text-[#111827]">{card.title}</h2>
-                <p className="mt-2 text-[15px] font-semibold text-[#1652F0]">{card.subtitle}</p>
+                <p className="mt-2 text-[15px] font-semibold text-[#7C5CFC]">{card.subtitle}</p>
                 <p className="mt-3 text-[15px] leading-relaxed text-[#4B5563] flex-1">{card.body}</p>
                 <span className="mt-5 text-[13px] text-[#6B7280]">{card.meta}</span>
-                <span className="mt-4 text-[15px] font-bold text-[#111827] group-hover:text-[#1652F0] transition-colors motion-reduce:transition-none">
+                <span className="mt-4 text-[15px] font-bold text-[#111827] group-hover:text-[#7C5CFC] transition-colors motion-reduce:transition-none">
                   {card.read}
                 </span>
               </Link>
@@ -43,7 +43,7 @@ export default function Reports() {
             <div className="flex flex-col justify-center rounded-2xl border border-dashed border-[#E5E7EB] bg-[#FAFAFA] p-7">
               <h2 className="text-xl font-bold tracking-[-0.02em] text-[#111827]">{c.upcoming.title}</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-[#4B5563]">
-                <Rich segs={c.upcoming.body} linkClass="font-semibold text-[#1652F0] underline underline-offset-2" />
+                <Rich segs={c.upcoming.body} linkClass="font-semibold text-[#7C5CFC] underline underline-offset-2" />
               </p>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Reports() {
           <ul className="mt-6 space-y-3">
             {c.built.links.map((l) => (
               <li key={l.href}>
-                <Link to={l.href} className="text-[16px] font-medium text-[#1652F0] hover:underline underline-offset-2">
+                <Link to={l.href} className="text-[16px] font-medium text-[#7C5CFC] hover:underline underline-offset-2">
                   {l.label}
                 </Link>
               </li>

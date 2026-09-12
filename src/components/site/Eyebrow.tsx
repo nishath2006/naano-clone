@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 /**
  * Small uppercase section label used across the Jakarta pages.
- * `tone="brand"` renders the inline `color:#1652F0` the site uses; `muted`
+ * `tone="brand"` renders the inline `color:#7C5CFC` the site uses; `muted`
  * uses the `text-muted-foreground` utility instead.
  */
 export function Eyebrow({
@@ -21,7 +21,7 @@ export function Eyebrow({
     return <p className={`text-xs font-semibold uppercase ${track} ${className} text-muted-foreground`}>{children}</p>
   }
   return (
-    <p className={`text-xs font-semibold uppercase ${track} ${className}`} style={{ color: '#1652F0' }}>
+    <p className={`text-xs font-semibold uppercase ${track} ${className}`} style={{ color: '#7C5CFC' }}>
       {children}
     </p>
   )

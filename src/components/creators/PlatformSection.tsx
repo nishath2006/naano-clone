@@ -14,7 +14,7 @@ const copy = {
       ['Track performance', 'See views, clicks and engagement in real time.'],
       ['Easy delivery', 'Manage deals and deliver content with ease.'],
     ],
-    alt: 'Naano creator dashboard',
+    alt: 'NaanoX creator dashboard',
   },
   fr: {
     eyebrow: 'LA PLATEFORME',
@@ -27,7 +27,7 @@ const copy = {
       ['Suivi de performance', 'Vues, clics et engagement en temps réel.'],
       ['Livraison simple', 'Gérez vos collaborations et livrez vos contenus simplement.'],
     ],
-    alt: 'Dashboard créateur Naano',
+    alt: 'Dashboard créateur NaanoX',
   },
 }
 

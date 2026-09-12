@@ -6,7 +6,7 @@ import { ArrowLeftIcon, ArrowRightIcon, ToolIcon } from './ToolIcons'
 
 /** Radial glow behind every free-tools hero. */
 export const HERO_GLOW = {
-  background: 'radial-gradient(640px 320px at 50% -120px, rgba(22,82,240,0.08), transparent 70%)',
+  background: 'radial-gradient(640px 320px at 50% -120px, rgba(124,92,252,0.08), transparent 70%)',
 } as const
 
 /** Main wrapper classes of the free-tools pages (passed to SiteLayout). */
@@ -14,7 +14,7 @@ export const TOOLS_MAIN_CLASS = 'min-h-screen bg-[#FCFCFB] text-[#17181C]'
 
 /** The blue full stop that ends every heading. */
 export function Dot() {
-  return <span className="text-[#1652F0]">.</span>
+  return <span className="text-[#7C5CFC]">.</span>
 }
 
 /** Hero of an individual tool page: back pill → h1 → intro. */
@@ -25,9 +25,9 @@ export function ToolHero({ backLabel, title, intro }: { backLabel: string; title
       <div className="relative mx-auto max-w-[900px] px-4 sm:px-6 text-center">
         <Link
           to="/free-tools"
-          className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#E4E1DC] bg-white px-4 py-2 text-[13px] font-medium text-[#55575E] shadow-[0_1px_2px_rgba(23,24,28,0.04)] transition-colors duration-200 hover:border-[#D8D4CE] hover:text-[#17181C] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1652F0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FCFCFB]"
+          className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#E4E1DC] bg-white px-4 py-2 text-[13px] font-medium text-[#55575E] shadow-[0_1px_2px_rgba(23,24,28,0.04)] transition-colors duration-200 hover:border-[#D8D4CE] hover:text-[#17181C] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FCFCFB]"
         >
-          <ArrowLeftIcon size={14} className="text-[#1652F0]" />
+          <ArrowLeftIcon size={14} className="text-[#7C5CFC]" />
           {backLabel}
         </Link>
         <h1 className="mt-8 text-4xl sm:text-5xl lg:text-[56px] font-semibold leading-[1.05] tracking-[-0.04em] text-[#17181C]">
@@ -164,7 +164,7 @@ export function InlineLink({ to, children }: { to: string; children: ReactNode }
   return (
     <Link
       to={to}
-      className="font-semibold text-[#1652F0] hover:underline underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1652F0] rounded-sm"
+      className="font-semibold text-[#7C5CFC] hover:underline underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC] rounded-sm"
     >
       {children}
     </Link>
@@ -199,14 +199,14 @@ export function MoreFreeTools({ heading, openLabel, tools }: { heading: string; 
           <Link
             key={t.href}
             to={t.href}
-            className="group flex flex-col rounded-2xl border border-[#ECEAE6] bg-white p-6 shadow-[0_2px_10px_rgba(23,24,28,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#1652F0]/40 hover:shadow-[0_14px_32px_rgba(23,24,28,0.10)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1652F0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FCFCFB]"
+            className="group flex flex-col rounded-2xl border border-[#ECEAE6] bg-white p-6 shadow-[0_2px_10px_rgba(23,24,28,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#7C5CFC]/40 hover:shadow-[0_14px_32px_rgba(23,24,28,0.10)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FCFCFB]"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F0FE] text-[#1652F0]">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEE9FF] text-[#7C5CFC]">
               <ToolIcon name={t.icon} size={20} />
             </span>
             <h3 className="mt-4 text-[17px] font-semibold leading-snug tracking-[-0.02em] text-[#17181C]">{t.title}</h3>
             <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-[#55575E]">{t.description}</p>
-            <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#17181C] transition-colors group-hover:text-[#1652F0] motion-reduce:transition-none">
+            <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#17181C] transition-colors group-hover:text-[#7C5CFC] motion-reduce:transition-none">
               {openLabel}
               <ArrowRightIcon size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none" />
             </span>
@@ -240,7 +240,7 @@ export function CtaPair({ dark, light }: { dark: CtaCard; light: CtaCard }) {
           <p className="mt-3 text-[16px] leading-relaxed text-[#55575E] flex-1">{light.text}</p>
           <NavAnchor
             href={light.href}
-            className="mt-6 inline-flex min-h-11 self-start items-center gap-2 rounded-xl bg-[#1652F0] px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#1240D0] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1652F0] focus-visible:ring-offset-2"
+            className="mt-6 inline-flex min-h-11 self-start items-center gap-2 rounded-xl bg-[#7C5CFC] px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#6D4EF5] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC] focus-visible:ring-offset-2"
           >
             {light.cta}
             <ArrowRightIcon size={15} />
@@ -257,7 +257,7 @@ export function NoteList({ items }: { items: { text: string; tone?: 'blue' | 'am
     <ul className="mt-6 space-y-3">
       {items.map((n) => (
         <li key={n.text} className="flex gap-3 text-[15px] leading-relaxed text-[#55575E]">
-          <span aria-hidden="true" className={`mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full ${n.tone === 'amber' ? 'bg-amber-500' : 'bg-[#1652F0]'}`} />
+          <span aria-hidden="true" className={`mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full ${n.tone === 'amber' ? 'bg-amber-500' : 'bg-[#7C5CFC]'}`} />
           <span>{n.text}</span>
         </li>
       ))}
