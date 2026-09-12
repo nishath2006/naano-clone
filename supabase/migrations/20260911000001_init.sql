@@ -124,45 +124,6 @@ drop trigger if exists profiles_protect on public.profiles;
 create trigger profiles_protect before update on public.profiles
   for each row execute function public.protect_profile_columns();
 
--- One-time role choice for OAuth signups (no signup metadata available).
--- Refuses once the role is locked or once company/creator data exists.
-create or replace function public.choose_role(p_role public.user_role)
-returns public.profiles language plpgsql security definer set search_path = public as $$
-declare v public.profiles;
-begin
-  select * into v from public.profiles where id = auth.uid();
-  if v.id is null then raise exception 'Not signed in' using errcode = '42501'; end if;
-  if v.role_locked then
-    if v.role = p_role then return v; end if;
-    raise exception 'Role is already set' using errcode = '42501';
-  end if;
-  if exists (select 1 from public.companies where owner_id = auth.uid())
-     or exists (select 1 from public.creators where user_id = auth.uid()) then
-    raise exception 'Role is already in use' using errcode = '42501';
-  end if;
-  update public.profiles set role = p_role, role_locked = true where id = auth.uid() returning * into v;
-  return v;
-end $$;
-grant execute on function public.choose_role(public.user_role) to authenticated;
-
--- ---------------------------------------------------------------------------
--- Role helpers (security definer so they work inside RLS policies)
--- ---------------------------------------------------------------------------
-create or replace function public.current_role_of_user()
-returns public.user_role language sql stable security definer set search_path = public as $$
-  select role from public.profiles where id = auth.uid()
-$$;
-
-create or replace function public.my_company_id()
-returns uuid language sql stable security definer set search_path = public as $$
-  select id from public.companies where owner_id = auth.uid()
-$$;
-
-create or replace function public.my_creator_id()
-returns uuid language sql stable security definer set search_path = public as $$
-  select id from public.creators where user_id = auth.uid()
-$$;
-
 -- ---------------------------------------------------------------------------
 -- companies — one per company user
 -- ---------------------------------------------------------------------------
@@ -226,6 +187,47 @@ create index if not exists creators_name_trgm_idx on public.creators using gin (
 drop trigger if exists creators_updated_at on public.creators;
 create trigger creators_updated_at before update on public.creators
   for each row execute function public.set_updated_at();
+
+-- One-time role choice for OAuth signups (no signup metadata available).
+-- Refuses once the role is locked or once company/creator data exists.
+create or replace function public.choose_role(p_role public.user_role)
+returns public.profiles language plpgsql security definer set search_path = public as $$
+declare v public.profiles;
+begin
+  select * into v from public.profiles where id = auth.uid();
+  if v.id is null then raise exception 'Not signed in' using errcode = '42501'; end if;
+  if v.role_locked then
+    if v.role = p_role then return v; end if;
+    raise exception 'Role is already set' using errcode = '42501';
+  end if;
+  if exists (select 1 from public.companies where owner_id = auth.uid())
+     or exists (select 1 from public.creators where user_id = auth.uid()) then
+    raise exception 'Role is already in use' using errcode = '42501';
+  end if;
+  update public.profiles set role = p_role, role_locked = true where id = auth.uid() returning * into v;
+  return v;
+end $$;
+grant execute on function public.choose_role(public.user_role) to authenticated;
+
+-- ---------------------------------------------------------------------------
+-- Role helpers (security definer so they work inside RLS policies).
+-- Defined here, after profiles/companies/creators exist: SQL-language
+-- functions are validated against the tables at creation time.
+-- ---------------------------------------------------------------------------
+create or replace function public.current_role_of_user()
+returns public.user_role language sql stable security definer set search_path = public as $$
+  select role from public.profiles where id = auth.uid()
+$$;
+
+create or replace function public.my_company_id()
+returns uuid language sql stable security definer set search_path = public as $$
+  select id from public.companies where owner_id = auth.uid()
+$$;
+
+create or replace function public.my_creator_id()
+returns uuid language sql stable security definer set search_path = public as $$
+  select id from public.creators where user_id = auth.uid()
+$$;
 
 create table if not exists public.creator_posts (
   id uuid primary key default gen_random_uuid(),
